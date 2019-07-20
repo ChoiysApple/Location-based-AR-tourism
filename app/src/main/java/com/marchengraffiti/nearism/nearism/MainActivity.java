@@ -24,6 +24,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.google.android.gms.maps.OnMapReadyCallback;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -32,7 +35,17 @@ import androidx.core.content.ContextCompat;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     BufferedReader br = null;
-    double latitude, longitude;
+    //double latitude, longitude;
+
+    boolean initem = false, inaddr1 = false, incat3 = false, incontentid = false;
+    boolean incontenttypeid = false, infirstimage = false, infirstimage2 = false, inmapx = false;
+    boolean inmapy = false, inmlevel = false, intel = false, intitle = false;
+
+    String addr1 = null, cat3 = null, contentid = null, contenttypeid = null;
+    String firstimage = null, firstimage2 = null, mapx = null, mapy = null;
+    String mlevel = null, tel = null, Title = null;
+
+    URL url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +54,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Google Map API Fragment
         FragmentManager fragmentManager = getFragmentManager();
-        MapFragment mapFragment = (MapFragment)fragmentManager
+        final MapFragment mapFragment = (MapFragment)fragmentManager
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         // 현재 위치 경도, 위도 가져오기
-        final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        /*final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= 23 &&
                 ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -65,21 +78,20 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     1000,
                     1,
                     gpsLocationListener);
-        }
+        }*/
 
         try {
             String urlstr = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?ServiceKey=wR7PJI9NFm3wvvrIRBnVKZQWb7ULPrgXTWECQcSf%2F2Wk8TVbszAcAFmRQXrXm6aUecKp9k7ubTkyjAGGzVzi8A%3D%3D"
-                    + "&mapX=" + latitude + "&mapY=" + longitude + "&radius=1000&listYN=Y"
-                    + "&arrange=A&MobileOS=ETC&MobileApp=AppTest&_type=json";
+                    + "&mapX=126.981611&mapY=37.568477"+ "&radius=1000&listYN=Y"
+                    + "&arrange=A&MobileOS=ETC&MobileApp=AppTest";
 
-            URL url = new URL(urlstr);
+            url = new URL(urlstr);
             Log.d(" logging", "1");
             final HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
             Log.d(" logging", "2");
 
             urlconnection.setRequestMethod("GET");
             Log.d(" logging", "3");
-
 
             new Thread() {
                 public void run() {
@@ -95,6 +107,99 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         Log.d(" logging", "5");
 
                         Log.d("APITAG Result", result);
+
+                        XmlPullParserFactory parserCreator = XmlPullParserFactory.newInstance();
+                        XmlPullParser parser = parserCreator.newPullParser();
+
+                        parser.setInput(url.openStream(), null);
+
+                        int parserEvent = parser.getEventType();
+                        Log.d("Parsing", "parsing start");
+
+                        while (parserEvent != XmlPullParser.END_DOCUMENT) {
+                            switch (parserEvent) {
+                                case XmlPullParser.START_TAG://parser가 시작 태그를 만나면 실행
+                                    if (parser.getName().equals("addr1"))  //title 만나면 내용을 받을수 있게 하자
+                                        inaddr1 = true;
+                                    if (parser.getName().equals("cat3"))
+                                        incat3 = true;
+                                    if (parser.getName().equals("contentid"))
+                                        incontentid = true;
+                                    if (parser.getName().equals("contenttypeid"))
+                                        incontenttypeid = true;
+                                    if (parser.getName().equals("firstimage"))
+                                        infirstimage = true;
+                                    if (parser.getName().equals("firstimage2"))
+                                        infirstimage2 = true;
+                                    if (parser.getName().equals("mapx"))
+                                        inmapx = true;
+                                    if (parser.getName().equals("mapy"))
+                                        inmapy = true;
+                                    if (parser.getName().equals("mlevel"))
+                                        inmlevel = true;
+                                    if (parser.getName().equals("tel"))
+                                        intel = true;
+                                    if (parser.getName().equals("title"))
+                                        intitle = true;
+                                    break;
+
+                                case XmlPullParser.TEXT://parser가 내용에 접근했을때
+                                    if(inaddr1) {
+                                        addr1 = parser.getText();
+                                        inaddr1 = false;
+                                    }
+                                    if(incat3) {
+                                        cat3 = parser.getText();
+                                        incat3 = false;
+                                    }
+                                    if(incontentid) {
+                                        contentid = parser.getText();
+                                        incontentid = false;
+                                    }
+                                    if(incontenttypeid) {
+                                        contenttypeid = parser.getText();
+                                        incontenttypeid = false;
+                                    }
+                                    if(infirstimage) {
+                                        firstimage = parser.getText();
+                                        infirstimage = false;
+                                    }
+                                    if(infirstimage2) {
+                                        firstimage2 = parser.getText();
+                                        infirstimage2 = false;
+                                    }
+                                    if(inmapx) {
+                                        mapx= parser.getText();
+                                        inmapx = false;
+                                    }
+                                    if(inmapy) {
+                                        mapy = parser.getText();
+                                        inmapy = false;
+                                    }
+                                    if(inmlevel) {
+                                        mlevel = parser.getText();
+                                        inmlevel = false;
+                                    }
+                                    if(intel) {
+                                        tel = parser.getText();
+                                        intel = false;
+                                    }
+                                    if(intitle) {
+                                        Title = parser.getText();
+                                        intitle = false;
+                                    }
+                                    break;
+
+                                case XmlPullParser.END_TAG:
+                                    if(parser.getName().equals("item")){
+                                        Log.d("ParsingResult", "mapx : " + mapx + "\nmapy : " + mapy + '\n');
+                                        initem = false;
+                                    }
+                                    break;
+                            }
+                            parserEvent = parser.next();
+                        }
+
                     } catch (Exception e) {
                         Log.d("APITAG", e.toString());
                     }
@@ -108,6 +213,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
+    /*
     final LocationListener gpsLocationListener = new LocationListener() {
         public void onLocationChanged(Location location) {
             longitude = location.getLongitude();
@@ -123,6 +229,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         public void onProviderDisabled(String provider) {
         }
     };
+    */
 
     // Google Map API
     @Override
