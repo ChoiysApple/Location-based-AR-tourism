@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/coin_rabbit" />
+                />
 
             <ImageView
                 android:layout_width="110dp"
@@ -32,7 +32,7 @@
                 android:layout_below="@+id/coin_rabbit_logo"
                 android:layout_centerHorizontal="true"
                 android:scaleType="fitCenter"
-                android:src="@drawable/price_this" />
+                />
         </RelativeLayout>
         <TextView
             android:gravity="center_horizontal"
@@ -76,7 +76,7 @@
             android:layout_width="fill_parent"
             android:layout_height="48dp"
             android:layout_marginTop="15dp"
-            android:src="@drawable/bttn_login"
+
             android:scaleType="fitXY"
             android:background="@android:color/transparent"
             android:layout_marginBottom="40dp"/>

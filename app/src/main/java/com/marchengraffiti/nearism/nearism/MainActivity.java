@@ -33,7 +33,8 @@ import androidx.core.content.ContextCompat;
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
-
+    // 구글 맵 참조변수 생성
+    GoogleMap mMap;
     BufferedReader br = null;
     //double latitude, longitude;
 
@@ -233,19 +234,22 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     // Google Map API
     @Override
-    public void onMapReady(final GoogleMap map) {
+    public void onMapReady(GoogleMap googleMap) {
+        // Import Google Map object
+        mMap = googleMap;
 
-        // 추가할 것 - 공공데이터포털에서 가져온 관광지들 위도, 경도로 지도에 마킹해야 함
+        for (int idx = 0; idx < 10; idx++) {
+            // Set marker options
+            MarkerOptions makerOptions = new MarkerOptions();
+            makerOptions
+                    .position(new LatLng(37.52487 + idx, 126.92723))
+                    .title("마커" + idx); // 타이틀.
 
-        LatLng SEOUL = new LatLng(37.56, 126.97);
+            // Add marker
+            mMap.addMarker(makerOptions);
+        }
 
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(SEOUL);
-        markerOptions.title("서울"); // title
-        markerOptions.snippet("한국의 수도"); // sub title
-        map.addMarker(markerOptions);
-
-        map.moveCamera(CameraUpdateFactory.newLatLng(SEOUL)); // 카메라를 지정한 경도, 위도로 이동
-        map.animateCamera(CameraUpdateFactory.zoomTo(10)); // 지정한 단계로 카메라 줌을 조정, 숫자 커질수록 상세 지도
+        // Move camera to location
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(37.52487, 126.92723)));
     }
 }
