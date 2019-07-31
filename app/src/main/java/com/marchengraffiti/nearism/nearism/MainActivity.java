@@ -35,18 +35,22 @@ import androidx.core.content.ContextCompat;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
     // 구글 맵 참조변수 생성
     GoogleMap mMap;
-    BufferedReader br = null;
+    BufferedReader br = null, br2 = null;
     //double latitude, longitude;
 
     boolean initem = false, inaddr1 = false, incat3 = false, incontentid = false;
     boolean incontenttypeid = false, infirstimage = false, infirstimage2 = false, inmapx = false;
-    boolean inmapy = false, inmlevel = false, intel = false, intitle = false;
+    boolean inmapy = false, inmlevel = false, intel = false, intitle = false, incourse = false;
 
     String addr1 = null, cat3 = null, contentid = null, contenttypeid = null;
     String firstimage = null, firstimage2 = null, mapx = null, mapy = null;
     String mlevel = null, tel = null, Title = null;
 
-    URL url;
+    boolean initem2 = false, insubid = false, indetailalt = false, indetailimg = false;
+    boolean inoverview = false, insubname = false, insubnum = false;
+    String subid = null, detailalt = null, detailimg = null, overview = null, subname = null, subnum = null;
+
+    URL url, url2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +87,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         try {
             String urlstr = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?ServiceKey=wR7PJI9NFm3wvvrIRBnVKZQWb7ULPrgXTWECQcSf%2F2Wk8TVbszAcAFmRQXrXm6aUecKp9k7ubTkyjAGGzVzi8A%3D%3D"
-                    + "&mapX=126.981611&mapY=37.568477"+ "&radius=1000&listYN=Y"
+                    + "&mapX=128.136308&mapY=35.765873"+ "&radius=1000&listYN=Y"
                     + "&arrange=A&MobileOS=ETC&MobileApp=AppTest";
+
+            //&mapX=126.981611&mapY=37.568477" 원래 이거였음
+            //"&mapX=128.074075&mapY=34.924516 이건 사천시 코스보려고
+            //35.765873, 128.136308
 
             url = new URL(urlstr);
             Log.d(" logging", "1");
@@ -96,115 +104,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             new Thread() {
                 public void run() {
-
-                    try {
-                        br = new BufferedReader(new InputStreamReader(urlconnection.getInputStream(), "UTF-8"));
-                        String result = "";
-                        String line;
-                        while ((line = br.readLine()) != null) {
-                            result = result + line + "\n";
-                            Log.d("result log", result);
-                        }
-                        Log.d(" logging", "5");
-
-                        Log.d("APITAG Result", result);
-
-                        XmlPullParserFactory parserCreator = XmlPullParserFactory.newInstance();
-                        XmlPullParser parser = parserCreator.newPullParser();
-
-                        parser.setInput(url.openStream(), null);
-
-                        int parserEvent = parser.getEventType();
-                        Log.d("Parsing", "parsing start");
-
-                        while (parserEvent != XmlPullParser.END_DOCUMENT) {
-                            switch (parserEvent) {
-                                case XmlPullParser.START_TAG://parser가 시작 태그를 만나면 실행
-                                    if (parser.getName().equals("addr1"))  //title 만나면 내용을 받을수 있게 하자
-                                        inaddr1 = true;
-                                    if (parser.getName().equals("cat3"))
-                                        incat3 = true;
-                                    if (parser.getName().equals("contentid"))
-                                        incontentid = true;
-                                    if (parser.getName().equals("contenttypeid"))
-                                        incontenttypeid = true;
-                                    if (parser.getName().equals("firstimage"))
-                                        infirstimage = true;
-                                    if (parser.getName().equals("firstimage2"))
-                                        infirstimage2 = true;
-                                    if (parser.getName().equals("mapx"))
-                                        inmapx = true;
-                                    if (parser.getName().equals("mapy"))
-                                        inmapy = true;
-                                    if (parser.getName().equals("mlevel"))
-                                        inmlevel = true;
-                                    if (parser.getName().equals("tel"))
-                                        intel = true;
-                                    if (parser.getName().equals("title"))
-                                        intitle = true;
-                                    break;
-
-                                case XmlPullParser.TEXT://parser가 내용에 접근했을때
-                                    if(inaddr1) {
-                                        addr1 = parser.getText();
-                                        inaddr1 = false;
-                                    }
-                                    if(incat3) {
-                                        cat3 = parser.getText();
-                                        incat3 = false;
-                                    }
-                                    if(incontentid) {
-                                        contentid = parser.getText();
-                                        incontentid = false;
-                                    }
-                                    if(incontenttypeid) {
-                                        contenttypeid = parser.getText();
-                                        incontenttypeid = false;
-                                    }
-                                    if(infirstimage) {
-                                        firstimage = parser.getText();
-                                        infirstimage = false;
-                                    }
-                                    if(infirstimage2) {
-                                        firstimage2 = parser.getText();
-                                        infirstimage2 = false;
-                                    }
-                                    if(inmapx) {
-                                        mapx= parser.getText();
-                                        inmapx = false;
-                                    }
-                                    if(inmapy) {
-                                        mapy = parser.getText();
-                                        inmapy = false;
-                                    }
-                                    if(inmlevel) {
-                                        mlevel = parser.getText();
-                                        inmlevel = false;
-                                    }
-                                    if(intel) {
-                                        tel = parser.getText();
-                                        intel = false;
-                                    }
-                                    if(intitle) {
-                                        Title = parser.getText();
-                                        intitle = false;
-                                    }
-                                    break;
-
-                                case XmlPullParser.END_TAG:
-                                    if(parser.getName().equals("item")){
-                                        Log.d("ParsingResult", "mapx : " + mapx + "\nmapy : " + mapy + '\n');
-                                        initem = false;
-                                    }
-                                    break;
-                            }
-                            parserEvent = parser.next();
-                        }
-
-                    } catch (Exception e) {
-                        Log.d("APITAG", e.toString());
-                    }
-
+                    locationBasedData(urlconnection);
                 }
             }.start();
 
@@ -213,6 +113,228 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
     }
+
+    public void locationBasedData(HttpURLConnection urlconnection) {
+        try {
+            br = new BufferedReader(new InputStreamReader(urlconnection.getInputStream(), "UTF-8"));
+            String result = "";
+            String line;
+            while ((line = br.readLine()) != null) {
+                result = result + line + "\n";
+                Log.d("result log", result);
+            }
+            Log.d(" logging", "5");
+
+            Log.d("APITAG Result", result);
+
+            XmlPullParserFactory parserCreator = XmlPullParserFactory.newInstance();
+            XmlPullParser parser = parserCreator.newPullParser();
+
+            parser.setInput(url.openStream(), null);
+
+            int parserEvent = parser.getEventType();
+            Log.d("Parsing", "parsing start");
+
+            while (parserEvent != XmlPullParser.END_DOCUMENT) {
+                switch (parserEvent) {
+                    case XmlPullParser.START_TAG://parser가 시작 태그를 만나면 실행
+                        if (parser.getName().equals("addr1"))  //title 만나면 내용을 받을수 있게 하자
+                            inaddr1 = true;
+                        if (parser.getName().equals("cat3"))
+                            incat3 = true;
+                        if (parser.getName().equals("contentid"))
+                            incontentid = true;
+                        if (parser.getName().equals("contenttypeid"))
+                            incontenttypeid = true;
+                        if (parser.getName().equals("firstimage"))
+                            infirstimage = true;
+                        if (parser.getName().equals("firstimage2"))
+                            infirstimage2 = true;
+                        if (parser.getName().equals("mapx"))
+                            inmapx = true;
+                        if (parser.getName().equals("mapy"))
+                            inmapy = true;
+                        if (parser.getName().equals("mlevel"))
+                            inmlevel = true;
+                        if (parser.getName().equals("tel"))
+                            intel = true;
+                        if (parser.getName().equals("title"))
+                            intitle = true;
+                        break;
+
+                    case XmlPullParser.TEXT://parser가 내용에 접근했을때
+                        if(inaddr1) {
+                            addr1 = parser.getText();
+                            inaddr1 = false;
+                        }
+                        if(incat3) {
+                            cat3 = parser.getText();
+                            incat3 = false;
+                        }
+                        if(incontentid) {
+                            contentid = parser.getText();
+                            incontentid = false;
+                        }
+                        if(incontenttypeid) {
+                            contenttypeid = parser.getText();
+                            if (contenttypeid.equals("25"))
+                                incourse = true;
+                            incontenttypeid = false;
+                        }
+                        if(infirstimage) {
+                            firstimage = parser.getText();
+                            infirstimage = false;
+                        }
+                        if(infirstimage2) {
+                            firstimage2 = parser.getText();
+                            infirstimage2 = false;
+                        }
+                        if(inmapx) {
+                            mapx= parser.getText();
+                            inmapx = false;
+                        }
+                        if(inmapy) {
+                            mapy = parser.getText();
+                            inmapy = false;
+                        }
+                        if(inmlevel) {
+                            mlevel = parser.getText();
+                            inmlevel = false;
+                        }
+                        if(intel) {
+                            tel = parser.getText();
+                            intel = false;
+                        }
+                        if(intitle) {
+                            Title = parser.getText();
+                            intitle = false;
+                        }
+                        break;
+
+                    case XmlPullParser.END_TAG:
+                        if (incourse && parser.getName().equals("item")) { // course data 만 추출할 때
+                            /*Log.d("CourseData", "\n" + "[Course data]\n" + "[Course data]\n" + "addr1 : " + addr1 + "\ncat3 : " + cat3 + "\ncontentid : " + contentid +
+                                    "\ncontenttypeid : " + contenttypeid + "\nfirstimage : " + firstimage + "\nfirstimage2 : " + firstimage2 +
+                                    "\nmapx : " + mapx + "\nmapy : " + mapy + "\nmlevel : " + mlevel + "\ntel : " + tel + "\ntitle : " + Title);*/
+                            Log.d("incourseTAG" , "OK");
+                            courseData(contentid);
+                            incourse = false;
+                        }
+
+                        if (parser.getName().equals("item")) {
+                            Log.d("ParsingResult", "\n" + "addr1 : " + addr1 + "\ncat3 : " + cat3 + "\ncontentid : " + contentid +
+                                    "\ncontenttypeid : " + contenttypeid + "\nfirstimage : " + firstimage + "\nfirstimage2 : " + firstimage2 +
+                                    "\nmapx : " + mapx + "\nmapy : " + mapy + "\nmlevel : " + mlevel + "\ntel : " + tel + "\ntitle : " + Title);
+                            initem = false;
+                        }
+
+                        break;
+                }
+                parserEvent = parser.next();
+            }
+
+        } catch (Exception e) {
+            Log.d("APITAG", e.toString());
+        }
+    }
+
+    public void courseData(String contentid) {
+        try {
+            Log.d("IDRESULT", contentid);
+            String courseURL = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailInfo?ServiceKey=wR7PJI9NFm3wvvrIRBnVKZQWb7ULPrgXTWECQcSf%2F2Wk8TVbszAcAFmRQXrXm6aUecKp9k7ubTkyjAGGzVzi8A%3D%3D&"
+                    + "contentId=" + contentid + "&contentTypeId=25&MobileOS=ETC&MobileApp=AppTest";
+
+            url2 = new URL(courseURL);
+            final HttpURLConnection urlconnection = (HttpURLConnection) url2.openConnection();
+
+            urlconnection.setRequestMethod("GET");
+            Log.d("incourseTAG" , "URL OK");
+
+            new Thread() {
+                public void run() {
+                    try {
+                        Log.d("incourseTAG" , "THREAD OK");
+                        br2 = new BufferedReader(new InputStreamReader(urlconnection.getInputStream(), "UTF-8"));
+                        String result = "";
+                        String line;
+
+                        while ((line = br2.readLine()) != null) {
+                            result = result + line + "\n";
+                        }
+
+                        XmlPullParserFactory parserCreator = XmlPullParserFactory.newInstance();
+                        XmlPullParser parser = parserCreator.newPullParser();
+
+                        parser.setInput(url2.openStream(), null);
+
+                        int parserEvent = parser.getEventType();
+                        Log.d("Parsing", "parsing start");
+
+                        while (parserEvent != XmlPullParser.END_DOCUMENT) {
+                            switch (parserEvent) {
+                                case XmlPullParser.START_TAG://parser가 시작 태그를 만나면 실행
+                                    if (parser.getName().equals("subcontentid"))  //title 만나면 내용을 받을수 있게 하자
+                                        insubid = true;
+                                    if (parser.getName().equals("subdetailalt"))
+                                        indetailalt = true;
+                                    if (parser.getName().equals("subdetailimg"))
+                                        indetailimg = true;
+                                    if (parser.getName().equals("subdetailoverview"))
+                                        inoverview = true;
+                                    if (parser.getName().equals("subname"))
+                                        insubname = true;
+                                    if (parser.getName().equals("subnum"))
+                                        insubnum = true;
+                                    break;
+
+                                case XmlPullParser.TEXT://parser가 내용에 접근했을때
+                                    if(insubid) {
+                                        subid = parser.getText();
+                                        insubid = false;
+                                    }
+                                    if(indetailalt) {
+                                        detailalt = parser.getText();
+                                        indetailalt = false;
+                                    }
+                                    if(indetailimg) {
+                                        detailimg = parser.getText();
+                                        indetailimg = false;
+                                    }
+                                    if(inoverview) {
+                                        overview = parser.getText();
+                                        inoverview = false;
+                                    }
+                                    if(insubname) {
+                                        subname = parser.getText();
+                                        insubname = false;
+                                    }
+                                    if(insubnum) {
+                                        subnum = parser.getText();
+                                        insubnum = false;
+                                    }
+                                    break;
+
+                                case XmlPullParser.END_TAG:
+                                    if (parser.getName().equals("item")) {
+                                        Log.d("CourseParsing", "\n" + "subid : " + subid + "\ndetailalt : " + detailalt +
+                                        "\ndetailimg : " + detailimg + "\noverview : " + overview + "\nsubname : " + subname + "\nsubnum : " + subnum);
+                                        initem2 = false;
+                                    }
+                                    break;
+                            }
+                            parserEvent = parser.next();
+                        }
+                    } catch (Exception e) {
+
+                    }
+                }
+            }.start();
+
+        } catch (Exception e) {
+
+        }
+    }
+
 
     /*
     final LocationListener gpsLocationListener = new LocationListener() {
@@ -252,4 +374,5 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Move camera to location
         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(37.52487, 126.92723)));
     }
+
 }
