@@ -59,10 +59,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in);
 
-        /*
-        여기서부터
-         */
-
+        // [START] Drawable navigation
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -105,10 +102,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 return true;
             }
         });
+        // [END] Drawable navigation
 
-        /*
-        여기까지
-         */
 
         // Google Map API Fragment
         FragmentManager fragmentManager = getFragmentManager();
