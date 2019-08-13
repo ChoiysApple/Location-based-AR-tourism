@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">neARism</string>
     <string name="login">Log in</string>
+    <string name="menu_photo_guide">Photo Guide</string>
+    <string name="menu_ar_photo_booth">AR Photo Booth</string>
+    <string name="menu_browse_course">Browse Course</string>
+    <string name="menu_contents_hub">Contents Hub</string>
+    <string name="menu_settings">Settings</string>
 </resources>
