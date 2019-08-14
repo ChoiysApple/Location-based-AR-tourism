@@ -1,6 +1,8 @@
 package com.marchengraffiti.nearism.nearism;
 
 import android.app.FragmentManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -54,15 +56,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     URL url, url2;
 
+    public static Intent getIntent(Context context) {
+        return new Intent(context, MainActivity.class);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*
-        여기서부터
-         */
-
+        // [START] Drawable navigation
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -105,10 +108,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 return true;
             }
         });
+        // [END] Drawable navigation
 
-        /*
-        여기까지
-         */
 
         // Google Map API Fragment
         FragmentManager fragmentManager = getFragmentManager();

@@ -23,7 +23,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA4H60t187vxFxpGCApONd1HJwJixIJ0Ck" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".SignIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
