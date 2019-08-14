@@ -3,23 +3,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/photoGuide"
-            android:title="@string/menu_photo_guide"
+            android:title="Photo Guide"
             />
         <item
             android:id="@+id/arPhotoBooth"
-            android:title="@string/menu_ar_photo_booth"
+            android:title="AR Photo Booth"
             />
         <item
             android:id="@+id/browseCourse"
-            android:title="@string/menu_browse_course"
+            android:title="Browse Course"
             />
         <item
             android:id="@+id/contentsHub"
-            android:title="@string/menu_contents_hub"
+            android:title="Contents Hub"
             />
         <item
             android:id="@+id/settings"
-            android:title="@string/menu_settings"
+            android:title="Settings"
             />
     </group>
 </menu>
