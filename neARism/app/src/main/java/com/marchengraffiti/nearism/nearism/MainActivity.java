@@ -296,7 +296,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             mPostReference = FirebaseDatabase.getInstance().getReference();
                             Map<String, Object> childUpdates = new HashMap<>();
                             String key = mPostReference.child("posts").push().getKey();
-
+/*
                             FirebasePost post = new FirebasePost(addr1, cat3, contentid, contenttypeid,
                                     firstimage, firstimage2, mapx, mapy, mlevel, tel, Title);
                             Map<String, Object> postValues = post.toMap();
@@ -304,7 +304,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                             childUpdates.put("/place_list/" + key, postValues);
                             mPostReference.updateChildren(childUpdates);
-
+*/
                             Log.d("ParsingResult", "\n" + "addr1 : " + addr1 + "\ncat3 : " + cat3 + "\ncontentid : " + contentid +
                                     "\ncontenttypeid : " + contenttypeid + "\nfirstimage : " + firstimage + "\nfirstimage2 : " + firstimage2 +
                                     "\nmapx : " + mapx + "\nmapy : " + mapy + "\nmlevel : " + mlevel + "\ntel : " + tel + "\ntitle : " + Title);

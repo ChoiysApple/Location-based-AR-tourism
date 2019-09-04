@@ -28,6 +28,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <!-- UserName Label -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText android:id="@+id/fieldName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFF"
+                android:hint="@string/sample_name"
+                android:padding="8dp"/>
+
+        </LinearLayout>
     <!-- Email Label -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -76,23 +91,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!--
-        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".FirebaseUIActivity">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        -->
-
-        <TextView android:id="@+id/link_signup"
+        <Button
+            android:id="@+id/btn_signUp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:text="No account yet? Create one"
-            android:gravity="center"
-            android:textSize="16dip" />
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:padding="12dp"
+            android:text="Login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView android:id="@+id/account_guide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text = ""
+            android:textSize="10sp"/>
     </LinearLayout>
 
 
