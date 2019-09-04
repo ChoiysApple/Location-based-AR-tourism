@@ -13,6 +13,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,6 +24,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -34,6 +38,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
+    // firebase
+    private DatabaseReference mPostReference;
+
+
     private DrawerLayout mDrawerLayout;
 
     // 구글 맵 참조변수 생성
@@ -44,15 +52,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     boolean initem = false, inaddr1 = false, incat3 = false, incontentid = false;
     boolean incontenttypeid = false, infirstimage = false, infirstimage2 = false, inmapx = false;
-    boolean inmapy = false, inmlevel = false, intel = false, intitle = false, incourse = false;
+    boolean inmapy = false, inmlevel = false, intel = false, intitle = false;
 
     String addr1 = null, cat3 = null, contentid = null, contenttypeid = null;
     String firstimage = null, firstimage2 = null, mapx = null, mapy = null;
     String mlevel = null, tel = null, Title = null;
 
-    boolean initem2 = false, insubid = false, indetailalt = false, indetailimg = false;
-    boolean inoverview = false, insubname = false, insubnum = false;
-    String subid = null, detailalt = null, detailimg = null, overview = null, subname = null, subnum = null;
+    //boolean initem2 = false, insubid = false, indetailalt = false, indetailimg = false;
+    //boolean inoverview = false, insubname = false, insubnum = false;
+    //String subid = null, detailalt = null, detailimg = null, overview = null, subname = null, subnum = null;
 
     URL url, url2;
 
@@ -110,7 +118,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
         // [END] Drawable navigation
 
-
         // Google Map API Fragment
         FragmentManager fragmentManager = getFragmentManager();
         final MapFragment mapFragment = (MapFragment)fragmentManager
@@ -140,13 +147,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }*/
 
         try {
-            String urlstr = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?ServiceKey=wR7PJI9NFm3wvvrIRBnVKZQWb7ULPrgXTWECQcSf%2F2Wk8TVbszAcAFmRQXrXm6aUecKp9k7ubTkyjAGGzVzi8A%3D%3D"
-                    + "&mapX=128.136308&mapY=35.765873"+ "&radius=1000&listYN=Y"
-                    + "&arrange=A&MobileOS=ETC&MobileApp=AppTest";
-
-            //&mapX=126.981611&mapY=37.568477" 원래 이거였음
-            //"&mapX=128.074075&mapY=34.924516 이건 사천시 코스보려고
-            //35.765873, 128.136308
+            String urlstr = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList" +
+                    "?ServiceKey=wR7PJI9NFm3wvvrIRBnVKZQWb7ULPrgXTWECQcSf%2F2Wk8TVbszAcAFmRQXrXm6aUecKp9k7ubTkyjAGGzVzi8A%3D%3D" +
+                    "&contentTypeId=12&MobileOS=ETC&MobileApp=AppTest&numOfRows=50";
+            // 트래픽 증설 후 numOfRows 수정해야 함
 
             url = new URL(urlstr);
             Log.d(" logging", "1");
@@ -161,16 +165,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     locationBasedData(urlconnection);
                 }
             }.start();
-
         } catch (Exception e) {
 
         }
-
     }
-
-    /*
-    여기부터
-     */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -195,10 +193,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         return super.onOptionsItemSelected(item);
     }
-
-    /*
-    여기까지
-     */
 
     public void locationBasedData(HttpURLConnection urlconnection) {
         try {
@@ -263,8 +257,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         }
                         if(incontenttypeid) {
                             contenttypeid = parser.getText();
-                            if (contenttypeid.equals("25"))
-                                incourse = true;
+                            //if (contenttypeid.equals("25"))
+                            //    incourse = true;
                             incontenttypeid = false;
                         }
                         if(infirstimage) {
@@ -298,16 +292,19 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         break;
 
                     case XmlPullParser.END_TAG:
-                        if (incourse && parser.getName().equals("item")) { // course data 만 추출할 때
-                            /*Log.d("CourseData", "\n" + "[Course data]\n" + "[Course data]\n" + "addr1 : " + addr1 + "\ncat3 : " + cat3 + "\ncontentid : " + contentid +
-                                    "\ncontenttypeid : " + contenttypeid + "\nfirstimage : " + firstimage + "\nfirstimage2 : " + firstimage2 +
-                                    "\nmapx : " + mapx + "\nmapy : " + mapy + "\nmlevel : " + mlevel + "\ntel : " + tel + "\ntitle : " + Title);*/
-                            Log.d("incourseTAG" , "OK");
-                            courseData(contentid);
-                            incourse = false;
-                        }
-
                         if (parser.getName().equals("item")) {
+                            mPostReference = FirebaseDatabase.getInstance().getReference();
+                            Map<String, Object> childUpdates = new HashMap<>();
+                            String key = mPostReference.child("posts").push().getKey();
+
+                            FirebasePost post = new FirebasePost(addr1, cat3, contentid, contenttypeid,
+                                    firstimage, firstimage2, mapx, mapy, mlevel, tel, Title);
+                            Map<String, Object> postValues = post.toMap();
+                            Log.d("firebaseLog", String.format("%s",postValues));
+
+                            childUpdates.put("/place_list/" + key, postValues);
+                            mPostReference.updateChildren(childUpdates);
+
                             Log.d("ParsingResult", "\n" + "addr1 : " + addr1 + "\ncat3 : " + cat3 + "\ncontentid : " + contentid +
                                     "\ncontenttypeid : " + contenttypeid + "\nfirstimage : " + firstimage + "\nfirstimage2 : " + firstimage2 +
                                     "\nmapx : " + mapx + "\nmapy : " + mapy + "\nmlevel : " + mlevel + "\ntel : " + tel + "\ntitle : " + Title);
@@ -323,104 +320,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             Log.d("APITAG", e.toString());
         }
     }
-
-    public void courseData(String contentid) {
-        try {
-            Log.d("IDRESULT", contentid);
-            String courseURL = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailInfo?ServiceKey=wR7PJI9NFm3wvvrIRBnVKZQWb7ULPrgXTWECQcSf%2F2Wk8TVbszAcAFmRQXrXm6aUecKp9k7ubTkyjAGGzVzi8A%3D%3D&"
-                    + "contentId=" + contentid + "&contentTypeId=25&MobileOS=ETC&MobileApp=AppTest";
-
-            url2 = new URL(courseURL);
-            final HttpURLConnection urlconnection = (HttpURLConnection) url2.openConnection();
-
-            urlconnection.setRequestMethod("GET");
-            Log.d("incourseTAG" , "URL OK");
-
-            new Thread() {
-                public void run() {
-                    try {
-                        Log.d("incourseTAG" , "THREAD OK");
-                        br2 = new BufferedReader(new InputStreamReader(urlconnection.getInputStream(), "UTF-8"));
-                        String result = "";
-                        String line;
-
-                        while ((line = br2.readLine()) != null) {
-                            result = result + line + "\n";
-                        }
-
-                        XmlPullParserFactory parserCreator = XmlPullParserFactory.newInstance();
-                        XmlPullParser parser = parserCreator.newPullParser();
-
-                        parser.setInput(url2.openStream(), null);
-
-                        int parserEvent = parser.getEventType();
-                        Log.d("Parsing", "parsing start");
-
-                        while (parserEvent != XmlPullParser.END_DOCUMENT) {
-                            switch (parserEvent) {
-                                case XmlPullParser.START_TAG://parser가 시작 태그를 만나면 실행
-                                    if (parser.getName().equals("subcontentid"))  //title 만나면 내용을 받을수 있게 하자
-                                        insubid = true;
-                                    if (parser.getName().equals("subdetailalt"))
-                                        indetailalt = true;
-                                    if (parser.getName().equals("subdetailimg"))
-                                        indetailimg = true;
-                                    if (parser.getName().equals("subdetailoverview"))
-                                        inoverview = true;
-                                    if (parser.getName().equals("subname"))
-                                        insubname = true;
-                                    if (parser.getName().equals("subnum"))
-                                        insubnum = true;
-                                    break;
-
-                                case XmlPullParser.TEXT://parser가 내용에 접근했을때
-                                    if(insubid) {
-                                        subid = parser.getText();
-                                        insubid = false;
-                                    }
-                                    if(indetailalt) {
-                                        detailalt = parser.getText();
-                                        indetailalt = false;
-                                    }
-                                    if(indetailimg) {
-                                        detailimg = parser.getText();
-                                        indetailimg = false;
-                                    }
-                                    if(inoverview) {
-                                        overview = parser.getText();
-                                        inoverview = false;
-                                    }
-                                    if(insubname) {
-                                        subname = parser.getText();
-                                        insubname = false;
-                                    }
-                                    if(insubnum) {
-                                        subnum = parser.getText();
-                                        insubnum = false;
-                                    }
-                                    break;
-
-                                case XmlPullParser.END_TAG:
-                                    if (parser.getName().equals("item")) {
-                                        Log.d("CourseParsing", "\n" + "subid : " + subid + "\ndetailalt : " + detailalt +
-                                        "\ndetailimg : " + detailimg + "\noverview : " + overview + "\nsubname : " + subname + "\nsubnum : " + subnum);
-                                        initem2 = false;
-                                    }
-                                    break;
-                            }
-                            parserEvent = parser.next();
-                        }
-                    } catch (Exception e) {
-
-                    }
-                }
-            }.start();
-
-        } catch (Exception e) {
-
-        }
-    }
-
 
     /*
     final LocationListener gpsLocationListener = new LocationListener() {

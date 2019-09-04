@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "471978669567-56jech92n35ck3qgd72b23b5lphmiqkj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.marchengraffiti.nearism.nearism",
+            "certificate_hash": "f0fc1429813d1fd14549458e4269527d897dc4b1"
+          }
+        },
+        {
           "client_id": "471978669567-ekemfglt30f3du5k8cv9c97m70pavj2c.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
