@@ -46,6 +46,7 @@ public class SignUp extends AppCompatActivity {
         mEmailField = findViewById(R.id.fieldEmail);
         mPasswordField = findViewById(R.id.fieldPassword);
         mUsernameField = findViewById(R.id.fieldName);
+        account_guide = findViewById(R.id.account_guide);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
