@@ -40,7 +40,7 @@ public class SignUp extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_in);
+        setContentView(R.layout.sign_up);
 
         // Fields
         mEmailField = findViewById(R.id.fieldEmail);
@@ -82,6 +82,16 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
+        sign_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this, SignIn.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 
     public void onStart() {
@@ -111,7 +121,7 @@ public class SignUp extends AppCompatActivity {
                                 account_guide.setTextColor(Color.RED);
                             else{
                                 account_guide.setTextColor(Color.RED);
-                                account_guide.setText("@string/email_condition");
+                                account_guide.setText("@string/account_guide");
                             }
 
 
