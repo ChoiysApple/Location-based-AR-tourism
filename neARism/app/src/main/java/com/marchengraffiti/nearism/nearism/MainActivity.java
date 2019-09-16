@@ -1,6 +1,7 @@
 package com.marchengraffiti.nearism.nearism;
 
 import android.app.FragmentManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +14,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.database.DatabaseReference;
+import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
+import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
 
 import androidx.appcompat.app.ActionBar;
@@ -24,18 +26,20 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    // firebase
-    private DatabaseReference mPostReference;
+    GoogleMap mMap;
 
     private DrawerLayout mDrawerLayout;
 
-    // 구글 맵 참조변수 생성
-    GoogleMap mMap;
+    String[] mapValue; // x좌표, y좌표, 타이틀
+    double latitude, longitude;
+    String msg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        new task().execute();
 
         // [START] Drawable navigation
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -88,27 +92,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        // 현재 위치 경도, 위도 가져오기
-        /*final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-        if (Build.VERSION.SDK_INT >= 23 &&
-                ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                    0);
-        } else {
-            Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            longitude = location.getLongitude();
-            latitude = location.getLatitude();
-
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                    1000,
-                    1,
-                    gpsLocationListener);
-            lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
-                    1000,
-                    1,
-                    gpsLocationListener);
-        }*/
+        //CurrentLocation currentLocation = new CurrentLocation();
+        //currentLocation.getLocation();
 
         final ParsingAPI parsingAPI = new ParsingAPI();
 
@@ -121,6 +106,46 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
             }
         }.start();
+    }
+
+    private class task extends AsyncTask<Void, String, Void> {
+        @Override
+        protected void onPreExecute() {
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... params){
+            FirebaseRead firebaseRead = new FirebaseRead();
+            firebaseRead.ReadDB(new MyCallback() {
+                @Override
+                public void onCallback(String value) {
+                    publishProgress(value);
+                }
+            });
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(String... values){
+            mapValue = values[0].split(",");
+            latitude = Double.valueOf(mapValue[0]);
+            longitude = Double.valueOf(mapValue[1]);
+            msg = mapValue[2];
+
+            LatLng position = new LatLng(latitude, longitude);
+
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.title(msg);
+            markerOptions.position(position);
+
+            mMap.addMarker(markerOptions);
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+
+        }
     }
 
     @Override
@@ -147,43 +172,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         return super.onOptionsItemSelected(item);
     }
 
-    /*
-    final LocationListener gpsLocationListener = new LocationListener() {
-        public void onLocationChanged(Location location) {
-            longitude = location.getLongitude();
-            latitude = location.getLatitude();
-        }
-
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-        }
-
-        public void onProviderEnabled(String provider) {
-        }
-
-        public void onProviderDisabled(String provider) {
-        }
-    };
-    */
-
     // Google Map API
     @Override
     public void onMapReady(GoogleMap googleMap) {
         // Import Google Map object
         mMap = googleMap;
 
-        for (int idx = 0; idx < 10; idx++) {
-            // Set marker options
-            MarkerOptions makerOptions = new MarkerOptions();
-            makerOptions
-                    .position(new LatLng(37.52487 + idx, 126.92723))
-                    .title("마커" + idx); // 타이틀.
-
-            // Add marker
-            mMap.addMarker(makerOptions);
-        }
-
-        // Move camera to location
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(37.52487, 126.92723)));
+        // 현재 위치로 좌표 바꿔야 함
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.576196, 126.976767), 14));
     }
 
 }

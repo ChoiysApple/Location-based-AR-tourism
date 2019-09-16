@@ -1,14 +1,12 @@
 package com.marchengraffiti.nearism.nearism.firebase;
 
-import android.util.Log;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class FirebasePost {
     public String addr1 = null, cat3 = null, contentid = null, contenttypeid = null;
     public String firstimage = null, firstimage2 = null, mapx = null, mapy = null;
-    public String mlevel = null, tel = null, Title = null;
+    public String mlevel = null, tel = null, placeTitle = null;
 
     public FirebasePost() {
 
@@ -16,7 +14,7 @@ public class FirebasePost {
 
     public FirebasePost(String addr1, String cat3, String contentid, String contenttypeid,
                         String firstimage, String firstimage2, String mapx, String mapy,
-                        String mlevel, String tel, String Title) {
+                        String mlevel, String tel, String placeTitle) {
         this.addr1 = addr1;
         this.cat3 = cat3;
         this.contentid = contentid;
@@ -27,11 +25,10 @@ public class FirebasePost {
         this.mapy = mapy;
         this.mlevel = mlevel;
         this.tel = tel;
-        this.Title = Title;
+        this.placeTitle = placeTitle;
     }
 
     public Map<String, Object> toMap() {
-        Log.d("Firebase", "toMap");
         HashMap<String, Object> result = new HashMap<>();
 
         result.put("addr1", addr1);
@@ -44,8 +41,9 @@ public class FirebasePost {
         result.put("mapy", mapy);
         result.put("mlevel", mlevel);
         result.put("tel", tel);
-        result.put("Title", Title);
+        result.put("placeTitle", placeTitle);
 
         return result;
     }
+
 }
