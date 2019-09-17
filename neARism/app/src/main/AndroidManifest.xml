@@ -22,11 +22,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA4H60t187vxFxpGCApONd1HJwJixIJ0Ck" />
 
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".sign.SignUp" />
         <activity android:name=".sign.SignIn" />
-        <activity android:name=".sign.SignUp">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
