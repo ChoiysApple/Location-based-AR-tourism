@@ -15,12 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90678c6f-1e26-43e0-871d-2ffb45bf33c7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/CurrentLocation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/parsing/ParsingAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/parsing/ParsingAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +88,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/parsing/ParsingAPI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="130">
@@ -103,6 +98,16 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-manifest" />
         </entry>
       </file>
     </leaf>
@@ -126,6 +131,7 @@
       <find>Title</find>
       <find>placeTitle</find>
       <find>Log</find>
+      <find>key</find>
     </findStrings>
     <replaceStrings>
       <replace>SignIn</replace>
@@ -154,12 +160,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/MyCallback.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/FirebasePost.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/FirebaseRead.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/SearchBar.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/CurrentLocation.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/parsing/ParsingAPI.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -228,6 +234,11 @@
             <path>
               <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
             </path>
             <path>
               <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
@@ -412,7 +423,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24228188" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14563759" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Captures" order="2" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="3" />
@@ -431,7 +442,7 @@
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49798658" weight="0.32765958" />
       <window_info anchor="bottom" id="Android Profiler" order="8" weight="0.12624113" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5026846" side_tool="true" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" x="27" y="462" width="1490" height="218" id="Logcat" order="10" sideWeight="0.49731544" visible="true" weight="0.44539008" />
+      <window_info anchor="bottom" x="27" y="462" width="1490" height="218" id="Logcat" order="10" sideWeight="0.49731544" visible="true" weight="0.44539008" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32765958" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32907802" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -615,14 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="52" lean-forward="true" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/SearchBar.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/CourseData.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -698,6 +701,14 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
   </component>
 </project>
