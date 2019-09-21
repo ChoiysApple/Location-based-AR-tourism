@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ParsingAPI extends AppCompatActivity {
 
+    int cnt = 0;
+
     private DatabaseReference mPostReference, mPostReference2;
 
     BufferedReader br = null, br2 = null;
@@ -81,7 +83,7 @@ public class ParsingAPI extends AppCompatActivity {
             parser.setInput(url2.openStream(), null);
 
             int parserEvent = parser.getEventType();
-            Log.d("Parsing", "parsing start");
+            //Log.d("Parsing", "parsing start");
 
             while (parserEvent != XmlPullParser.END_DOCUMENT) {
                 switch (parserEvent) {
@@ -101,7 +103,7 @@ public class ParsingAPI extends AppCompatActivity {
                     case XmlPullParser.END_TAG:
                         if (parser.getName().equals("item")) {
                             CourseList();
-                            Log.d("ParsingCourseResult", "parsing course result OK");
+                            //Log.d("ParsingCourseResult", "parsing course result OK");
                             initem2 = false;
                         }
                         break;
@@ -115,7 +117,7 @@ public class ParsingAPI extends AppCompatActivity {
 
     public void courseData(String contentid) {
         try {
-            Log.d("IDRESULT", contentid);
+            //Log.d("IDRESULT", contentid);
             String courseURL = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailInfo?ServiceKey=wR7PJI9NFm3wvvrIRBnVKZQWb7ULPrgXTWECQcSf%2F2Wk8TVbszAcAFmRQXrXm6aUecKp9k7ubTkyjAGGzVzi8A%3D%3D&"
                     + "contentId=" + contentid + "&contentTypeId=25&MobileOS=ETC&MobileApp=AppTest";
 
@@ -123,12 +125,12 @@ public class ParsingAPI extends AppCompatActivity {
             final HttpURLConnection urlconnection = (HttpURLConnection) url2.openConnection();
 
             urlconnection.setRequestMethod("GET");
-            Log.d("incourseTAG" , "URL OK");
+            //Log.d("incourseTAG" , "URL OK");
 
             new Thread() {
                 public void run() {
                     try {
-                        Log.d("incourseTAG" , "THREAD OK");
+                        //Log.d("incourseTAG" , "THREAD OK");
                         br2 = new BufferedReader(new InputStreamReader(urlconnection.getInputStream(), "UTF-8"));
                         String result = "";
                         String line;
@@ -191,9 +193,11 @@ public class ParsingAPI extends AppCompatActivity {
 
                                 case XmlPullParser.END_TAG:
                                     if (parser.getName().equals("item")) {
+                                        Log.d("CourseParsing", "key : " + cnt);
                                         Log.d("CourseParsing", "\n" + "subid : " + subid + "\ndetailalt : " + detailalt +
-                                                "\ndetailimg : " + detailimg + "\noverview : " + overview + "\nsubname : " + subname + "\nsubnum : " + subnum);
+                                                "\ndetailimg : " + detailimg + "\noverview : " + overview + "subname : " + subname + "\nsubnum : " + subnum);
                                         initem2 = false;
+                                        cnt++;
                                     }
                                     break;
                             }
@@ -345,12 +349,12 @@ public class ParsingAPI extends AppCompatActivity {
         Map<String, Object> childUpdates = new HashMap<>();
         String key = mPostReference2.child("posts").push().getKey();
 
-
         CourseData courseData = new CourseData(subid, detailalt, detailimg, overview, subname, subnum);
         Map<String, Object> postValues = courseData.toMap();
-        Log.d("firebaseLog", String.format("%s",postValues));
+        Log.d("firebaseLog", String.format("%s",postValues));*/
 
-        childUpdates.put("/course_list/" + key + courseKey, postValues);
-        mPostReference2.updateChildren(childUpdates);*/
+        //childUpdates.put("/course_list/" + key + courseKey, postValues);
+        //mPostReference2.updateChildren(childUpdates);
+
     }
 }

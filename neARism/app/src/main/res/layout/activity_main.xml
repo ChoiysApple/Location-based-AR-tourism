@@ -18,11 +18,22 @@
             android:background="?attr/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:id="@+id/autoCompleteTextView"
+            android:gravity="center"
+            android:completionHint="Please enter your search keyword"
+            android:completionThreshold="1"
+            android:layout_below="@+id/toolbar"
+            android:background="#ffffff"
+            android:hint="Search..."/>
+
         <fragment
             android:id="@+id/map"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/toolbar"
+            android:layout_below="@id/autoCompleteTextView"
             class="com.google.android.gms.maps.MapFragment" />
 
     </RelativeLayout>

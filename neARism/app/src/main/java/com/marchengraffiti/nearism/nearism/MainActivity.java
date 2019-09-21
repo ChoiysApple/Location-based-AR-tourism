@@ -1,10 +1,22 @@
 package com.marchengraffiti.nearism.nearism;
 
 import android.app.FragmentManager;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -18,15 +30,23 @@ import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
+    List<String> list = new ArrayList<String>();
+
     GoogleMap mMap;
+    double lati, longi;
 
     private DrawerLayout mDrawerLayout;
 
@@ -39,7 +59,25 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new task().execute();
+        //new task().execute();
+
+        final AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+        autoCompleteTextView.setAdapter(new ArrayAdapter<String>(this,
+                android.R.layout.simple_dropdown_item_1line, list));
+
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                AutoCompleteTextView autoComplete = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
+
+                // 열려있는 키패드 닫기
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(autoComplete.getWindowToken(), 0);
+
+
+                // 해당 좌표로 화면 이동
+
+            }
+        });
 
         // [START] Drawable navigation
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -92,9 +130,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        //CurrentLocation currentLocation = new CurrentLocation();
-        //currentLocation.getLocation();
-
         final ParsingAPI parsingAPI = new ParsingAPI();
 
         new Thread() {
@@ -139,6 +174,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             markerOptions.title(msg);
             markerOptions.position(position);
 
+            list.add(msg);
+
             mMap.addMarker(markerOptions);
         }
 
@@ -178,8 +215,56 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Import Google Map object
         mMap = googleMap;
 
+        String values = getLocation();
+        String[] value;
+        value = values.split(",");
+
         // 현재 위치로 좌표 바꿔야 함
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.576196, 126.976767), 14));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Double.valueOf(value[0]), Double.valueOf(value[1])), 14));
+        Log.d("onMapReady", Double.valueOf(value[0]) + "/" + Double.valueOf(value[1]));
+    }
+
+    final LocationListener gpsLocationListener = new LocationListener() {
+        public void onLocationChanged(Location location) {
+            longitude = location.getLongitude();
+            latitude = location.getLatitude();
+        }
+
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+        }
+
+        public void onProviderEnabled(String provider) {
+        }
+
+        public void onProviderDisabled(String provider) {
+        }
+    };
+
+    public String getLocation() {
+        // 현재 위치 경도, 위도 가져오기
+        final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= 23 &&
+                ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    0);
+        } else {
+            Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            longi = location.getLongitude();
+            lati = location.getLatitude();
+
+            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                    1000,
+                    1,
+                    gpsLocationListener);
+            lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+                    1000,
+                    1,
+                    gpsLocationListener);
+        }
+
+        String value = lati + "," + longi;
+        return value;
     }
 
 }
