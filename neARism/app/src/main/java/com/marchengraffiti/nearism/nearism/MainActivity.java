@@ -26,6 +26,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
+import com.marchengraffiti.nearism.nearism.firebase.CourseRead;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //new task().execute();
+        new task().execute();
 
         final AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
         autoCompleteTextView.setAdapter(new ArrayAdapter<String>(this,
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         break;
 
                     case R.id.browseCourse:
+
                         Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
                         break;
 
@@ -131,16 +133,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mapFragment.getMapAsync(this);
 
         final ParsingAPI parsingAPI = new ParsingAPI();
+        parsingAPI.connection();
 
-        new Thread() {
-            public void run() {
-                try {
-                    parsingAPI.connection();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        CourseRead courseRead = new CourseRead();
+        courseRead.ReadCourseList(new MyCallback() {
+            @Override
+            public void onCallback(String value) {
+                //Log.d("CourseRead", "MainActivity / " + value);
             }
-        }.start();
+        });
     }
 
     private class task extends AsyncTask<Void, String, Void> {

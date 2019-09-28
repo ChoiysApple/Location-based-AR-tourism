@@ -15,6 +15,9 @@ public class CourseActivity extends AppCompatActivity {
 
     final int ITEM_SIZE = 5;
 
+    static ArrayList<String> arrayIndex =  new ArrayList<String>();
+    static ArrayList<String> arrayData = new ArrayList<String>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +27,14 @@ public class CourseActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
+
+        /*CourseRead courseRead = new CourseRead();
+        courseRead.ReadCourseList(new MyCallback() {
+            @Override
+            public void onCallback(String value) {
+                Log.d("courseData", value);
+            }
+        });*/
 
         List<Item> items = new ArrayList<>();
         Item[] item = new Item[ITEM_SIZE];
@@ -39,4 +50,5 @@ public class CourseActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(new RecyclerAdapter(getApplicationContext(), items, R.layout.activity_course));
     }
+
 }

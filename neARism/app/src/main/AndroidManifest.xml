@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.marchengraffiti.nearism.nearism">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:appComponentFactory="whateverString"
@@ -18,13 +14,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory">
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA4H60t187vxFxpGCApONd1HJwJixIJ0Ck" />
+        <activity android:name=".course.CourseMainActivity"></activity>
 
         <activity android:name=".MainActivity">
 
         </activity>
+
         <activity android:name=".sign.SignIn" />
         <activity android:name=".sign.SignUp">
             <intent-filter>
@@ -34,6 +29,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".course.CourseActivity"></activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA4H60t187vxFxpGCApONd1HJwJixIJ0Ck" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 </manifest>
