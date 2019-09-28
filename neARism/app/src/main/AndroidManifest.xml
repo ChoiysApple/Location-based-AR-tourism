@@ -14,26 +14,31 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".course.CourseMainActivity"></activity>
+        <activity android:name=".course.CourseDetailActivity">
 
-
-        <activity android:name=".sign.SignUp" />
-        <activity android:name=".sign.SignIn" />
-        <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".course.CourseMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".course.CourseActivity"></activity>
+
+        <activity android:name=".sign.SignUp"></activity>
+        <activity android:name=".sign.SignIn" />
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".course.CourseActivity" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA4H60t187vxFxpGCApONd1HJwJixIJ0Ck" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>

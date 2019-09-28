@@ -3,8 +3,6 @@ package com.marchengraffiti.nearism.nearism.parsing;
 import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.marchengraffiti.nearism.nearism.firebase.CourseData;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -14,16 +12,14 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 public class ParsingAPI extends AppCompatActivity {
 
-    private DatabaseReference mPostReference, mPostReference2;
+    private DatabaseReference mPostReference, mPostReference2, mPostReference3;
     BufferedReader br = null, br2 = null;
     URL url, url2;
 
@@ -48,16 +44,23 @@ public class ParsingAPI extends AppCompatActivity {
 
     public void connection() {
         // contenttypeid=12(관광)인 데이터 request URL
-        String url12 = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList" +
+        final String url12 = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList" +
                 "?ServiceKey=wR7PJI9NFm3wvvrIRBnVKZQWb7ULPrgXTWECQcSf%2F2Wk8TVbszAcAFmRQXrXm6aUecKp9k7ubTkyjAGGzVzi8A%3D%3D" +
-                "&contentTypeId=12&MobileOS=ETC&MobileApp=AppTest&pageNo=10&numOfRows=1000";
+                "&contentTypeId=12&MobileOS=ETC&MobileApp=AppTest&pageNo=1&numOfRows=9548";
 
         // contenttypeid=25(코스)인 데이터 request URL
-        String url25 = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList" +
+        final String url25 = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList" +
                 "?ServiceKey=wR7PJI9NFm3wvvrIRBnVKZQWb7ULPrgXTWECQcSf%2F2Wk8TVbszAcAFmRQXrXm6aUecKp9k7ubTkyjAGGzVzi8A%3D%3D" +
-                "&contentTypeId=25&MobileOS=ETC&MobileApp=AppTest&pageNo=9&numOfRows=100";
+                "&contentTypeId=25&MobileOS=ETC&MobileApp=AppTest&pageNo=1&numOfRows=325";
 
-        //locationBasedData(url12);
+        new Thread() {
+            public void run() {
+                // 함수 호출 (위치 기반 관광 데이터)
+                //locationBasedData(url12);
+                locationBasedData(url25);
+            }
+        }.start();
+
         //locationBasedData(url25);
         //courseData();
     }
@@ -175,6 +178,9 @@ public class ParsingAPI extends AppCompatActivity {
                         if (parser.getName().equals("item")) {
                             if(contenttypeid.equals("12"))
                                 PlaceList();  // 값 디비에 저장하는 메소드
+                            else if(contenttypeid.equals("25"))
+                                CourseBasicList(); // 코스 기본정보
+
                             Log.d("ParsingResult", "\n" + "addr1 : " + addr1 + "\ncat3 : " + cat3 + "\ncontentid : " + contentid +
                                     "\ncontenttypeid : " + contenttypeid + "\nfirstimage : " + firstimage + "\nfirstimage2 : " + firstimage2 +
                                     "\nmapx : " + mapx + "\nmapy : " + mapy + "\nmlevel : " + mlevel + "\ntel : " + tel + "\nplacetitle : " + placeTitle);
@@ -318,7 +324,7 @@ public class ParsingAPI extends AppCompatActivity {
      */
 
     public void CourseList(int idx) {
-        mPostReference2 = FirebaseDatabase.getInstance().getReference();
+        /*mPostReference2 = FirebaseDatabase.getInstance().getReference();
         Map<String, Object> childUpdates = new HashMap<>();
         String key = cidList.get(idx);
         String courseKey = subid;
@@ -329,5 +335,26 @@ public class ParsingAPI extends AppCompatActivity {
 
         //childUpdates.put("/course_list/" + key + "/" + courseKey, postValues);
         //mPostReference2.updateChildren(childUpdates);
+        */
+    }
+
+
+    /*
+    CourseBasicList()
+    파이어베이스에 contenttypeid=25인 코스 데이터 저장하는 메소드
+     */
+
+    public void CourseBasicList() {
+        /*mPostReference3 = FirebaseDatabase.getInstance().getReference();
+        Map<String, Object> childUpdates = new HashMap<>();
+        String key = mPostReference3.child("posts").push().getKey();
+
+        FirebasePost post = new FirebasePost(addr1, cat3, contentid, contenttypeid,
+                firstimage, firstimage2, mapx, mapy, mlevel, tel, placeTitle);
+        Map<String, Object> postValues = post.toMap();
+        Log.d("firebaseLog", String.format("%s",postValues));
+
+        childUpdates.put("/course_basic_info/" + key, postValues);
+        mPostReference3.updateChildren(childUpdates);*/
     }
 }

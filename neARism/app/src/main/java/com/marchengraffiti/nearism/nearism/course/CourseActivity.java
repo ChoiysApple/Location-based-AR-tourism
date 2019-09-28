@@ -5,7 +5,6 @@ import android.os.Bundle;
 import com.marchengraffiti.nearism.nearism.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,7 +35,7 @@ public class CourseActivity extends AppCompatActivity {
             }
         });*/
 
-        List<Item> items = new ArrayList<>();
+        /*List<Item> items = new ArrayList<>();
         Item[] item = new Item[ITEM_SIZE];
         item[0] = new Item(R.drawable.a, R.drawable.add_course, "대장경테마파크", "대정경 조판이전부터 경전의 전래와 결집, 천년을 이어왔던 장경판전의 숨겨진 과학에 이르는 역사의 시공간적 대장정을 감상할 수 있다.");
         item[1] = new Item(R.drawable.b, R.drawable.add_course, "해인사(합천)", "해인사를 우리나라 삼보사찰의 하나인 법보사찰이라 부르는 것은 해인사 대장경판전에 고려대장경판인 법보가 보관되어 있기 때문이다. ");
@@ -48,7 +47,7 @@ public class CourseActivity extends AppCompatActivity {
             items.add(item[i]);
         }
 
-        recyclerView.setAdapter(new RecyclerAdapter(getApplicationContext(), items, R.layout.activity_course));
+        recyclerView.setAdapter(new RecyclerAdapter(getApplicationContext(), items, R.layout.activity_course));*/
     }
 
 }
