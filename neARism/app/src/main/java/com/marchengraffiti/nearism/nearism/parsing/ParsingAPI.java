@@ -20,6 +20,7 @@ import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class ParsingAPI extends AppCompatActivity {
 
     private DatabaseReference mPostReference, mPostReference2;

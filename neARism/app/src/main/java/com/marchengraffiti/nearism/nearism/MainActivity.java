@@ -12,11 +12,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -42,6 +37,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     List<String> list = new ArrayList<String>();
@@ -62,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         new task().execute();
 
-        final AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+        /*final AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
         autoCompleteTextView.setAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, list));
 
@@ -78,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 // 해당 좌표로 화면 이동
 
             }
-        });
+        });*/
 
         // [START] Drawable navigation
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
