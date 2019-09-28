@@ -16,12 +16,10 @@
         tools:replace="android:appComponentFactory">
         <activity android:name=".course.CourseMainActivity"></activity>
 
-        <activity android:name=".MainActivity">
 
-        </activity>
-
+        <activity android:name=".sign.SignUp" />
         <activity android:name=".sign.SignIn" />
-        <activity android:name=".sign.SignUp">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
