@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         //new task().execute();
 
+        // 자동완성 기능 아직 오류,,
         /*final AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
         autoCompleteTextView.setAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, list));
