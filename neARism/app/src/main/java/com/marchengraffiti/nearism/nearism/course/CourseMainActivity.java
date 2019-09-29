@@ -26,7 +26,7 @@ public class CourseMainActivity extends AppCompatActivity {
     static ArrayList<String> arrayData = new ArrayList<String>();
     private ArrayList<CourseItem> data = new ArrayList<>();
 
-    String firstimage, placeTitle;
+    String firstimage, placeTitle, cid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +41,10 @@ public class CourseMainActivity extends AppCompatActivity {
                 String[] value_split = value.split("#");
                 firstimage = value_split[0]; // 이미지 URL String
                 placeTitle = value_split[1]; // 코스 타이틀
-                Log.d("courseData", value);
+                cid = value_split[2];
+                Log.d("courseMainData", value);
 
-                CourseItem item = new CourseItem(firstimage, placeTitle);
+                CourseItem item = new CourseItem(firstimage, placeTitle, cid);
                 data.add(item);
 
                 // course_item.xml 은 코스 메인화면에 보이는 리스트뷰
@@ -52,13 +53,14 @@ public class CourseMainActivity extends AppCompatActivity {
                 listView.setAdapter(adapter);
 
                 // 리스트뷰 클릭시 화면 전환
-                // 이미지 URL, 코스 타이틀 넘김
+                // 이미지 URL, 코스 타이틀, content id 넘김
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(getApplicationContext(), CourseDetailActivity.class);
                         intent.putExtra("firstimage", data.get(position).getFirstImage());
                         intent.putExtra("placeTitle", data.get(position).getPlaceTitle());
+                        intent.putExtra("cid", data.get(position).getCid());
                         startActivity(intent);
                     }
                 });
@@ -79,8 +81,8 @@ public class CourseMainActivity extends AppCompatActivity {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     String key = postSnapshot.getKey(); // course_basic_info 하위의 key 값 가져옴
                     FirebasePost get = postSnapshot.getValue(FirebasePost.class); // FirebasePost는 기본정보 가져오는 클래스
-                    String[] info = {get.firstimage, get.placeTitle}; // get에 담겨있는 기본정보 중에서 firstimage랑 placeTitle만 가져옴
-                    String result = info[0] + "#" + info[1] ;
+                    String[] info = {get.firstimage, get.placeTitle, get.contentid}; // get에 담겨있는 기본정보 중에서 firstimage랑 placeTitle, cid 가져옴
+                    String result = info[0] + "#" + info[1] + "#" + info[2];
                     arrayData.add(result);
                     arrayIndex.add(key);
                     Log.d("FirebaseRead", result);

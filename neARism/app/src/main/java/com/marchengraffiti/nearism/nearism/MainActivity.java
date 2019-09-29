@@ -21,7 +21,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
-import com.marchengraffiti.nearism.nearism.firebase.CourseRead;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
@@ -131,14 +130,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         final ParsingAPI parsingAPI = new ParsingAPI();
         parsingAPI.connection();
-
-        CourseRead courseRead = new CourseRead();
-        courseRead.ReadCourseList(new MyCallback() {
-            @Override
-            public void onCallback(String value) {
-                //Log.d("CourseRead", "MainActivity / " + value);
-            }
-        });
     }
 
     private class task extends AsyncTask<Void, String, Void> {

@@ -10,42 +10,39 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="160dp"
-            android:layout_height="110dp"
-            android:id="@+id/firstimage"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:id="@+id/detailimg"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
             android:layout_marginRight="15dp"
             android:adjustViewBounds="true" />
 
         <LinearLayout
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:gravity="left|center"
-            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:orientation="vertical"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp">
 
             <TextView
-                android:id="@+id/placeTitle"
+                android:id="@+id/subname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="left|center"
-                android:text="place title"
-                android:textSize="15dp"
                 android:layout_marginRight="20dp"
-                android:textStyle="bold"/>
-        </LinearLayout>
+                android:text="Title"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/overview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:text="overview"
+                android:textSize="10dp"/>
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/arrow_button"
-                android:layout_marginLeft="10dp"/>
         </LinearLayout>
 
     </LinearLayout>

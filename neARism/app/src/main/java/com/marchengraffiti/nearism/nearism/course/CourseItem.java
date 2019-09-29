@@ -1,7 +1,7 @@
 package com.marchengraffiti.nearism.nearism.course;
 
 public class CourseItem {
-    String firstimage, placeTitle;
+    String firstimage, placeTitle, cid;
 
     public String getFirstImage() {
         return firstimage;
@@ -11,8 +11,13 @@ public class CourseItem {
         return placeTitle;
     }
 
-    public CourseItem(String firstimage, String placeTitle) {
+    public String getCid() {
+        return cid;
+    }
+
+    public CourseItem(String firstimage, String placeTitle, String cid) {
         this.firstimage = firstimage;
         this.placeTitle = placeTitle;
+        this.cid = cid;
     }
 }

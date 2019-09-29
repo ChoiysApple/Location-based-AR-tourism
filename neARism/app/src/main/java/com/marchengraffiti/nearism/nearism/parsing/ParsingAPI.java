@@ -51,18 +51,17 @@ public class ParsingAPI extends AppCompatActivity {
         // contenttypeid=25(코스)인 데이터 request URL
         final String url25 = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList" +
                 "?ServiceKey=wR7PJI9NFm3wvvrIRBnVKZQWb7ULPrgXTWECQcSf%2F2Wk8TVbszAcAFmRQXrXm6aUecKp9k7ubTkyjAGGzVzi8A%3D%3D" +
-                "&contentTypeId=25&MobileOS=ETC&MobileApp=AppTest&pageNo=1&numOfRows=325";
+                "&contentTypeId=25&MobileOS=ETC&MobileApp=AppTest&pageNo=1&numOfRows=50";
 
         new Thread() {
             public void run() {
                 // 함수 호출 (위치 기반 관광 데이터)
                 //locationBasedData(url12);
-                locationBasedData(url25);
+                //locationBasedData(url25);
+                //courseData();
             }
         }.start();
 
-        //locationBasedData(url25);
-        //courseData();
     }
 
 
@@ -329,13 +328,12 @@ public class ParsingAPI extends AppCompatActivity {
         String key = cidList.get(idx);
         String courseKey = subid;
 
-        CourseData courseData = new CourseData(subid, detailalt, detailimg, overview, subname, subnum);
+        CourseData courseData = new CourseData(subid, detailalt, detailimg, overview, subname, subnum, key);
         Map<String, Object> postValues = courseData.toMap();
         Log.d("firebaseLog", String.format("%s",postValues));
 
-        //childUpdates.put("/course_list/" + key + "/" + courseKey, postValues);
-        //mPostReference2.updateChildren(childUpdates);
-        */
+        childUpdates.put("/course_list/" + key + "/" + courseKey, postValues);
+        mPostReference2.updateChildren(childUpdates);*/
     }
 
 
