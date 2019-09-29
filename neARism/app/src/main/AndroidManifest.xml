@@ -32,7 +32,6 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".course.CourseActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
