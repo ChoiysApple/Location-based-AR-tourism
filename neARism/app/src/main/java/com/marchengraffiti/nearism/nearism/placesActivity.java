@@ -10,13 +10,18 @@ public class placesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.place_detail);
+
+
+
+
     }
 
     ImageView mainImage = findViewById(R.id.main_photo);
     TextView title = findViewById(R.id.title);
     TextView adress = findViewById(R.id.place_addr);
 
-    
+
+
 
 
 }
