@@ -1,36 +1,29 @@
 package com.marchengraffiti.nearism.nearism.map;
 
-public class MarkerItem {
-    double latitude, longitude;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.maps.android.clustering.ClusterItem;
+
+public class MarkerItem implements ClusterItem {
+    LatLng location;
     String msg;
 
-    public MarkerItem(double latitude, double longitude, String msg) {
-        this.latitude = latitude;
-        this.longitude = longitude;
+    public MarkerItem(LatLng location, String msg) {
+        this.location = location;
         this.msg = msg;
     }
 
-    public String getMsg() {
-        return msg;
+    @Override
+    public LatLng getPosition() {
+        return location;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    @Override
+    public String getTitle() {
+        return null;
     }
 
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
+    @Override
+    public String getSnippet() {
+        return null;
     }
 }

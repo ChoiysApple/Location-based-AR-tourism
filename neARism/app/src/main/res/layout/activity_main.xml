@@ -27,7 +27,7 @@
             android:background="?attr/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/toolField"
             android:layout_marginTop = "8dp"
             android:layout_marginLeft="64dp"
@@ -35,7 +35,9 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+            android:completionHint="Please enter your search keyword"
+            android:completionThreshold="1"
+            android:hint="Search..."/>
 
         <Button
             android:id="@+id/fab1"
