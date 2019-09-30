@@ -2,6 +2,7 @@ package com.marchengraffiti.nearism.nearism;
 
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -38,7 +39,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
 
     List<String> list = new ArrayList<String>();
 
@@ -133,11 +134,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         parsingAPI.connection();
     }
 
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        Toast.makeText(this, marker.getTitle(), Toast.LENGTH_LONG).show();
-        return false;
-    }
+
 
     private class task extends AsyncTask<Void, String, Void> implements GoogleMap.OnMarkerClickListener {
         @Override
@@ -174,6 +171,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             mMap.addMarker(markerOptions);
 
+            // define marker click listener
             mMap.setOnMarkerClickListener(this);
         }
 
@@ -182,9 +180,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         }
 
+        // onMarkerClick
         @Override
         public boolean onMarkerClick(Marker marker) {
             Log.d("Marker", marker.getTitle());
+            Intent intent = new Intent(getApplicationContext(), placesActivity.class);
+            intent.putExtra("title", marker.getTitle());                        // send marker title to placeDetailActivity
+            startActivity(intent);                                                     // display place details
             return false;
         }
     }
