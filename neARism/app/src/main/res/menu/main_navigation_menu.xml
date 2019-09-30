@@ -14,10 +14,6 @@
             android:title="@string/menu_browse_course"
             />
         <item
-            android:id="@+id/contentsHub"
-            android:title="@string/menu_contents_hub"
-            />
-        <item
             android:id="@+id/settings"
             android:title="@string/menu_settings"
             />

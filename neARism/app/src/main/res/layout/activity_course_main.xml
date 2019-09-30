@@ -28,16 +28,16 @@
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="277dp"
+                android:layout_width="580dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:gravity="center"
                 android:text="Course List"
-                android:textSize="24dp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/add"
+                android:id="@+id/addBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"

@@ -13,6 +13,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,6 +28,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
+import com.marchengraffiti.nearism.nearism.course.CourseMainActivity;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
@@ -59,25 +65,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         new task().execute();
 
-        // 자동완성 기능 아직 오류,,
-        /*final AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
-        autoCompleteTextView.setAdapter(new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, list));
-
-        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                AutoCompleteTextView autoComplete = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
-
-                // 열려있는 키패드 닫기
-                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(autoComplete.getWindowToken(), 0);
-
-
-                // 해당 좌표로 화면 이동
-
-            }
-        });*/
-
         // [START] Drawable navigation
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -97,20 +84,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.photoGuide:
-                        Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "준비중입니다", Toast.LENGTH_LONG).show();
                         break;
 
                     case R.id.arPhotoBooth:
-                        Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "준비중입니다", Toast.LENGTH_LONG).show();
                         break;
 
                     case R.id.browseCourse:
-
-                        Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                        break;
-
-                    case R.id.contentsHub:
-                        Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(getApplicationContext(), CourseMainActivity.class);
+                        startActivity(intent);
                         break;
 
                     case R.id.settings:
@@ -168,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             markerOptions.position(position);
 
             list.add(msg);
-
+            test(list);
             mMap.addMarker(markerOptions);
 
             // define marker click listener
@@ -189,6 +172,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             startActivity(intent);                                                     // display place details
             return false;
         }
+    }
+
+    public void test(List<String> list) {
+        //Log.d("testList", String.valueOf(list));
+        final AutoCompleteTextView autoCompleteTextView = findViewById(R.id.toolField);
+        autoCompleteTextView.setAdapter(new ArrayAdapter<String>(this,
+                android.R.layout.simple_dropdown_item_1line, list));
+
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                AutoCompleteTextView autoComplete = (AutoCompleteTextView)findViewById(R.id.toolField);
+
+                // 열려있는 키패드 닫기
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(autoComplete.getWindowToken(), 0);
+
+                // 해당 좌표로 화면 이동
+                //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(, 10));
+            }
+        });
     }
 
     @Override
@@ -221,13 +224,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Import Google Map object
         mMap = googleMap;
 
-        String values = getLocation();
+        /*String values = getLocation();
         String[] value;
         value = values.split(",");
 
-        // 현재 위치로 좌표 바꿔야 함
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Double.valueOf(value[0]), Double.valueOf(value[1])), 14));
         Log.d("onMapReady", Double.valueOf(value[0]) + "/" + Double.valueOf(value[1]));
+        */
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(35.800844, 128.141912), 14));
     }
 
     final LocationListener gpsLocationListener = new LocationListener() {
