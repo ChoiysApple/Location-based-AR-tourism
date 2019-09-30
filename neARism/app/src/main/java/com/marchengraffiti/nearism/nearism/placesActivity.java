@@ -1,19 +1,8 @@
 package com.marchengraffiti.nearism.nearism;
 
-import android.app.FragmentManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
-import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
-import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,15 +25,16 @@ public class placesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.place_detail);
 
+        /*
         FragmentManager fragmentManager = getFragmentManager();
         final MapFragment mapFragment = (MapFragment)fragmentManager
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync((OnMapReadyCallback) this);
 
         final ParsingAPI parsingAPI = new ParsingAPI();
-        parsingAPI.connection();
+        parsingAPI.connection();*/
     }
-
+/*
     ImageView mainImage = findViewById(R.id.main_photo);
     TextView title = findViewById(R.id.title);
     TextView adress = findViewById(R.id.place_addr);
@@ -90,7 +80,7 @@ public class placesActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
 
         }
-    }
+    }*/
 
 }
 

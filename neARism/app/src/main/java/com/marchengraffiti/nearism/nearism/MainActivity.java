@@ -19,6 +19,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
@@ -37,7 +38,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     List<String> list = new ArrayList<String>();
 
@@ -132,6 +133,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         parsingAPI.connection();
     }
 
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        Toast.makeText(this, marker.getTitle(), Toast.LENGTH_LONG).show();
+        return false;
+    }
+
     private class task extends AsyncTask<Void, String, Void> {
         @Override
         protected void onPreExecute() {
@@ -166,6 +173,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             list.add(msg);
 
             mMap.addMarker(markerOptions);
+
+            mMap.setOnMarkerClickListener((GoogleMap.OnMarkerClickListener) this);
         }
 
         @Override
