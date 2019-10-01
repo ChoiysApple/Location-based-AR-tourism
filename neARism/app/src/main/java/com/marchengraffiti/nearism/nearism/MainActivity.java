@@ -31,6 +31,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.marchengraffiti.nearism.nearism.course.CourseMainActivity;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
+import com.marchengraffiti.nearism.nearism.map.MarkerItem;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
 
 import java.util.ArrayList;
@@ -47,7 +48,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
 
+    Marker marker;
     List<String> list = new ArrayList<String>();
+    List<Double> latlist = new ArrayList<Double>();
+    List<Double> lnglist = new ArrayList<Double>();
+    List<MarkerItem> markerList = new ArrayList<MarkerItem>();
 
     GoogleMap mMap;
     double lati, longi;
@@ -146,14 +151,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             LatLng position = new LatLng(latitude, longitude);
 
-            MarkerOptions markerOptions = new MarkerOptions();
-            markerOptions.title(msg);
-            markerOptions.position(position);
+            marker = mMap.addMarker(new MarkerOptions()
+                    .position(position)
+                    .title(msg)
+            );
 
-            list.add(msg);
-            test(list);
-            mMap.addMarker(markerOptions);
-
+            MarkerItem markerItem = new MarkerItem(latitude, longitude, msg);
+            markerList.add(markerItem);
+            if(markerList.size() == 56)
+                autoComplete(markerList);
             // define marker click listener
             mMap.setOnMarkerClickListener(this);
         }
@@ -174,8 +180,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    public void test(List<String> list) {
-        //Log.d("testList", String.valueOf(list));
+    public void autoComplete(final List<MarkerItem> markerList) {
+
+        for(int i=0; i<markerList.size(); i++) {
+            list.add(markerList.get(i).getMsg());
+            latlist.add(markerList.get(i).getLat());
+            lnglist.add(markerList.get(i).getLng());
+        }
+
+        //Log.d("testList", "latlist : " + String.valueOf(latlist));
+        //Log.d("testList", "lnglist : " + String.valueOf(lnglist));
+
         final AutoCompleteTextView autoCompleteTextView = findViewById(R.id.toolField);
         autoCompleteTextView.setAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, list));
@@ -188,8 +203,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(autoComplete.getWindowToken(), 0);
 
-                // 해당 좌표로 화면 이동
-                //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(, 10));
+                for(int i=0; i<list.size(); i++) {
+                    if(String.valueOf(autoComplete.getText()).equals(list.get(i))) {
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latlist.get(i), lnglist.get(i)), 18));
+                    }
+                }
+
             }
         });
     }
