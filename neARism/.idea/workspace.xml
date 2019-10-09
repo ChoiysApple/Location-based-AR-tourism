@@ -13,7 +13,7 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CUSTOM_FILTER" value="testList" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="CMakeSettings">
@@ -21,9 +21,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90678c6f-1e26-43e0-871d-2ffb45bf33c7" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle____local_aars___C__Users_P_Documents_GitHub_Location_based_AR_tourism_neARism_app_libs_unity_classes_jar_unspecified_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/MarkerItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/MarkerItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +44,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="ce041824300f889f0d7e" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_28" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -87,78 +94,28 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="212" column="38" selection-start-line="212" selection-start-column="38" selection-end-line="212" selection-end-column="38" />
+            <state relative-caret-position="585">
+              <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
               <folding>
-                <element signature="e#1722#1730#0" expanded="true" />
-                <element signature="e#1967#1975#0" expanded="true" />
-                <element signature="e#2019#2027#0" expanded="true" />
-                <element signature="e#1974#1986#0" expanded="true" />
-                <element signature="e#3913#3941#0" />
-                <element signature="e#4855#5030#0" expanded="true" />
-                <element signature="e#5029#5030#0" expanded="true" />
+                <element signature="e#2610#2790#0" expanded="true" />
+                <element signature="e#2789#2790#0" expanded="true" />
+                <element signature="e#5333#5508#0" expanded="true" />
+                <element signature="e#5507#5508#0" expanded="true" />
+                <element signature="e#7613#8394#0" expanded="true" />
+                <element signature="e#8393#8394#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_course.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2085">
-              <caret line="139" column="47" selection-start-line="139" selection-start-column="47" selection-end-line="139" selection-end-column="47" />
+            <state relative-caret-position="375">
+              <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
             </state>
           </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/AddCourseActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="88" column="97" selection-start-line="88" selection-start-column="97" selection-end-line="88" selection-end-column="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_course_detail.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="53" selection-end-line="80" selection-end-column="15" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/ChooseCourseActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseDetailActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="44" column="64" selection-start-line="44" selection-start-column="64" selection-end-line="44" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseMainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="85" column="19" selection-start-line="76" selection-start-column="16" selection-end-line="85" selection-end-column="19" />
-            </state>
-          </provider>
+          <provider editor-type-id="android-manifest" />
         </entry>
       </file>
     </leaf>
@@ -228,7 +185,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_course_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/placesActivity.java" />
         <option value="$PROJECT_DIR$/local.properties" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/course_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseDetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_course_main.xml" />
@@ -239,6 +195,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/ChooseCourseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/AddCourseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/MarkerItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/unity/UnityPlayerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java" />
       </list>
     </option>
@@ -254,7 +212,55 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
+            </path>
+            <path>
+              <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="nearism" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="nearism" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="unity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="neARism" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\P\Documents\GitHub\Location-based-AR-tourism\neARism" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -271,6 +277,12 @@
               <item name="neARism" type="b2602c69:ProjectViewProjectNode" />
               <item name="neARism" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="neARism" type="b2602c69:ProjectViewProjectNode" />
+              <item name="neARism" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -279,30 +291,12 @@
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="neARism" type="b2602c69:ProjectViewProjectNode" />
-              <item name="neARism" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="neARism" type="b2602c69:ProjectViewProjectNode" />
-              <item name="neARism" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -316,8 +310,10 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\P\Documents\GitHub\Location-based-AR-tourism\neARism\app\src\main\java\com\marchengraffiti\nearism\nearism\map" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\P\Documents\GitHub\Location-based-AR-tourism\neARism\app\src\main\res\drawable" />
+      <recent name="C:\Users\ChoiysApple\Documents\GitHub\Location-based-AR-tourism\neARism\app\src\main\res\layout" />
+      <recent name="C:\Users\ChoiysApple\Documents\GitHub\Location-based-AR-tourism\neARism\app" />
     </key>
     <key name="android.template.packageName">
       <recent name="com.marchengraffiti.nearism.nearism.course" />
@@ -325,10 +321,8 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.marchengraffiti.nearism.nearism" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\P\Documents\GitHub\Location-based-AR-tourism\neARism\app\src\main\res\drawable" />
-      <recent name="C:\Users\ChoiysApple\Documents\GitHub\Location-based-AR-tourism\neARism\app\src\main\res\layout" />
-      <recent name="C:\Users\ChoiysApple\Documents\GitHub\Location-based-AR-tourism\neARism\app" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\P\Documents\GitHub\Location-based-AR-tourism\neARism\app\src\main\java\com\marchengraffiti\nearism\nearism\map" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -507,7 +501,7 @@
       <window_info id="Image Layers" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
-      <window_info content_ui="combo" id="Project" order="7" weight="0.5104022" />
+      <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.14697987" />
       <window_info id="Resources Explorer" order="8" weight="0.32871014" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32998565" />
@@ -519,7 +513,7 @@
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49798658" weight="0.26666668" />
       <window_info anchor="bottom" id="Android Profiler" order="8" weight="0.12624113" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50201344" side_tool="true" weight="0.2212766" />
-      <window_info active="true" anchor="bottom" x="27" y="462" width="1490" height="218" id="Logcat" order="10" sideWeight="0.49731544" visible="true" weight="0.18297872" />
+      <window_info anchor="bottom" x="27" y="462" width="1490" height="218" id="Logcat" order="10" sideWeight="0.49731544" weight="0.587234" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32765958" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32907802" />
       <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
@@ -572,16 +566,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/google-services.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="26090" column="13" selection-start-line="26090" selection-start-column="13" selection-end-line="26090" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/sign_in.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1539">
@@ -589,9 +573,6 @@
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/RecyclerAdapter.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/Item.java" />
@@ -717,13 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/CourseRead.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -773,14 +747,6 @@
           <caret line="84" column="1" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/course_item.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -908,18 +874,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/unity/UnityPlayerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="54" column="31" lean-forward="true" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="212" column="38" selection-start-line="212" selection-start-column="38" selection-end-line="212" selection-end-column="38" />
+        <state relative-caret-position="585">
+          <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
           <folding>
-            <element signature="e#1722#1730#0" expanded="true" />
-            <element signature="e#1967#1975#0" expanded="true" />
-            <element signature="e#2019#2027#0" expanded="true" />
-            <element signature="e#1974#1986#0" expanded="true" />
-            <element signature="e#3913#3941#0" />
-            <element signature="e#4855#5030#0" expanded="true" />
-            <element signature="e#5029#5030#0" expanded="true" />
+            <element signature="e#2610#2790#0" expanded="true" />
+            <element signature="e#2789#2790#0" expanded="true" />
+            <element signature="e#5333#5508#0" expanded="true" />
+            <element signature="e#5507#5508#0" expanded="true" />
+            <element signature="e#7613#8394#0" expanded="true" />
+            <element signature="e#8393#8394#0" expanded="true" />
           </folding>
         </state>
       </provider>

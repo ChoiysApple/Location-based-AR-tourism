@@ -18,6 +18,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -33,6 +34,7 @@ import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.map.MarkerItem;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
+import com.marchengraffiti.nearism.nearism.unity.UnityPlayerActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +49,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
+
+    Button fab2;
 
     Marker marker;
     List<String> list = new ArrayList<String>();
@@ -69,6 +73,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_main);
 
         new task().execute();
+
+        fab2 = findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UnityPlayerActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // [START] Drawable navigation
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
