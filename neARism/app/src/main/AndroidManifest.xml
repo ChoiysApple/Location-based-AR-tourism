@@ -14,12 +14,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory">
-        <activity
-            android:screenOrientation="fullSensor" android:launchMode="singleTask"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
-            android:hardwareAccelerated="false" android:name=".unity.UnityPlayerActivity">
-
-        </activity>
         <activity android:name=".course.ChooseCourseActivity"></activity>
         <activity android:name=".course.AddCourseActivity" />
         <activity android:name=".course.CourseDetailActivity" />
