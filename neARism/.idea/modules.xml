@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Location-based-AR-tourism-neARism.iml" filepath="$PROJECT_DIR$/Location-based-AR-tourism-neARism.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/neARism.iml" filepath="$PROJECT_DIR$/neARism.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/neARism-app.iml" filepath="$PROJECT_DIR$/app/neARism-app.iml" />
     </modules>
   </component>
 </project>
