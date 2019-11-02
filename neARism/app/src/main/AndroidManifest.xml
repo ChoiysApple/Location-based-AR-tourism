@@ -29,6 +29,7 @@
         <activity android:name=".course.CourseDetailActivity" />
         <activity android:name=".course.CourseMainActivity" />
         <activity android:name=".sign.SignUp" />
+        <activity android:name=".cameraMainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
