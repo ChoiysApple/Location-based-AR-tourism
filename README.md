@@ -1,7 +1,7 @@
 ﻿# Location-based-AR-tourism
 > Android application provides location based tourism &amp; photo service
 
-One to two paragraph statement about your product and what it does.
+
 
 ![](header.png)
 
