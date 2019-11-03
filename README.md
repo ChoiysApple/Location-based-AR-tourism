@@ -18,8 +18,8 @@ One to two paragraph statement about your product and what it does.
 
 
 ## Tech Stack
-*Android Studio
-*Firebase
-*Tensorflow
-*MobileNet
-*AR Core
+* Android Studio
+* Firebase
+* Tensorflow
+* MobileNet
+* AR Core
