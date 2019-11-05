@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "471978669567",
+    "firebase_url": "https://nearism.firebaseio.com",
+    "project_id": "nearism",
+    "storage_bucket": "nearism.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471978669567:android:c5a11f6fa7cac613",
+        "android_client_info": {
+          "package_name": "com.marchengraffiti.nearism.nearism"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471978669567-56jech92n35ck3qgd72b23b5lphmiqkj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.marchengraffiti.nearism.nearism",
+            "certificate_hash": "f0fc1429813d1fd14549458e4269527d897dc4b1"
+          }
+        },
+        {
+          "client_id": "471978669567-ekemfglt30f3du5k8cv9c97m70pavj2c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.marchengraffiti.nearism.nearism",
+            "certificate_hash": "d96d3a53f1549ea9619275487ad1e6182a47ddd0"
+          }
+        },
+        {
+          "client_id": "471978669567-8gq0ltgcislc89udjgffnp0t33aqr2mk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJrFlOU7R5t42RwRwwOUXbQ8IDO9Gh3AA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471978669567-8gq0ltgcislc89udjgffnp0t33aqr2mk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
