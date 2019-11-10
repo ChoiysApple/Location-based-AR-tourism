@@ -1,0 +1,69 @@
+{
+  animations: [
+    {
+      path: 'sampledata/models/pagoda.fbx',
+    },
+  ],
+  materials: [
+    {
+      name: 'Material.002',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'texture',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/pagoda.fbx',
+    name: 'pagoda',
+    recenter: 'root',
+    scale: 0.168018 * 0.6,
+  },
+  samplers: [
+    {
+      file: 'sampledata/models\\texture.png',
+      name: 'texture',
+      pipeline_name: 'texture.png',
+    },
+  ],
+  version: '0.54:2',
+}

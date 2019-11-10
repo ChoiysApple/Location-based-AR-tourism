@@ -64,6 +64,24 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:src="@drawable/seoultower" />
+
+        <ImageView
+            android:id="@+id/weapon"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/weapon" />
+
+        <ImageView
+            android:id="@+id/ship"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ship" />
+
+        <ImageView
+            android:id="@+id/temple"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/temple" />
       </LinearLayout>
     </HorizontalScrollView>
 

@@ -189,6 +189,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             Log.d("Marker", marker.getTitle());
             Intent intent = new Intent(getApplicationContext(), placesActivity.class);
             intent.putExtra("title", marker.getTitle());                        // send marker title to placeDetailActivity
+            intent.putExtra("lat", marker.getPosition().latitude+"");
+            intent.putExtra("lng", marker.getPosition().longitude+"");
+
             startActivity(intent);                                                     // display place details
             return false;
         }

@@ -43,9 +43,7 @@ import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.ArSceneView;
-import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.ModelRenderable;
-import com.google.ar.sceneform.rendering.ViewRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 import com.marchengraffiti.nearism.nearism.R;
@@ -69,10 +67,11 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
     private static final double MIN_OPENGL_VERSION = 3.0;
 
     private ArFragment arFragment;
-    private ModelRenderable deoksugungRenderable, seoultowerRenderable;
-    ImageView deoksugung, seoultower;
+    private ModelRenderable deoksugungRenderable, seoultowerRenderable,
+                            weaponRenderable, shipRenderable, templeRenderable;
+    ImageView deoksugung, seoultower, weapon, ship, temple;
+
     View arrayView[];
-    ViewRenderable name_asset;
     int selected = 1;
 
     private static final String CAPTURE_PATH = "/CAPTURE_TEST";
@@ -93,8 +92,12 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
 
         Button photoBtn = findViewById(R.id.photoBtn);
         photoBtn.setOnClickListener(v -> takePhoto());
+
         deoksugung = (ImageView) findViewById(R.id.deoksugung);
         seoultower = (ImageView) findViewById(R.id.seoultower);
+        weapon = (ImageView) findViewById(R.id.weapon);
+        ship = (ImageView) findViewById(R.id.ship);
+        temple = (ImageView) findViewById(R.id.temple);
 
         ImageButton back = findViewById(R.id.back);
         back.setOnClickListener(v -> finish());
@@ -124,9 +127,9 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
 
 
     private void createModel(AnchorNode anchorNode, int selected) {
+
         if (selected == 1) {
             TransformableNode deoksugung = new TransformableNode(arFragment.getTransformationSystem());
-            deoksugung.setLocalScale(new Vector3(0.7f, 0.7f, 0.7f));
             deoksugung.setParent(anchorNode);
             deoksugung.setRenderable(deoksugungRenderable);
             deoksugung.select();
@@ -134,10 +137,30 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
 
         if (selected == 2) {
             TransformableNode seoultower = new TransformableNode(arFragment.getTransformationSystem());
-            seoultower.setLocalScale(new Vector3(0.7f, 0.7f, 0.7f));
             seoultower.setParent(anchorNode);
             seoultower.setRenderable(seoultowerRenderable);
             seoultower.select();
+        }
+
+        if (selected == 3) {
+            TransformableNode weapon = new TransformableNode(arFragment.getTransformationSystem());
+            weapon.setParent(anchorNode);
+            weapon.setRenderable(weaponRenderable);
+            weapon.select();
+        }
+
+        if (selected == 4) {
+            TransformableNode ship = new TransformableNode(arFragment.getTransformationSystem());
+            ship.setParent(anchorNode);
+            ship.setRenderable(shipRenderable);
+            ship.select();
+        }
+
+        if (selected == 5) {
+            TransformableNode temple = new TransformableNode(arFragment.getTransformationSystem());
+            temple.setParent(anchorNode);
+            temple.setRenderable(templeRenderable);
+            temple.select();
         }
     }
 
@@ -166,6 +189,45 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                             toast.setGravity(Gravity.CENTER, 0, 0);
                             toast.show();
                             return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.ancient_weapons_pack)
+                .build()
+                .thenAccept(renderable -> weaponRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load weapon renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.ancientwarships)
+                .build()
+                .thenAccept(renderable -> shipRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load ship renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.pagoda)
+                .build()
+                .thenAccept(renderable -> templeRenderable = renderable)
+                .exceptionally(
+                            throwable -> {
+                                Toast toast =
+                                        Toast.makeText(this, "Unable to load temple renderable", Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.CENTER, 0, 0);
+                                toast.show();
+                                return null;
                         });
     }
 
@@ -206,7 +268,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
 
     private void setArrayView() {
         arrayView = new View[]{
-                deoksugung, seoultower
+                deoksugung, seoultower, weapon, ship, temple
         };
     }
 
@@ -216,6 +278,12 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             selected = 1;
         else if (view.getId() == R.id.seoultower)
             selected = 2;
+        else if (view.getId() == R.id.weapon)
+            selected = 3;
+        else if (view.getId() == R.id.ship)
+            selected = 4;
+        else if (view.getId() == R.id.temple)
+            selected = 5;
     }
 
     private String generateFilename() {

@@ -1,0 +1,304 @@
+fileFormatVersion: 2
+guid: 6ba8c925235658a4eb1d520bef58d551
+timeCreated: 1545557210
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: box01
+    100004: box02
+    100006: box03
+    100008: box04
+    100010: box05
+    100012: box06
+    100014: box07
+    100016: box08
+    100018: box09
+    100020: box10
+    100022: box11
+    100024: cart
+    100026: cloth01
+    100028: shield
+    100030: Weapon rack01
+    100032: Weapon rack02
+    100034: weapon01
+    100036: weapon02
+    100038: weapon03
+    100040: weapon05
+    100042: weapon06
+    100044: weapon07
+    100046: weapon08
+    100048: weapon09
+    100050: weapon10
+    100052: weapon11
+    100054: weapon12
+    100056: weapon13
+    100058: weapon13 1
+    100060: weapon14
+    100062: weapon15
+    100064: weapon16
+    100066: weapon17
+    100068: weapon18
+    100070: weapon19
+    100072: weapon20
+    100074: weapon21
+    100076: weapon22
+    100078: weapon23
+    100080: weapon24
+    100082: weapon25
+    100084: weapon26
+    100086: weapon27
+    100088: weapon28
+    100090: weapon29
+    400000: //RootNode
+    400002: box01
+    400004: box02
+    400006: box03
+    400008: box04
+    400010: box05
+    400012: box06
+    400014: box07
+    400016: box08
+    400018: box09
+    400020: box10
+    400022: box11
+    400024: cart
+    400026: cloth01
+    400028: shield
+    400030: Weapon rack01
+    400032: Weapon rack02
+    400034: weapon01
+    400036: weapon02
+    400038: weapon03
+    400040: weapon05
+    400042: weapon06
+    400044: weapon07
+    400046: weapon08
+    400048: weapon09
+    400050: weapon10
+    400052: weapon11
+    400054: weapon12
+    400056: weapon13
+    400058: weapon13 1
+    400060: weapon14
+    400062: weapon15
+    400064: weapon16
+    400066: weapon17
+    400068: weapon18
+    400070: weapon19
+    400072: weapon20
+    400074: weapon21
+    400076: weapon22
+    400078: weapon23
+    400080: weapon24
+    400082: weapon25
+    400084: weapon26
+    400086: weapon27
+    400088: weapon28
+    400090: weapon29
+    2300000: box01
+    2300002: box02
+    2300004: box03
+    2300006: box04
+    2300008: box05
+    2300010: box06
+    2300012: box07
+    2300014: box08
+    2300016: box09
+    2300018: box10
+    2300020: box11
+    2300022: cart
+    2300024: cloth01
+    2300026: shield
+    2300028: Weapon rack01
+    2300030: Weapon rack02
+    2300032: weapon01
+    2300034: weapon02
+    2300036: weapon03
+    2300038: weapon05
+    2300040: weapon06
+    2300042: weapon07
+    2300044: weapon08
+    2300046: weapon09
+    2300048: weapon10
+    2300050: weapon11
+    2300052: weapon12
+    2300054: weapon13
+    2300056: weapon13 1
+    2300058: weapon14
+    2300060: weapon15
+    2300062: weapon16
+    2300064: weapon17
+    2300066: weapon18
+    2300068: weapon19
+    2300070: weapon20
+    2300072: weapon21
+    2300074: weapon22
+    2300076: weapon23
+    2300078: weapon24
+    2300080: weapon25
+    2300082: weapon26
+    2300084: weapon27
+    2300086: weapon28
+    2300088: weapon29
+    3300000: box01
+    3300002: box02
+    3300004: box03
+    3300006: box04
+    3300008: box05
+    3300010: box06
+    3300012: box07
+    3300014: box08
+    3300016: box09
+    3300018: box10
+    3300020: box11
+    3300022: cart
+    3300024: cloth01
+    3300026: shield
+    3300028: Weapon rack01
+    3300030: Weapon rack02
+    3300032: weapon01
+    3300034: weapon02
+    3300036: weapon03
+    3300038: weapon05
+    3300040: weapon06
+    3300042: weapon07
+    3300044: weapon08
+    3300046: weapon09
+    3300048: weapon10
+    3300050: weapon11
+    3300052: weapon12
+    3300054: weapon13
+    3300056: weapon13 1
+    3300058: weapon14
+    3300060: weapon15
+    3300062: weapon16
+    3300064: weapon17
+    3300066: weapon18
+    3300068: weapon19
+    3300070: weapon20
+    3300072: weapon21
+    3300074: weapon22
+    3300076: weapon23
+    3300078: weapon24
+    3300080: weapon25
+    3300082: weapon26
+    3300084: weapon27
+    3300086: weapon28
+    3300088: weapon29
+    4300000: weapon26
+    4300002: weapon29
+    4300004: cloth01
+    4300006: box04
+    4300008: weapon25
+    4300010: weapon15
+    4300012: Weapon rack01
+    4300014: box11
+    4300016: weapon01
+    4300018: weapon02
+    4300020: cart
+    4300022: box10
+    4300024: box09
+    4300026: weapon03
+    4300028: weapon06
+    4300030: weapon10
+    4300032: weapon12
+    4300034: Weapon rack02
+    4300036: box01
+    4300038: box02
+    4300040: box03
+    4300042: box05
+    4300044: box06
+    4300046: box07
+    4300048: box08
+    4300050: weapon05
+    4300052: weapon07
+    4300054: weapon08
+    4300056: weapon09
+    4300058: weapon11
+    4300060: weapon13
+    4300062: weapon13
+    4300064: weapon14
+    4300066: weapon16
+    4300068: weapon17
+    4300070: weapon18
+    4300072: weapon19
+    4300074: weapon20
+    4300076: weapon21
+    4300078: weapon22
+    4300080: weapon23
+    4300082: weapon24
+    4300084: shield
+    4300086: weapon27
+    4300088: weapon28
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,36 +8,31 @@
 <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <Button
+    <ImageButton
         android:id="@+id/back"
         android:layout_width="57dp"
         android:layout_height="34dp"
         android:layout_gravity="left|top"
         android:layout_margin="4dp"
-        android:text="Back"
-        android:textSize="8dp"
+        android:src="@drawable/back"
+        android:background="@android:color/transparent"
         android:visibility="visible" />
 
-        <ImageView
-            android:id = "@+id/main_photo"
-            android:layout_width="match_parent"
-            android:layout_height="128dp"
-            android:src="@drawable/sample_background"/>
-
-
-</FrameLayout>
+    <ImageView
+        android:id = "@+id/main_photo"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:src="@drawable/sample_background"/>
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/title"
-        android:textSize="32dp"
+        android:textSize="25dp"
         android:layout_gravity="left"
         android:layout_margin="16dp"
         android:textStyle="bold"/>
@@ -49,14 +44,14 @@
         android:layout_marginBottom="4dp"
         android:layout_marginLeft="16dp">
 
-    <TextView
-        android:id="@+id/Location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Location"
-        android:textSize="16dp"
-        android:layout_gravity="left"
-        android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/Location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:textSize="16dp"
+            android:layout_gravity="left"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/place_addr"
@@ -66,7 +61,8 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:text="Address details"
-            android:textSize="16dp" />
+            android:textSize="14dp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -88,8 +84,6 @@
         android:layout_gravity="left"
         android:layout_margin="16dp"
         android:textStyle="bold"/>
-
-
 
 </LinearLayout>
 </ScrollView>
