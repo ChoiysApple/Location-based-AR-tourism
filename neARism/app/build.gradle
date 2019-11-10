@@ -46,14 +46,14 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // firebase implementation
-    implementation 'com.google.firebase:firebase-database:19.0.0'
-    implementation 'com.google.firebase:firebase-auth:19.0.0'
-    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-database:19.2.0'
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.google.firebase:firebase-core:17.2.1'
 
     // Sceneform
-    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.12.0"
-    implementation "com.google.ar.sceneform:core:1.12.0"
-    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.6.0"
+    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.13.0"
+    implementation "com.google.ar.sceneform:core:1.13.0"
+    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.13.0"
 
 }
 
