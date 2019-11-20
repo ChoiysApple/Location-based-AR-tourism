@@ -38,7 +38,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".sign.SignIn" />
-        <activity android:name=".placesActivity" />
+        <activity android:name=".place.placesActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

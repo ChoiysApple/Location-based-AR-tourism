@@ -43,6 +43,7 @@ import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.map.MarkerItem;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
+import com.marchengraffiti.nearism.nearism.place.placesActivity;
 
 import java.util.ArrayList;
 import java.util.List;
