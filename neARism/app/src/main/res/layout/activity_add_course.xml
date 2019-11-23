@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="4dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/add_circle_btn"
+                android:visibility="visible" />
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_image" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Course Title"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:layout_margin="16dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Estimated Time : "
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"/>
+
+            <EditText
+                android:id='@+id/hourEditText'
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="h"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginRight="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hours"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginRight="5dp"/>
+
+            <EditText
+                android:id='@+id/minuteEditText'
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="m"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginRight="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Minutes"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cost : "
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"/>
+
+            <EditText
+                android:id='@+id/costEditText'
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="$"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginRight="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dollars"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginRight="5dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/choose_course"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:src="@drawable/choose_course" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="200dp">
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:id="@+id/cancelBtn"
+                android:layout_margin="5dp"
+                android:text="Cancel"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:id="@+id/addCourseBtn"
+                android:layout_margin="5dp"
+                android:text="Add"
+                android:textSize="20dp"
+                android:textColor="#FF8224"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
