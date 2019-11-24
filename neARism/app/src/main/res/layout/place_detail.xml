@@ -85,5 +85,24 @@
         android:layout_margin="16dp"
         android:textStyle="bold"/>
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/gallaryList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    </HorizontalScrollView>
 </LinearLayout>
 </ScrollView>
