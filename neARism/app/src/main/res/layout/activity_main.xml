@@ -18,6 +18,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true">
 
+
             <fragment
                 android:id="@+id/map"
                 android:layout_width="match_parent"
@@ -25,27 +26,31 @@
                 class="com.google.android.gms.maps.MapFragment" />
 
 
-
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_margin = "8dp"
+                android:layout_margin = "16dp"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark" >
+                android:background="@drawable/view_style"
+                android:theme="@style/Widget.AppCompat.DrawerArrowToggle">
+
+                <AutoCompleteTextView
+                    android:id="@+id/toolField"
+                    android:padding="8dp"
+                    android:layout_marginTop = "8dp"
+                    android:layout_marginLeft="54dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/colorPrimary"
+                    android:completionHint="Please enter your search keyword"
+                    android:completionThreshold="1"
+                    android:hint="Search..."
+                    android:textColorHint="@color/colorPrimaryDark"/>
+
             </androidx.appcompat.widget.Toolbar>
 
-            <AutoCompleteTextView
-                android:id="@+id/toolField"
-                android:layout_marginTop = "8dp"
-                android:layout_marginLeft="64dp"
-                android:layout_marginRight="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                android:completionHint="Please enter your search keyword"
-                android:completionThreshold="1"
-                android:hint="Search..."/>
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -58,8 +63,8 @@
                 app:backgroundTint="#ffffff"
                 app:layout_anchor="@id/map"
                 app:layout_anchorGravity="bottom|right|end"
-                app:pressedTranslationZ="12dp">
-
+                app:pressedTranslationZ="12dp"
+                android:src="@drawable/where">
             </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -69,12 +74,13 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="@dimen/fabMarginBottom"
-                android:text="A"
+                android:text="AR"
                 app:backgroundTint="#ffffff"
                 app:elevation="6dp"
                 app:layout_anchor="@id/map"
                 app:layout_anchorGravity="bottom|center_horizontal"
-                app:pressedTranslationZ="12dp" />
+                app:pressedTranslationZ="12dp"
+                android:src="@drawable/focus"/>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab3"
@@ -83,14 +89,17 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="@dimen/fabMarginBottom"
-                android:text="A"
+                android:text="P"
                 app:backgroundTint="#ffffff"
                 app:elevation="6dp"
                 app:layout_anchor="@id/map"
                 app:layout_anchorGravity="bottom|left|end"
-                app:pressedTranslationZ="12dp" />
+                app:pressedTranslationZ="12dp"
+                android:src="@drawable/photo"/>
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 
     </FrameLayout>
 
