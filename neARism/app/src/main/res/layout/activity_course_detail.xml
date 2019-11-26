@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -31,9 +32,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title"
-            android:textSize="32dp"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
             android:layout_gravity="left"
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
             android:textStyle="bold"/>
 
         <LinearLayout
@@ -65,7 +67,12 @@
         </LinearLayout>
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <LinearLayout
+        android:id="@+id/list_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -77,5 +84,26 @@
             android:choiceMode="singleChoice"
             android:dividerHeight="1.5dp" />
     </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/list_layout"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:background="@android:color/white">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/accent_style"
+        android:text="안내 시작"
+        android:textColor="@android:color/white"
+        tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>
