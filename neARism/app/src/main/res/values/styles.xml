@@ -17,4 +17,8 @@
     <item name="android:windowBackground">@android:color/transparent</item>
 </style>
 
+    <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/black</item>
+    </style>
+
 </resources>

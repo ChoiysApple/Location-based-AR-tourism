@@ -13,60 +13,84 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <fragment
-            android:id="@+id/map"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            class="com.google.android.gms.maps.MapFragment" />
+            android:fitsSystemWindows="true">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_margin = "8dp"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+            <fragment
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                class="com.google.android.gms.maps.MapFragment" />
 
-        <AutoCompleteTextView
-            android:id="@+id/toolField"
-            android:layout_marginTop = "8dp"
-            android:layout_marginLeft="64dp"
-            android:layout_marginRight="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:completionHint="Please enter your search keyword"
-            android:completionThreshold="1"
-            android:hint="Search..."/>
 
-        <Button
-            android:id="@+id/fab1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
-            android:visibility="visible"
-            android:text = "A"
-            app:backgroundTint="#ffffff" />
-        <Button
-            android:id="@+id/fab2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_margin="16dp"
-            android:visibility="visible"
-            android:text = "AR"
-            android:textSize="32dp"
-            app:backgroundTint="#ffffff" />
-        <Button
-            android:id="@+id/fab3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|left"
-            android:layout_margin="16dp"
-            android:visibility="visible"
-            android:text = "P"
-            app:backgroundTint="#ffffff" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_margin = "8dp"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark" >
+            </androidx.appcompat.widget.Toolbar>
+
+            <AutoCompleteTextView
+                android:id="@+id/toolField"
+                android:layout_marginTop = "8dp"
+                android:layout_marginLeft="64dp"
+                android:layout_marginRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:completionHint="Please enter your search keyword"
+                android:completionThreshold="1"
+                android:hint="Search..."/>
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="@dimen/fabMarginBottom"
+                app:backgroundTint="#ffffff"
+                app:layout_anchor="@id/map"
+                app:layout_anchorGravity="bottom|right|end"
+                app:pressedTranslationZ="12dp">
+
+            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="@dimen/fabMarginBottom"
+                android:text="A"
+                app:backgroundTint="#ffffff"
+                app:elevation="6dp"
+                app:layout_anchor="@id/map"
+                app:layout_anchorGravity="bottom|center_horizontal"
+                app:pressedTranslationZ="12dp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="@dimen/fabMarginBottom"
+                android:text="A"
+                app:backgroundTint="#ffffff"
+                app:elevation="6dp"
+                app:layout_anchor="@id/map"
+                app:layout_anchorGravity="bottom|left|end"
+                app:pressedTranslationZ="12dp" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </FrameLayout>
 
@@ -80,3 +104,4 @@
     </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
+
