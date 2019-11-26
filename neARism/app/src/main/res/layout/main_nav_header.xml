@@ -23,6 +23,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="7dp"
         android:textColor="#111111"
-        android:layout_below="@+id/imageView"/>
+        android:layout_below="@+id/imageView"
+        android:textStyle="bold"
+        android:textSize="20dp"/>
 
 </RelativeLayout>
