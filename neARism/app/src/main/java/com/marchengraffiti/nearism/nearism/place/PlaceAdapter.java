@@ -56,7 +56,6 @@ public class PlaceAdapter extends BaseAdapter {
 
         final PlaceItem placeItem = data.get(position);
         gallaryImg = convertView.findViewById(R.id.gallaryImg);
-        Log.d("jsonResult222", "placeAdapter: " + gallaryImg);
         imgURL = placeItem.getGallaryImg();
 
         Thread mThread = new Thread() {

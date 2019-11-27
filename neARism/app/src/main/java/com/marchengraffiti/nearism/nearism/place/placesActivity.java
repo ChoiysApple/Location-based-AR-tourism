@@ -52,7 +52,7 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
     TextView title, address;
     ImageButton back;
 
-    ArrayList<PlaceItem> data = new ArrayList<>();
+    static ArrayList<PlaceItem> data = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -220,11 +220,12 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
                     e.printStackTrace();
                 }
                 Log.d("jsonResult222", "data: " + data);
-                //PlaceAdapter adapter = new PlaceAdapter(getApplicationContext(), R.layout.place_detail_item, data);
-                //listView.setAdapter(adapter);
+
             }
         }.start();
 
+        PlaceAdapter adapter = new PlaceAdapter(getApplicationContext(), R.layout.place_detail_item, data);
+        listView.setAdapter(adapter);
 
     }
 }
