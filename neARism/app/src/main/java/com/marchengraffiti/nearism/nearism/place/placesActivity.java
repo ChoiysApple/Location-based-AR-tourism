@@ -1,15 +1,17 @@
-package com.marchengraffiti.nearism.nearism;
+package com.marchengraffiti.nearism.nearism.place;
 
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -18,20 +20,30 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.marchengraffiti.nearism.nearism.R;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class placesActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    GoogleMap mMap;
+    String ogImage;
+    BufferedReader br = null;
+    URL url;
 
+    GoogleMap mMap;
     String[] mapValue;
     String placeTitle, addr1, firstimage;
 
@@ -40,7 +52,7 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
     TextView title, address;
     ImageButton back;
 
-    static ArrayList<PlaceItem> data = new ArrayList<>();
+    ArrayList<PlaceItem> data = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,41 +118,21 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
             lat = Double.valueOf(intent.getStringExtra("lat"));
             lng = Double.valueOf(intent.getStringExtra("lng"));
 
-            //if(cid.equals(intent.getStringExtra("cid"))) {
             if(placeTitle.equals(intent.getStringExtra("title"))) {
+                // gallary
+                imageJsonParsing(placeTitle);
+
+                // map fragment
                 mMap.addMarker(new MarkerOptions()
                         .position(new LatLng(lat, lng))
                         .title(intent.getStringExtra("title")));
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), 14));
 
+                // text
                 title.setText(placeTitle);
                 address.setText(addr1);
 
-                Thread mThread = new Thread() {
-                    @Override
-                    public void run() {
-                        try {
-                            URL url = new URL(firstimage);
-                            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                            conn.setDoInput(true);
-                            conn.connect();
-
-                            InputStream is = conn.getInputStream();
-                            bitmap = BitmapFactory.decodeStream(is);
-                        } catch (IOException ex) {
-
-                        }
-                    }
-                };
-
-                mThread.start();
-
-                try {
-                    mThread.join();
-                    mainImage.setImageBitmap(bitmap);
-                } catch (InterruptedException e) {
-
-                }
+                setMainImage();
             }
 
             //mMap.addMarker(markerOptions);
@@ -148,6 +140,34 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
 
         @Override
         protected void onPostExecute(Void aVoid) {
+
+        }
+    }
+
+    public void setMainImage() {
+        Thread mThread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    URL imgurl = new URL(firstimage);
+                    HttpURLConnection connection = (HttpURLConnection) imgurl.openConnection();
+                    connection.setDoInput(true);
+                    connection.connect();
+
+                    InputStream ist = connection.getInputStream();
+                    bitmap = BitmapFactory.decodeStream(ist);
+                } catch (IOException ex) {
+
+                }
+            }
+        };
+
+        mThread.start();
+
+        try {
+            mThread.join();
+            mainImage.setImageBitmap(bitmap);
+        } catch (InterruptedException e) {
 
         }
     }
@@ -200,12 +220,12 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
                     e.printStackTrace();
                 }
                 Log.d("jsonResult222", "data: " + data);
-
+                //PlaceAdapter adapter = new PlaceAdapter(getApplicationContext(), R.layout.place_detail_item, data);
+                //listView.setAdapter(adapter);
             }
         }.start();
 
-        PlaceAdapter adapter = new PlaceAdapter(getApplicationContext(), R.layout.place_detail_item, data);
-        listView.setAdapter(adapter);
 
     }
 }
+

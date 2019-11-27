@@ -33,6 +33,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -44,7 +45,9 @@ import com.marchengraffiti.nearism.nearism.course.CourseMainActivity;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.map.MarkerItem;
+import com.marchengraffiti.nearism.nearism.parsing.FourSquare;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
+import com.marchengraffiti.nearism.nearism.place.placesActivity;
 import com.marchengraffiti.nearism.nearism.tflite.CameraActivity;
 import com.marchengraffiti.nearism.nearism.tflite.ClassifierActivity;
 
@@ -52,9 +55,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    FloatingActionButton fab2;
+    int flag = 0;
+    FloatingActionButton fab1, fab2, fab3;
 
     Marker marker;
     List<String> list = new ArrayList<String>();
@@ -63,13 +67,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     List<MarkerItem> markerList = new ArrayList<MarkerItem>();
 
     GoogleMap mMap;
-    double lati, longi;
+    double lati, longi, lat, lng;
 
     private DrawerLayout mDrawerLayout;
 
-    String[] mapValue; // x좌표, y좌표, 타이틀
+    String[] mapValue, parsing_split; // x좌표, y좌표, 타이틀
     double latitude, longitude;
-    String msg;
+    String msg, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +86,24 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LocationActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        fab1 = findViewById(R.id.fab1); // 음식점
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flag = 1;
+                new parsing_task().execute();
+            }
+        });
+
+        fab3 = findViewById(R.id.fab3); // 호텔
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flag = 3;
+                new parsing_task().execute();
             }
         });
 
@@ -141,7 +163,61 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         parsingAPI.connection();
     }
 
+    private class parsing_task extends AsyncTask<Void, String, Void> {
+        String query;
 
+        @Override
+        protected void onPreExecute() {
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            Log.d("parsing_task", "flag : " + flag);
+            if(flag == 1) { query = "restaurant"; }
+            if(flag == 2) { query = "inn"; }
+
+            FourSquare f = new FourSquare(query);
+            f.fourSquareParsing(new MyCallback() {
+                @Override
+                public void onCallback(String value) {
+                    publishProgress(value);
+                }
+            });
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(String... values) {
+            parsing_split = values[0].split("#");
+            lat = Double.valueOf(parsing_split[1]);
+            lng = Double.valueOf(parsing_split[2]);
+            name = parsing_split[0];
+            Log.d("parsing_task", lat + " " + lng + " " + name);
+
+            LatLng position = new LatLng(lat, lng);
+
+            if(flag==1) {
+                marker = mMap.addMarker(new MarkerOptions()
+                        .position(position)
+                        .title(name)
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                );
+            }
+            if(flag==3) {
+                marker = mMap.addMarker(new MarkerOptions()
+                        .position(position)
+                        .title(name)
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))
+                );
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+
+        }
+    }
 
     private class task extends AsyncTask<Void, String, Void> implements GoogleMap.OnMarkerClickListener {
         @Override
@@ -191,13 +267,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         // onMarkerClick
         @Override
         public boolean onMarkerClick(Marker marker) {
-            Log.d("Marker", marker.getTitle());
-            Intent intent = new Intent(getApplicationContext(), placesActivity.class);
-            intent.putExtra("title", marker.getTitle());                        // send marker title to placeDetailActivity
-            intent.putExtra("lat", marker.getPosition().latitude+"");
-            intent.putExtra("lng", marker.getPosition().longitude+"");
+            if (flag == 0) {
+                Log.d("Marker", marker.getTitle());
+                Intent intent = new Intent(getApplicationContext(), placesActivity.class);
+                intent.putExtra("title", marker.getTitle());                        // send marker title to placeDetailActivity
+                intent.putExtra("lat", marker.getPosition().latitude + "");
+                intent.putExtra("lng", marker.getPosition().longitude + "");
 
-            startActivity(intent);                                                     // display place details
+                startActivity(intent);                                                     // display place details
+            }
             return false;
         }
     }

@@ -24,6 +24,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:screenOrientation="locked"
             android:exported="true"/>
+        <activity android:name=".ar.LocationActivity"></activity>
         <activity android:name=".course.ChooseCourseActivity"></activity>
         <activity android:name=".course.AddCourseActivity" />
         <activity android:name=".course.CourseDetailActivity" />
@@ -39,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".sign.SignIn" />
-        <activity android:name=".placesActivity" />
+        <activity android:name=".place.placesActivity"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

@@ -1,3 +1,4 @@
+
 package com.marchengraffiti.nearism.nearism.ar;
 /*
  * Copyright 2018 Google LLC.
@@ -47,7 +48,6 @@ import com.marchengraffiti.nearism.nearism.ar.DemoUtils;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.map.MarkerItem;
-import com.marchengraffiti.nearism.nearism.place.placesActivity;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -70,7 +70,7 @@ public class LocationActivity extends AppCompatActivity {
 
     private Snackbar loadingMessageSnackbar = null;
 
-    private ArSceneView arSceneView;
+    private ArSceneView arSceneView, arSceneView2;
 
     // Renderables for this example
     private ModelRenderable andyRenderable;
@@ -88,6 +88,7 @@ public class LocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sceneform);
         arSceneView = findViewById(R.id.ar_scene_view);
 
+
         // Build a renderable from a 2D View.
         CompletableFuture<ViewRenderable> exampleLayout =
                 ViewRenderable.builder()
@@ -100,10 +101,8 @@ public class LocationActivity extends AppCompatActivity {
                 .setSource(this, R.raw.andy)
                 .build();
 
-
         CompletableFuture.allOf(
-                exampleLayout,
-                andy)
+                exampleLayout, andy)
                 .handle(
                         (notUsed, throwable) -> {
                             // When you build a Renderable, Sceneform loads its resources in the background while
@@ -117,9 +116,7 @@ public class LocationActivity extends AppCompatActivity {
 
                             try {
                                 exampleLayoutRenderable = exampleLayout.get();
-                                andyRenderable = andy.get();
                                 hasFinishedLoading = true;
-
                             } catch (InterruptedException | ExecutionException ex) {
                                 DemoUtils.displayError(this, "Unable to load renderables", ex);
                             }
@@ -130,7 +127,9 @@ public class LocationActivity extends AppCompatActivity {
         // Set an update listener on the Scene that will hide the loading message once a Plane is
         // detected.
 
-        new task().execute();
+        //new task().execute();
+        arSetting("가천관", 37.450541, 127.129904);
+
     }
 
     /**
@@ -295,7 +294,7 @@ public class LocationActivity extends AppCompatActivity {
         }
 
         @Override
-        protected Void doInBackground(Void... params){
+        protected Void doInBackground(Void... params) {
             FirebaseRead firebaseRead = new FirebaseRead();
             firebaseRead.ReadDB(new MyCallback() {
                 @Override
@@ -308,7 +307,7 @@ public class LocationActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onProgressUpdate(String... values){
+        protected void onProgressUpdate(String... values) {
             mapValue = values[0].split(",");
             double latitude = Double.valueOf(mapValue[0]);
             double longitude = Double.valueOf(mapValue[1]);
@@ -316,7 +315,7 @@ public class LocationActivity extends AppCompatActivity {
 
             Log.d("locationCheck", "[onProgressUpdate] " + latitude + "," + longitude + " " + placeTitle);
 
-            arSetting(placeTitle, latitude, longitude);
+            //arSetting(placeTitle, latitude, longitude);
         }
 
         @Override
@@ -328,7 +327,7 @@ public class LocationActivity extends AppCompatActivity {
     public void arSetting(String placeTitle, double latitude, double longitude) {
         arSceneView
                 .getScene()
-                .addOnUpdateListener (
+                .addOnUpdateListener(
                         frameTime -> {
                             if (!hasFinishedLoading) {
                                 return;
@@ -366,17 +365,9 @@ public class LocationActivity extends AppCompatActivity {
 
                                 // Adding the marker
                                 locationScene.mLocationMarkers.add(layoutLocationMarker);
-                                // 마커 add 해서 쌓여야 됨 ㅠ
 
                                 Log.d("locationCheck", locationScene.mLocationMarkers.toString());
 
-                                /*
-                                // Adding a simple location marker of a 3D model
-                                locationScene.mLocationMarkers.add(
-                                        new LocationMarker(
-                                                -122.084,
-                                                37.423,
-                                                getAndy()));*/
                             }
 
                             Frame frame = arSceneView.getArFrame();
