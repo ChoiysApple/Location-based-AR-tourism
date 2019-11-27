@@ -49,14 +49,14 @@ public class CourseDetailActivity extends AppCompatActivity {
             @Override
             public void onCallback(String value) {
                 String[] value_split = value.split("#");
-                subnum = value_split[0]; // 코스 장소 순서
+                //subnum = value_split[0]; // 코스 장소 순서
                 detailimg = value_split[1]; // 각 코스 장소마다 이미지
                 subname = value_split[2]; // 코스 장소 이름
                 overview = value_split[3]; // 코스 장소 상세 설명
                 cid = value_split[4]; // 메인 코스랑 장소 매칭시키려고
                 Log.d("courseData2222", value);
 
-                CourseDetailItem item = new CourseDetailItem(subnum, detailimg, subname, overview);
+                CourseDetailItem item = new CourseDetailItem(detailimg, subname, overview, cid);
                 if(cid.equals(intent.getStringExtra("cid")))
                     data.add(item);
                 Log.d("cidLog", intent.getStringExtra("cid"));

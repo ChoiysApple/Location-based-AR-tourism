@@ -39,6 +39,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.marchengraffiti.nearism.nearism.ar.HelloSceneformActivity;
+import com.marchengraffiti.nearism.nearism.ar.LocationActivity;
 import com.marchengraffiti.nearism.nearism.course.CourseMainActivity;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, HelloSceneformActivity.class);
+                Intent intent = new Intent(MainActivity.this, LocationActivity.class);
                 startActivity(intent);
             }
         });
@@ -110,12 +111,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         break;
 
                     case R.id.arPhotoBooth:
-                        Toast.makeText(MainActivity.this, "준비중입니다", Toast.LENGTH_LONG).show();
+                        Intent intent2 = new Intent(MainActivity.this, HelloSceneformActivity.class);
+                        startActivity(intent2);
                         break;
 
                     case R.id.browseCourse:
-                        Intent intent2 = new Intent(getApplicationContext(), CourseMainActivity.class);
-                        startActivity(intent2);
+                        Intent intent3 = new Intent(getApplicationContext(), CourseMainActivity.class);
+                        startActivity(intent3);
                         break;
 
                     case R.id.settings:
@@ -160,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         @Override
-        protected void onProgressUpdate(String... values){
+        protected void onProgressUpdate(String... values) {
             mapValue = values[0].split(",");
             latitude = Double.valueOf(mapValue[0]);
             longitude = Double.valueOf(mapValue[1]);
@@ -175,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             MarkerItem markerItem = new MarkerItem(latitude, longitude, msg);
             markerList.add(markerItem);
-            if(markerList.size() == 56)
+            if (markerList.size() == 56)
                 autoComplete(markerList);
             // define marker click listener
             mMap.setOnMarkerClickListener(this);

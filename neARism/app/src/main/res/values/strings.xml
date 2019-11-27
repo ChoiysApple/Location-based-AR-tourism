@@ -1,4 +1,5 @@
 <resources>
+    <string name="plane_finding">Searching for surfaces&#8230;</string>
     <string name="toggle_camera">Toggle Camera</string>
     <string name="detect_object">Detect Object</string>
     <string name="app_name">neARism</string>
@@ -24,8 +25,8 @@
 
     <string name="model">Model:</string>
     <string-array name="models">
-        <item>Quantized</item>
-        <item>Float</item>
+    <item>Quantized</item>
+    <item>Float</item>
     </string-array>
 
     <string name="device">Device:</string>
