@@ -36,6 +36,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.marchengraffiti.nearism.nearism.ar.HelloSceneformActivity;
 import com.marchengraffiti.nearism.nearism.course.CourseMainActivity;
@@ -52,7 +53,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
 
-    Button fab2;
+    FloatingActionButton fab2;
 
     Marker marker;
     List<String> list = new ArrayList<String>();

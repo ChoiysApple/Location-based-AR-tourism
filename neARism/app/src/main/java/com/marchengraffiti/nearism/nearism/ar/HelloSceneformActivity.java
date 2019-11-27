@@ -38,6 +38,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
@@ -94,7 +95,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_ux);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
-        Button photoBtn = findViewById(R.id.photoBtn);
+        FloatingActionButton photoBtn = findViewById(R.id.photoBtn);
         photoBtn.setOnClickListener(v -> takePhoto());
 
         deoksugung = (ImageView) findViewById(R.id.deoksugung);
@@ -129,9 +130,9 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                 });
 
 
-        Intent intent = getIntent();
-        String list = intent.getExtras().getString("results");
-        System.out.println(list);
+//        Intent intent = getIntent();
+//        String list = intent.getExtras().getString("results");
+//        System.out.println(list);
 
 
     }
