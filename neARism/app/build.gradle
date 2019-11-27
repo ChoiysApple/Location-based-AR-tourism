@@ -51,7 +51,7 @@ dependencies {
     // Sceneform
     implementation "com.google.ar.sceneform.ux:sceneform-ux:1.13.0"
     implementation "com.google.ar.sceneform:core:1.13.0"
-    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.13.0"
+    implementation "com.github.appoly:ARCore-Location:1.2"
 
     // Tensorflow
     implementation 'com.wonderkiln:camerakit:0.13.1'
@@ -79,3 +79,8 @@ sceneform.asset('sampledata/models/Lowpoly_Nseoul_Tower.fbx',
         'default',
         'sampledata/models/Lowpoly_Nseoul_Tower.sfa',
         'src/main/res/raw/seoultower')
+
+sceneform.asset('sampledata/models/andy.obj', // 'Source Asset Path' specified during import.
+        'default',                            // 'Material Path' specified during import.
+        'sampledata/models/andy.sfa',         // '.sfa Output Path' specified during import.
+        'src/main/res/raw/andy')              // '.sfb Output Path' specified during import.
