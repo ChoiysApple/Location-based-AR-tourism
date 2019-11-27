@@ -36,6 +36,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.marchengraffiti.nearism.nearism.ar.HelloSceneformActivity;
 import com.marchengraffiti.nearism.nearism.ar.LocationActivity;
@@ -44,7 +45,8 @@ import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.map.MarkerItem;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
-import com.marchengraffiti.nearism.nearism.place.placesActivity;
+import com.marchengraffiti.nearism.nearism.tflite.CameraActivity;
+import com.marchengraffiti.nearism.nearism.tflite.ClassifierActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +54,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
 
-    Button fab2;
+    FloatingActionButton fab2;
 
     Marker marker;
     List<String> list = new ArrayList<String>();
@@ -104,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.photoGuide:
-                        Intent intent = new Intent(getApplicationContext(), cameraMainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), ClassifierActivity.class);
                         startActivity(intent);
                         break;
 

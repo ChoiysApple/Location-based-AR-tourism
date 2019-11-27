@@ -31,8 +31,8 @@
 
     <string name="device">Device:</string>
     <string-array name="devices">
-    <item>CPU</item>
-    <item>GPU</item>
-    <item>NNAPI</item>
-</string-array>
-    </resources>
+        <item>CPU</item>
+        <item>GPU</item>
+        <item>NNAPI</item>
+    </string-array>
+</resources>

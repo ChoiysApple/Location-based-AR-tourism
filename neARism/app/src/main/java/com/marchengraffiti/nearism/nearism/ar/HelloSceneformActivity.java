@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -37,6 +38,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
@@ -47,12 +49,15 @@ import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 import com.marchengraffiti.nearism.nearism.R;
+import com.marchengraffiti.nearism.nearism.tflite.ClassifierActivity;
 
+import java.io.Serializable;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,7 +67,7 @@ import androidx.core.content.FileProvider;
 /**
  * This is an example activity that uses the Sceneform UX package to make common AR tasks easier.
  */
-public class HelloSceneformActivity extends AppCompatActivity implements View.OnClickListener {
+public class HelloSceneformActivity extends AppCompatActivity implements View.OnClickListener, Serializable {
     private static final String TAG = HelloSceneformActivity.class.getSimpleName();
     private static final double MIN_OPENGL_VERSION = 3.0;
 
@@ -90,7 +95,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_ux);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
-        Button photoBtn = findViewById(R.id.photoBtn);
+        FloatingActionButton photoBtn = findViewById(R.id.photoBtn);
         photoBtn.setOnClickListener(v -> takePhoto());
 
         deoksugung = (ImageView) findViewById(R.id.deoksugung);
@@ -123,6 +128,13 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
 
                     createModel(anchorNode, selected);
                 });
+
+
+//        Intent intent = getIntent();
+//        String list = intent.getExtras().getString("results");
+//        System.out.println(list);
+
+
     }
 
 
@@ -354,5 +366,9 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             }
             handlerThread.quitSafely();
         }, new Handler(handlerThread.getLooper()));
+
+
+
+
     }
 }
