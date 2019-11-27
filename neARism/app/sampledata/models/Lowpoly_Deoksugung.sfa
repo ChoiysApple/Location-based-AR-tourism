@@ -365,7 +365,8 @@
     file: 'sampledata/models/Lowpoly_Deoksugung.fbx',
     name: 'Lowpoly_Deoksugung',
     recenter: 'root',
-    scale: 0.015651999999999999,
+    //scale: 0.015651999999999999,
+    scale: 0.006,
   },
   version: '0.54:2',
 }

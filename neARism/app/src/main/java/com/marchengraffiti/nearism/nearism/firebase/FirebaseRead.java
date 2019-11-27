@@ -22,8 +22,8 @@ public class FirebaseRead {
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     String key = postSnapshot.getKey();
                     FirebasePost get = postSnapshot.getValue(FirebasePost.class);
-                    String[] info = {get.mapy, get.mapx, get.placeTitle};
-                    String result = info[0] + "," + info[1] + "," + info[2];
+                    String[] info = {get.mapy, get.mapx, get.placeTitle, get.addr1, get.firstimage};
+                    String result = info[0] + "," + info[1] + "," + info[2] + "," + info[3] + "," + info[4] + "," + key;
                     arrayData.add(result);
                     arrayIndex.add(key);
                     //Log.d("FirebaseRead", result);

@@ -29,6 +29,8 @@
         <activity android:name=".course.CourseDetailActivity" />
         <activity android:name=".course.CourseMainActivity" />
         <activity android:name=".sign.SignUp" />
+        <activity android:name=".tflite.ClassifierActivity" />
+        <activity android:name=".tflite.CameraActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,6 +56,7 @@
     </application>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- This tag indicates that this application requires ARCore. This results in the application
         only being visible in the Google Play Store on devices that support ARCore. -->
@@ -61,5 +64,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+
 
 </manifest>

@@ -72,16 +72,16 @@ public class CourseMainActivity extends AppCompatActivity {
                 CourseAdapter adapter = new CourseAdapter(getApplicationContext(), R.layout.course_item, data);
                 listView.setAdapter(adapter);
 
-                // 리스트뷰 클릭시 화면 전환
-                // 이미지 URL, 코스 타이틀, content id 넘김
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Intent intent = new Intent(getApplicationContext(), CourseDetailActivity.class);
-                        intent.putExtra("firstimage", data.get(position).getFirstImage());
-                        intent.putExtra("placeTitle", data.get(position).getPlaceTitle());
-                        intent.putExtra("cid", data.get(position).getCid());
-                        startActivity(intent);
+                        // 리스트뷰 클릭시 화면 전환
+                        // 이미지 URL, 코스 타이틀, content id 넘김
+                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Intent intent = new Intent(getApplicationContext(), CourseDetailActivity.class);
+                                intent.putExtra("firstimage", data.get(position).getFirstImage());
+                                intent.putExtra("placeTitle", data.get(position).getPlaceTitle());
+                                intent.putExtra("cid", data.get(position).getCid());
+                                startActivity(intent);
                     }
                 });
             }

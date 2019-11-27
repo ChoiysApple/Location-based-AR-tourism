@@ -1,47 +1,266 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AndroidLayouts">
-    <shared>
-      <config>
-        <device id="Nexus 7 2013" />
-        <device id="Nexus 9" />
-        <device id="pixel_3_xl" />
-        <device id="Nexus 10" />
-        <device id="Nexus 7" />
-      </config>
-    </shared>
-  </component>
-  <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
-  </component>
-  <component name="CMakeSettings">
-    <configurations />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="90678c6f-1e26-43e0-871d-2ffb45bf33c7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_android_28.xml" afterDir="false" />
+    <list default="true" id="765dd7b4-453c-4788-b1a0-04a4e82af87c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_documentfile_documentfile_1_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_exifinterface_exifinterface_1_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_utils_1_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_print_print_1_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_camerakit_camerakit_1_0_0_beta3_11_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_camerakit_jpegkit_0_1_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_ads_identifier_17_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_17_2_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_api_17_2_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_base_17_2_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_impl_17_2_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_sdk_17_2_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_sdk_api_17_2_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_stats_17_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_core_1_13_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_core_1_13_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_filament_android_1_13_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_rendering_1_13_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_sceneform_base_1_13_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_ux_sceneform_ux_1_13_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_analytics_17_2_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_auth_19_1_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_common_19_2_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_core_17_2_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_database_19_2_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_iid_19_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_iid_interop_17_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_measurement_connector_18_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_butterknife_10_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_butterknife_annotations_10_0_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_butterknife_runtime_10_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_wonderkiln_camerakit_0_13_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tensorflow_tensorflow_lite_2_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tensorflow_tensorflow_lite_gpu_0_0_0_nightly_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tensorflow_tensorflow_lite_support_0_0_0_nightly_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/pagoda.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/pagoda.sfa" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/Material #12495.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/Material #12495.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship001.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship001.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship002.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship002.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship003.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship003.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship004.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship004.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship005.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship005.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship006.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship006.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship007.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship007.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship008.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship008.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship009.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship009.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship010.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship010.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship011.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship011.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship012.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship012.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship013.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship013.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship014.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship014.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship015.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship015.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship016.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship016.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship018.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship018.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship019.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship019.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship020.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/Materials/ship020.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ancientwarships.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ancientwarships.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ancientwarships.sfa" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship003.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship004.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship005.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship006.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship007.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship007.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship008.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship008.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship009.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship009.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship010.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship010.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship011.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship011.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship012.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship012.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship013.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship013.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship014.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship014.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship015.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship015.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship016.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship016.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship017.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship017.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship018.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship018.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship019.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship019.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship020.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/ship_model/ship020.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Ancient Weapons Pack.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials/Double Sided Transparent Diffuse Bump Cutout.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials/Double Sided Transparent Diffuse Bump Cutout.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials/weapon001.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials/weapon001.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials/weapon002.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials/weapon002.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials/weapon003.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials/weapon003.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials/weapon004.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials/weapon004.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials/weapon005.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/Materials/weapon005.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/ancient_weapons_pack.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/ancient_weapons_pack.sfa" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/weapon001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/weapon001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/weapon002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/weapon002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/weapon003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/weapon003.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/weapon004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/weapon004.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/weapon005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/sampledata/models/weapon_model/weapon005.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/labels.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/mobilenet_v1_1.0_224.tflite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/mobilenet_v1_1.0_224_info.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/mobilenet_v1_1.0_224_quant.tflite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/mobilenet_v1_1.0_224_quant_info.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/customview/AutoFitTextureView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/customview/OverlayView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/customview/RecognitionScoreView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/customview/ResultsView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/env/BorderedText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/env/ImageUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/env/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/tflite/CameraActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/tflite/CameraConnectionFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/tflite/Classifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/tflite/ClassifierActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/tflite/ClassifierFloatMobileNet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/tflite/ClassifierQuantizedMobileNet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/tflite/LegacyCameraConnectionFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bottom_sheet_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_add.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_remove.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/icn_chevron_down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/icn_chevron_up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/icn_tf_lite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ship.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/temple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tfl2_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tfl_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/weapon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/camera_connection_fragment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_bottom_sheet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/ancient_weapons_pack.sfb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/ancientwarships.sfb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/pagoda.sfb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/base-strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_ads_identifier_16_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_ads_identifier_16_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_17_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_17_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_16_4_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_16_4_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_api_16_4_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_api_16_4_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_base_16_4_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_base_16_4_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_impl_16_4_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_impl_16_4_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_sdk_16_4_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_sdk_16_4_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_sdk_api_16_4_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_sdk_api_16_4_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_stats_16_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_stats_16_0_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_core_1_12_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_core_1_12_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_filament_android_1_12_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_filament_android_1_12_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_rendering_1_12_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_rendering_1_12_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_sceneform_base_1_12_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_sceneform_base_1_12_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_ux_sceneform_ux_1_12_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_ux_sceneform_ux_1_12_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_iid_17_0_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_iid_17_0_3_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_iid_interop_16_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_iid_interop_16_0_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_measurement_connector_17_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_measurement_connector_17_0_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_maps_android_android_maps_utils_0_5_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_maps_android_android_maps_utils_0_5_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_android_28.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_1_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_1_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_resources_1_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_common_2_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_1_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_2_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_savedstate_savedstate_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_ads_identifier_16_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_16_4_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_api_16_4_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_base_16_4_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_impl_16_4_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_sdk_16_4_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_sdk_api_16_4_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_stats_16_0_1_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_core_1_12_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_core_1_12_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_filament_android_1_12_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_rendering_1_12_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_sceneform_base_1_12_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_ar_sceneform_ux_sceneform_ux_1_12_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_auto_value_auto_value_annotations_1_6_5_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_auto_value_auto_value_annotations_1_6_5_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_analytics_16_4_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_auth_19_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_common_19_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_core_16_0_8_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_database_19_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_iid_17_0_3_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_iid_interop_16_0_1_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_measurement_connector_17_0_1_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/sampledata/models/Lowpoly_Deoksugung.sfa" beforeDir="false" afterPath="$PROJECT_DIR$/app/sampledata/models/Lowpoly_Deoksugung.sfa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/sampledata/models/Lowpoly_Nseoul_Tower.sfa" beforeDir="false" afterPath="$PROJECT_DIR$/app/sampledata/models/Lowpoly_Nseoul_Tower.sfa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ar/HelloSceneformActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ar/HelloSceneformActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ar/WritingArFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ar/WritingArFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseMainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseMainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/FirebaseRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/FirebaseRead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/placesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/placesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_ux.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_ux.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/place_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/place_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/deoksugung.sfb" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/raw/deoksugung.sfb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/seoultower.sfb" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/raw/seoultower.sfb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,274 +269,100 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
-  </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="isMigrated" value="true" />
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="ce041824300f889f0d7e" />
-  <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$">
-      <ProjectState />
-    </projectState>
-  </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <task path="$PROJECT_DIR$/app">
-          <activation />
-        </task>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="neARism" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="neARism" type="f1a62948:ProjectNode" />
-                <item name="neARism" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="neARism" type="f1a62948:ProjectNode" />
-                <item name=":app" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="neARism" type="f1a62948:ProjectNode" />
-                <item name=":app" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
+        <projects_view />
       </state>
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ARActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1216">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="50" column="66" selection-start-line="50" selection-start-column="66" selection-end-line="50" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1235">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ar/WritingArFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ar/HelloSceneformActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="209">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ar/HelloSceneformActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+            <state relative-caret-position="130">
+              <caret line="133" column="24" selection-start-line="133" selection-start-column="19" selection-end-line="133" selection-end-column="24" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_course.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="28" column="22" selection-start-line="15" selection-start-column="8" selection-end-line="28" selection-end-column="22" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="layoutResourceFile_vertical" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>locationBased</find>
-      <find>firebaseDatabase</find>
-      <find>signin</find>
-      <find>signIn</find>
-      <find>title</find>
-      <find>itle</find>
-      <find>Title</find>
-      <find>placeTitle</find>
-      <find>ParsingResult</find>
-      <find>Firebase</find>
-      <find>courseRead</find>
-      <find>onMarker</find>
-      <find>marker</find>
-      <find>log.d</find>
-      <find>moveCamera</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>SignIn</replace>
-      <replace>btn_gotoLogin</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/CourseActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/FirebasePost.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/sign_in.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/SignIn.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/SignUp.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/NavigationDrawer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/GoogleMapAPI.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/CurrentLocation.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/DBItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/MyCallback.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/FirebasePost.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/FirebaseRead.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/course_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseDetailItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/course_detail_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/CourseData.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/parsing/ParsingAPI.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseDetailAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/CourseRead.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_course_detail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/placesActivity.java" />
-        <option value="$PROJECT_DIR$/local.properties" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/course_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseDetailActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_course_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseMainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/main_navigation_menu.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_course.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_choose_course.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/ChooseCourseActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/AddCourseActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/MarkerItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/unity/UnityPlayerActivity.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ar/WritingArFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_ux.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ar/HelloSceneformActivity.java" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="neARism" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\P\Documents\GitHub\Location-based-AR-tourism\neARism" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
+      <pane id="PackagesPane" />
+      <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
-              <item name="neARism" type="b2602c69:ProjectViewProjectNode" />
-              <item name="neARism" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="nearism" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="nearism" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="ar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="neARism" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="nearism" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="tflite" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_API_28" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-10-01T00:57:02.048Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="device.picker.selection" value="Nexus_5X_API_28" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../sceneform-android-sdk/samples/hellosceneform" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\P\Documents\GitHub\Location-based-AR-tourism\neARism\app\src\main\java\com\marchengraffiti\nearism\nearism\map" />
-    </key>
-    <key name="android.template.packageName">
-      <recent name="com.marchengraffiti.nearism.nearism.course" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.marchengraffiti.nearism.nearism" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\P\Documents\GitHub\Location-based-AR-tourism\neARism\app\src\main\res\drawable" />
-      <recent name="C:\Users\ChoiysApple\Documents\GitHub\Location-based-AR-tourism\neARism\app\src\main\res\layout" />
-      <recent name="C:\Users\ChoiysApple\Documents\GitHub\Location-based-AR-tourism\neARism\app" />
-    </key>
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -331,11 +376,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.app">
-    <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -357,7 +398,7 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
@@ -388,7 +429,7 @@
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
         <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sampled (Java)" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -396,516 +437,61 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="neARism [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="signingReport" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="neARism:app [assembleDebug]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="assembleDebug" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="TestNG">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Android App.app" />
-      <item itemvalue="Gradle.neARism [signingReport]" />
-      <item itemvalue="Gradle.neARism:app [assembleDebug]" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.neARism:app [assembleDebug]" />
-        <item itemvalue="Gradle.neARism [signingReport]" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="90678c6f-1e26-43e0-871d-2ffb45bf33c7" name="Default" comment="" />
-      <created>1565916064405</created>
+      <changelist id="765dd7b4-453c-4788-b1a0-04a4e82af87c" name="Default Changelist" comment="" />
+      <created>1574842161237</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1565916064405</updated>
+      <updated>1574842161237</updated>
     </task>
     <servers />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
-      <window_info id="Captures" order="1" side_tool="true" weight="0.12080537" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Build Variants" order="3" side_tool="true" />
-      <window_info id="Image Layers" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.20604026" />
-      <window_info id="Resources Explorer" order="8" weight="0.32871014" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49798658" weight="0.32765958" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32907802" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49798658" visible="true" weight="0.3106383" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" weight="0.12624113" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50201344" side_tool="true" weight="0.2212766" />
-      <window_info anchor="bottom" x="27" y="462" width="1490" height="218" id="Logcat" order="10" sideWeight="0.49731544" weight="0.23687944" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32765958" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32907802" />
-      <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Gradle" order="4" weight="0.3295302" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="right" id="Assistant" order="7" weight="0.50067115" />
-      <window_info anchor="right" id="Flutter Inspector" order="8" />
-      <window_info anchor="right" id="Flutter Outline" order="9" />
-      <window_info anchor="right" id="Preview" order="10" weight="0.29798657" />
-      <window_info anchor="right" id="Device File Explorer" order="11" side_tool="true" weight="0.3295302" />
-      <window_info anchor="right" id="Viewer" order="12" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.3295302" />
+      <window_info id="Structure" side_tool="true" />
+      <window_info id="Build Variants" side_tool="true" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="Resources Explorer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Run" />
+      <window_info anchor="bottom" id="Logcat" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="TODO" />
+      <window_info anchor="bottom" id="Android Profiler" />
+      <window_info anchor="bottom" id="Debug" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Build" visible="true" weight="0.32907802" />
+      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Gradle" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Palette&#9;" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.33841887" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Captures" order="2" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Build Variants" order="4" side_tool="true" />
-      <window_info id="Image Layers" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Capture Tool" order="7" />
-      <window_info id="Resources Explorer" order="8" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.25392297" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32907802" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49798658" weight="0.4" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" weight="0.12624113" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5026846" side_tool="true" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="10" sideWeight="0.49731544" visible="true" weight="0.43041608" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32907802" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32907802" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Preview" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
-      <window_info anchor="right" id="Gradle" order="6" weight="0.3295302" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Assistant" order="9" weight="0.50067115" />
-    </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/NavigationDrawer.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/sign/SignUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/sign/SignIn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/GoogleMapAPI.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/CurrentLocation.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/DBItem.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/MyCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/course_list.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/FirebasePost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/FirebaseRead.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="54" lean-forward="true" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ARActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/a.jpg" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_cardview.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_course.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/parsing/ParsingAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3819">
-          <caret line="215" selection-start-line="215" selection-end-line="215" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/CourseData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseDetailItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/course_detail_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="61" column="44" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1751#2262#0" expanded="true" />
-            <element signature="e#2261#2262#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/firebase/CourseRead.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="28" column="108" selection-start-line="28" selection-start-column="108" selection-end-line="28" selection-end-column="108" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseDetailAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1078#1079#0" expanded="true" />
-            <element signature="e#1112#1113#0" expanded="true" />
-            <element signature="e#1169#1170#0" expanded="true" />
-            <element signature="e#1223#1224#0" expanded="true" />
-            <element signature="e#1280#1281#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-            <element signature="e#1932#2443#0" expanded="true" />
-            <element signature="e#2442#2443#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/place_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/placesActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1463">
-          <caret line="84" column="1" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/course_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="27" column="44" lean-forward="true" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_course_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_nav_header.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main_navigation_menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_image.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_choose_course.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_course_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" selection-end-line="80" selection-end-column="15" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/ChooseCourseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="44" column="64" selection-start-line="44" selection-start-column="64" selection-end-line="44" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/CourseMainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="85" column="19" selection-start-line="76" selection-start-column="16" selection-end-line="85" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/map/MarkerItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding>
-            <element signature="e#280#281#0" expanded="true" />
-            <element signature="e#306#307#0" expanded="true" />
-            <element signature="e#344#345#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-            <element signature="e#404#405#0" expanded="true" />
-            <element signature="e#430#431#0" expanded="true" />
-            <element signature="e#468#469#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#592#593#0" expanded="true" />
-            <element signature="e#622#623#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/unity/UnityPlayerActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="39" column="38" lean-forward="true" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/sampledata/models/Lowpoly_Nseoul_Tower.sfa">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_ux.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/course/AddCourseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="69" lean-forward="true" selection-start-line="62" selection-start-column="8" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="50" column="66" selection-start-line="50" selection-start-column="66" selection-end-line="50" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1235">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ar/WritingArFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+        <state relative-caret-position="209">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/marchengraffiti/nearism/nearism/ar/HelloSceneformActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_course.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="22" selection-start-line="15" selection-start-column="8" selection-end-line="28" selection-end-column="22" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+        <state relative-caret-position="130">
+          <caret line="133" column="24" selection-start-line="133" selection-start-column="19" selection-end-line="133" selection-end-column="24" />
         </state>
       </provider>
     </entry>

@@ -21,6 +21,14 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -35,17 +43,11 @@ import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.map.MarkerItem;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
+import com.marchengraffiti.nearism.nearism.tflite.CameraActivity;
+import com.marchengraffiti.nearism.nearism.tflite.ClassifierActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
@@ -102,7 +104,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.photoGuide:
-                        Toast.makeText(MainActivity.this, "준비중입니다", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(getApplicationContext(), ClassifierActivity.class);
+                        startActivity(intent);
                         break;
 
                     case R.id.arPhotoBooth:
@@ -110,8 +113,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         break;
 
                     case R.id.browseCourse:
-                        Intent intent = new Intent(getApplicationContext(), CourseMainActivity.class);
-                        startActivity(intent);
+                        Intent intent2 = new Intent(getApplicationContext(), CourseMainActivity.class);
+                        startActivity(intent2);
                         break;
 
                     case R.id.settings:
@@ -188,6 +191,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             Log.d("Marker", marker.getTitle());
             Intent intent = new Intent(getApplicationContext(), placesActivity.class);
             intent.putExtra("title", marker.getTitle());                        // send marker title to placeDetailActivity
+            intent.putExtra("lat", marker.getPosition().latitude+"");
+            intent.putExtra("lng", marker.getPosition().longitude+"");
+
             startActivity(intent);                                                     // display place details
             return false;
         }

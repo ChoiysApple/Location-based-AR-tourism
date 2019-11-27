@@ -365,7 +365,7 @@
     file: 'sampledata/models/Lowpoly_Nseoul_Tower.fbx',
     name: 'Lowpoly_Nseoul_Tower',
     recenter: 'root',
-    scale: 0.0077689999999999999,
+    scale: 0.0077689999999999999 * 0.5,
   },
   version: '0.54:2',
 }
