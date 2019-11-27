@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -21,14 +22,21 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class placesActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class placesActivity extends AppCompatActivity
+        //implements OnMapReadyCallback
+        {
 
     GoogleMap mMap;
 
@@ -40,13 +48,13 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
     TextView title, address;
     ImageButton back;
 
-    static ArrayList<PlaceItem> data = new ArrayList<>();
+    //static ArrayList<PlaceItem> data = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.place_detail);
 
-        mainImage = findViewById(R.id.main_photo);
+        /*mainImage = findViewById(R.id.main_photo);
         title = findViewById(R.id.title);
         address = findViewById(R.id.place_addr);
 
@@ -64,9 +72,10 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
         FragmentManager fragmentManager = getFragmentManager();
         final MapFragment mapFragment = (MapFragment)fragmentManager
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        mapFragment.getMapAsync(this);*/
     }
 
+    /*
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -208,4 +217,6 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
         listView.setAdapter(adapter);
 
     }
+
+     */
 }

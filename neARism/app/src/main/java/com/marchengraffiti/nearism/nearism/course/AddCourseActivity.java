@@ -25,8 +25,7 @@ import com.marchengraffiti.nearism.nearism.firebase.FirebasePost;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.map.MarkerItem;
-import com.marchengraffiti.nearism.nearism.place.PlaceItem;
-import com.marchengraffiti.nearism.nearism.place.placesActivity;
+import com.marchengraffiti.nearism.nearism.placesActivity;
 
 import java.io.BufferedReader;
 import java.lang.reflect.Array;
