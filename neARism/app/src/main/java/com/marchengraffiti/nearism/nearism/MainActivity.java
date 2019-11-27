@@ -47,6 +47,7 @@ import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.map.MarkerItem;
 import com.marchengraffiti.nearism.nearism.parsing.FourSquare;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
+import com.marchengraffiti.nearism.nearism.place.placesActivity;
 import com.marchengraffiti.nearism.nearism.tflite.CameraActivity;
 import com.marchengraffiti.nearism.nearism.tflite.ClassifierActivity;
 
