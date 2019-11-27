@@ -1,16 +1,21 @@
 package com.marchengraffiti.nearism.nearism.course;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.marchengraffiti.nearism.nearism.R;
 import com.marchengraffiti.nearism.nearism.firebase.CourseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 
+import java.net.ProtocolFamily;
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,13 +48,13 @@ public class ChooseCourseActivity extends AppCompatActivity {
             @Override
             public void onCallback(String value) {
                 String[] value_split = value.split("#");
-                subnum = value_split[0]; // 코스 장소 순서
+                //subnum = value_split[0]; // 코스 장소 순서
                 detailimg = value_split[1]; // 각 코스 장소마다 이미지
                 subname = value_split[2]; // 코스 장소 이름
                 overview = value_split[3]; // 코스 장소 상세 설명
                 cid = value_split[4]; // 메인 코스랑 장소 매칭시키려고
 
-                CourseDetailItem item = new CourseDetailItem(subnum, detailimg, subname, overview);
+                CourseDetailItem item = new CourseDetailItem(detailimg, subname, overview, cid);
                 data.add(item);
 
                 // course_item.xml 은 코스 메인화면에 보이는 리스트뷰
@@ -64,7 +69,9 @@ public class ChooseCourseActivity extends AppCompatActivity {
                         intent.putExtra("detailimg", data.get(position).getDetailimg());
                         intent.putExtra("subname", data.get(position).getSubname());
                         intent.putExtra("overview", data.get(position).getOverview());
+                        intent.putExtra("cid", data.get(position).getCid());
                         startActivity(intent);
+                        finish();
                     }
                 });
             }

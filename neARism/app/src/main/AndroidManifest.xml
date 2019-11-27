@@ -25,7 +25,9 @@
             android:screenOrientation="locked"
             android:exported="true"/>
         <activity android:name=".course.ChooseCourseActivity"></activity>
-        <activity android:name=".course.AddCourseActivity" />
+        <activity android:name=".course.AddCourseActivity">
+
+        </activity>
         <activity android:name=".course.CourseDetailActivity" />
         <activity android:name=".course.CourseMainActivity" />
         <activity android:name=".sign.SignUp" />
@@ -39,6 +41,9 @@
         </activity>
         <activity android:name=".sign.SignIn" />
         <activity android:name=".place.placesActivity" />
+        <activity android:name=".ar.LocationActivity">
+
+        </activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

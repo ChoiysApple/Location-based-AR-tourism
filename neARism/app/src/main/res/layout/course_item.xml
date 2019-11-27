@@ -21,6 +21,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="30dp"
+                android:layout_marginTop="7dp"
                 android:adjustViewBounds="true" />
 
             <LinearLayout
