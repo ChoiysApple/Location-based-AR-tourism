@@ -130,9 +130,9 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                 });
 
 
-//        Intent intent = getIntent();
-//        String list = intent.getExtras().getString("results");
-//        System.out.println(list);
+        Intent intent2 = getIntent();
+        String list = intent2.getExtras().getString("results");
+        Log.d("sceneformlist", list);
 
 
     }

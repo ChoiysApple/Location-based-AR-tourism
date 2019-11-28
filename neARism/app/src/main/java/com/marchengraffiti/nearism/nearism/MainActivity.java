@@ -351,7 +351,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Log.d("onMapReady", Double.valueOf(value[0]) + "/" + Double.valueOf(value[1]));
         */
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(35.800844, 128.141912), 14));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.450541, 127.129904), 14));
     }
 
     final LocationListener gpsLocationListener = new LocationListener() {
