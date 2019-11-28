@@ -108,7 +108,9 @@ public class ClassifierActivity extends CameraActivity implements Serializable, 
               LOGGER.v("Detect: %s", results);
 
               Intent intent = new Intent(ClassifierActivity.this, HelloSceneformActivity.class);
-              intent.putExtra("results",results.toString());
+              String tmp=results.toString();
+              String[] result = tmp.split(",");
+              intent.putExtra("results",result[0]);
               startActivity(intent);
 
               runOnUiThread(
