@@ -203,7 +203,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                             return null;
                         });
 
-        ModelRenderable.builder()
+        /*ModelRenderable.builder()
                 .setSource(this, R.raw.ancient_weapons_pack)
                 .build()
                 .thenAccept(renderable -> weaponRenderable = renderable)
@@ -240,7 +240,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                                 toast.setGravity(Gravity.CENTER, 0, 0);
                                 toast.show();
                                 return null;
-                        });
+                        });*/
     }
 
     /**
