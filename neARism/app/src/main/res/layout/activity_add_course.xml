@@ -53,7 +53,7 @@
                 <ListView
                     android:id="@+id/addCourseListView"
                     android:layout_width="match_parent"
-                    android:layout_height="500dp" />
+                    android:layout_height="match_parent" />
 
                 <ImageView
                     android:id="@+id/choose_course"
