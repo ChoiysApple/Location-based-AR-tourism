@@ -136,9 +136,8 @@
   },
   samplers: [
     {
-      file: 'sampledata/models\\Cabin Texture.png',
+      file: 'sampledata/models/Cabin Texture.png',
       name: 'Cabin Texture',
-      pipeline_name: '..\\..\\..\\Desktop\\새 폴더\\WebGL\\Assets\\Cabin Texture.png',
     },
   ],
   version: '0.54:2',

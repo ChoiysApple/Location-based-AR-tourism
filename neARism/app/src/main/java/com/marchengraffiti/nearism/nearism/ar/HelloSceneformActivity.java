@@ -107,7 +107,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         FloatingActionButton photoBtn = findViewById(R.id.photoBtn);
         photoBtn.setOnClickListener(v -> takePhoto());
 
-        deoksugung = (ImageView) findViewById(R.id.deoksugung);
+        //deoksugung = (ImageView) findViewById(R.id.deoksugung);
         seoultower = (ImageView) findViewById(R.id.seoultower);
         artpiece = (ImageView) findViewById(R.id.artpiece);
         badger = (ImageView) findViewById(R.id.badger);
@@ -115,25 +115,25 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         car = (ImageView) findViewById(R.id.car);
         sandcastle = (ImageView) findViewById(R.id.sandcastle);
         coffee = (ImageView) findViewById(R.id.coffee);
-        ferret = (ImageView) findViewById(R.id.ferret);
+        //ferret = (ImageView) findViewById(R.id.ferret);
         igloo = (ImageView) findViewById(R.id.igloo);
         lamp = (ImageView) findViewById(R.id.lamp);
         mountain = (ImageView) findViewById(R.id.mountain);
-        pagoda = (ImageView) findViewById(R.id.pagoda);
+        //pagoda = (ImageView) findViewById(R.id.pagoda);
         schoolhouse = (ImageView) findViewById(R.id.schoolhouse);
-        shield = (ImageView) findViewById(R.id.shield);
-        ship5 = (ImageView) findViewById(R.id.ship5);
-        ship6 = (ImageView) findViewById(R.id.ship6);
-        ship8 = (ImageView) findViewById(R.id.ship8);
+        //shield = (ImageView) findViewById(R.id.shield);
+        //ship5 = (ImageView) findViewById(R.id.ship5);
+        //ship6 = (ImageView) findViewById(R.id.ship6);
+        //ship8 = (ImageView) findViewById(R.id.ship8);
         star = (ImageView) findViewById(R.id.star);
-        tennis = (ImageView) findViewById(R.id.tennis);
+        //tennis = (ImageView) findViewById(R.id.tennis);
         train = (ImageView) findViewById(R.id.train);
         turtle = (ImageView) findViewById(R.id.turtle);
-        weapon1 = (ImageView) findViewById(R.id.weapon1);
-        weapon5 = (ImageView) findViewById(R.id.weapon5);
-        weapon7 = (ImageView) findViewById(R.id.weapon7);
-        weapon8 = (ImageView) findViewById(R.id.weapon8);
-        woman = (ImageView) findViewById(R.id.woman);
+        //weapon1 = (ImageView) findViewById(R.id.weapon1);
+        //weapon5 = (ImageView) findViewById(R.id.weapon5);
+        //weapon7 = (ImageView) findViewById(R.id.weapon7);
+        //weapon8 = (ImageView) findViewById(R.id.weapon8);
+        //woman = (ImageView) findViewById(R.id.woman);
 
         /*ImageButton back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -650,7 +650,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                             return null;
                         });
 
-        ModelRenderable.builder()
+        /*ModelRenderable.builder()
                 .setSource(this, R.raw.weapon01)
                 .build()
                 .thenAccept(renderable -> weapon1Renderable = renderable)
@@ -700,7 +700,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                             toast.setGravity(Gravity.CENTER, 0, 0);
                             toast.show();
                             return null;
-                        });
+                        });*/
 
         ModelRenderable.builder()
                 .setSource(this, R.raw.woman)
@@ -762,9 +762,9 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.deoksugung)
-            selected = 1;
-        else if (view.getId() == R.id.seoultower)
+        //if (view.getId() == R.id.deoksugung)
+        //    selected = 1;
+        if (view.getId() == R.id.seoultower)
             selected = 2;
         else if (view.getId() == R.id.artpiece)
             selected = 3;
@@ -778,35 +778,35 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             selected = 7;
         else if (view.getId() == R.id.coffee)
             selected = 8;
-        else if (view.getId() == R.id.ferret)
-            selected = 9;
+        //else if (view.getId() == R.id.ferret)
+        //    selected = 9;
         else if (view.getId() == R.id.igloo)
             selected = 10;
         else if (view.getId() == R.id.lamp)
             selected = 11;
         else if (view.getId() == R.id.mountain)
             selected = 12;
-        else if (view.getId() == R.id.pagoda)
-            selected = 13;
+        //else if (view.getId() == R.id.pagoda)
+        //    selected = 13;
         else if (view.getId() == R.id.schoolhouse)
             selected = 14;
-        else if (view.getId() == R.id.shield)
+        /*else if (view.getId() == R.id.shield)
             selected = 15;
         else if (view.getId() == R.id.ship5)
             selected = 16;
         else if (view.getId() == R.id.ship6)
             selected = 17;
         else if (view.getId() == R.id.ship8)
-            selected = 18;
+            selected = 18;*/
         else if (view.getId() == R.id.star)
             selected = 19;
-        else if (view.getId() == R.id.tennis)
-            selected = 20;
+        //else if (view.getId() == R.id.tennis)
+        //    selected = 20;
         else if (view.getId() == R.id.train)
             selected = 21;
         else if (view.getId() == R.id.turtle)
             selected = 22;
-        else if (view.getId() == R.id.weapon1)
+        /*else if (view.getId() == R.id.weapon1)
             selected = 23;
         else if (view.getId() == R.id.weapon5)
             selected = 24;
@@ -815,7 +815,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         else if (view.getId() == R.id.weapon8)
             selected = 26;
         else if (view.getId() == R.id.woman)
-            selected = 27;
+            selected = 27;*/
     }
 
     private String generateFilename() {

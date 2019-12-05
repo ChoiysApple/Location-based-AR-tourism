@@ -60,9 +60,8 @@
   },
   samplers: [
     {
-      file: 'sampledata/models\\CHAHIN_SAND_CASTLE_TEXTURE.jpg',
+      file: 'sampledata/models/CHAHIN_SAND_CASTLE_TEXTURE.jpg',
       name: 'CHAHIN_SAND_CASTLE_TEXTURE',
-      pipeline_name: '..\\..\\..\\Desktop\\새 폴더\\WebGL\\Assets\\CHAHIN_SAND_CASTLE_TEXTURE.jpg',
     },
   ],
   version: '0.54:2',

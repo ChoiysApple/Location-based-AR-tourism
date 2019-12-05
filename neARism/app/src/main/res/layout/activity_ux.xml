@@ -20,7 +20,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ar.HelloSceneformActivity">
 
-
   <fragment
       android:name="com.marchengraffiti.nearism.nearism.ar.WritingArFragment"
       android:id="@+id/ux_fragment"
@@ -54,12 +53,6 @@
           android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/deoksugung"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/deoksugung" />
-
-        <ImageView
             android:id="@+id/seoultower"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -69,151 +62,79 @@
             android:id="@+id/artpiece"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/artpiece" />
 
         <ImageView
             android:id="@+id/badger"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/badger" />
 
         <ImageView
             android:id="@+id/cabin"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/cabin" />
 
         <ImageView
             android:id="@+id/car"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/car" />
 
         <ImageView
             android:id="@+id/sandcastle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/sandcastle" />
 
         <ImageView
             android:id="@+id/coffee"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow"/>
-
-        <ImageView
-            android:id="@+id/ferret"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/coffee" />
 
         <ImageView
             android:id="@+id/igloo"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/igloo" />
 
         <ImageView
             android:id="@+id/lamp"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/lamp" />
 
         <ImageView
             android:id="@+id/mountain"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
-
-        <ImageView
-            android:id="@+id/pagoda"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/mountain" />
 
         <ImageView
             android:id="@+id/schoolhouse"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
-
-        <ImageView
-            android:id="@+id/shield"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
-
-        <ImageView
-            android:id="@+id/ship5"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
-
-        <ImageView
-            android:id="@+id/ship6"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
-
-        <ImageView
-            android:id="@+id/ship8"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/schoolhouse" />
 
         <ImageView
             android:id="@+id/star"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
-
-        <ImageView
-            android:id="@+id/tennis"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/star" />
 
         <ImageView
             android:id="@+id/train"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/train" />
 
         <ImageView
             android:id="@+id/turtle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
-
-        <ImageView
-            android:id="@+id/weapon1"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
-
-        <ImageView
-            android:id="@+id/weapon5"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
-
-        <ImageView
-            android:id="@+id/weapon7"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
-
-        <ImageView
-            android:id="@+id/weapon8"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
-
-        <ImageView
-            android:id="@+id/woman"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/forward_arrow" />
+            android:src="@drawable/turtle" />
 
 
       </LinearLayout>
@@ -223,7 +144,7 @@
 
 
   <com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/photoBtn"
+      android:id="@+id/photoBtn"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="bottom|center"
