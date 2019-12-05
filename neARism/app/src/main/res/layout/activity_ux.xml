@@ -50,7 +50,7 @@
         android:visibility="visible" />
 
   </RelativeLayout>
-    
+
   <com.google.android.material.floatingactionbutton.FloatingActionButton
       android:id="@+id/photoBtn"
       android:layout_width="wrap_content"
