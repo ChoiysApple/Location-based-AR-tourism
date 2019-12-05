@@ -30,8 +30,6 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent">
 
-
-
   <fragment
       android:name="com.marchengraffiti.nearism.nearism.ar.WritingArFragment"
       android:id="@+id/ux_fragment"
@@ -51,10 +49,8 @@
         android:src="@drawable/add_circle_btn"
         android:visibility="visible" />
 
-
   </RelativeLayout>
-
-
+    
   <com.google.android.material.floatingactionbutton.FloatingActionButton
       android:id="@+id/photoBtn"
       android:layout_width="wrap_content"
