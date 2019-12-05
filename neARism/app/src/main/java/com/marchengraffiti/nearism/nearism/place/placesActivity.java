@@ -9,6 +9,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -39,9 +42,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class placesActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    String ogImage;
+    /*String ogImage;
+    ArrayList<PlaceItem> data = new ArrayList<>();
     BufferedReader br = null;
-    URL url;
+    URL url;*/
+
+    WebView webView;
+    WebSettings webSettings;
 
     GoogleMap mMap;
     String[] mapValue;
@@ -51,8 +58,6 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
     Bitmap bitmap;
     TextView title, address;
     ImageButton back;
-
-    ArrayList<PlaceItem> data = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +82,7 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
         final MapFragment mapFragment = (MapFragment)fragmentManager
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
     @Override
@@ -119,8 +125,25 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
             lng = Double.valueOf(intent.getStringExtra("lng"));
 
             if(placeTitle.equals(intent.getStringExtra("title"))) {
+                Log.d("webViewList", placeTitle);
+
+                webView = findViewById(R.id.webview);
+                webView.setWebViewClient(new WebViewClient());
+                webSettings = webView.getSettings();
+                webSettings.setJavaScriptEnabled(true);
+                webSettings.setSupportMultipleWindows(false);
+                webSettings.setJavaScriptCanOpenWindowsAutomatically(false);
+                webSettings.setLoadWithOverviewMode(true);
+                webSettings.setUseWideViewPort(true);
+                webSettings.setSupportZoom(false);
+                webSettings.setBuiltInZoomControls(false);
+                webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+                webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+                webSettings.setDomStorageEnabled(true);
+                webView.loadUrl("https://www.google.com/search?q=" + placeTitle +
+                        "&source=lnms&tbm=isch");
                 // gallary
-                imageJsonParsing(placeTitle);
+                //imageJsonParsing(placeTitle);
 
                 // map fragment
                 mMap.addMarker(new MarkerOptions()
@@ -172,6 +195,7 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
         }
     }
 
+    /*
     public void imageJsonParsing(String keyword) {
         Log.d("jsonResult222", keyword);
 
@@ -226,6 +250,6 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
         }.start();
 
 
-    }
+    }*/
 }
 

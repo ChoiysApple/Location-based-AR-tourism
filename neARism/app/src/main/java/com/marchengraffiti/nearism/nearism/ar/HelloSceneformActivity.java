@@ -48,6 +48,7 @@ import com.google.ar.sceneform.ArSceneView;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
+import com.marchengraffiti.nearism.nearism.MainActivity;
 import com.marchengraffiti.nearism.nearism.R;
 import com.marchengraffiti.nearism.nearism.tflite.ClassifierActivity;
 
@@ -73,7 +74,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
 
     private ArFragment arFragment;
     private ModelRenderable deoksugungRenderable, seoultowerRenderable,
-                            weaponRenderable, shipRenderable, templeRenderable;
+            weaponRenderable, shipRenderable, templeRenderable;
     ImageView deoksugung, seoultower, weapon, ship, temple;
 
     View arrayView[];
@@ -105,7 +106,13 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         temple = (ImageView) findViewById(R.id.temple);
 
         ImageButton back = findViewById(R.id.back);
-        back.setOnClickListener(v -> finish());
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HelloSceneformActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         setArrayView();
         setClickListener();
@@ -130,10 +137,9 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                 });
 
 
-//        Intent intent = getIntent();
-//        String list = intent.getExtras().getString("results");
-//        System.out.println(list);
-
+        Intent intent2 = getIntent();
+        String list = intent2.getExtras().getString("results");
+        Log.d("sceneformlist", list);
 
     }
 
