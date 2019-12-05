@@ -1,0 +1,62 @@
+{
+  animations: [
+    {
+      path: 'sampledata/models/star.fbx',
+    },
+  ],
+  materials: [
+    {
+      name: 'blinn2SG',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            0.82999999999999996,
+            0.040000000000000001,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/star.fbx',
+    name: 'star',
+    recenter: 'root',
+    scale: 0.040695000000000002 * 0.2,
+  },
+  version: '0.54:2',
+}

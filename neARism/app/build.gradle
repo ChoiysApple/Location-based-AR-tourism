@@ -84,3 +84,113 @@ sceneform.asset('sampledata/models/andy.obj', // 'Source Asset Path' specified d
         'default',                            // 'Material Path' specified during import.
         'sampledata/models/andy.sfa',         // '.sfa Output Path' specified during import.
         'src/main/res/raw/andy')              // '.sfb Output Path' specified during import.
+
+sceneform.asset('sampledata/models/artpiece.fbx',
+        'default',
+        'sampledata/models/artpiece.sfa',
+        'src/main/res/raw/artpiece')
+
+sceneform.asset('sampledata/models/Badger.fbx',
+        'default',
+        'sampledata/models/Badger.sfa',
+        'src/main/res/raw/badger')
+
+sceneform.asset('sampledata/models/Cabin.fbx',
+        'default',
+        'sampledata/models/Cabin.sfa',
+        'src/main/res/raw/cabin')
+
+sceneform.asset('sampledata/models/car.fbx',
+        'default',
+        'sampledata/models/car.sfa',
+        'src/main/res/raw/car')
+
+sceneform.asset('sampledata/models/CHAHIN_SAND_CASTLE.fbx',
+        'default',
+        'sampledata/models/CHAHIN_SAND_CASTLE.sfa',
+        'src/main/res/raw/sandcastle')
+
+sceneform.asset('sampledata/models/coffeecup.fbx',
+        'default',
+        'sampledata/models/coffeecup.sfa',
+        'src/main/res/raw/coffeecup')
+
+sceneform.asset('sampledata/models/Ferret.fbx',
+        'default',
+        'sampledata/models/Ferret.sfa',
+        'src/main/res/raw/ferret')
+
+sceneform.asset('sampledata/models/igloo.fbx',
+        'default',
+        'sampledata/models/igloo.sfa',
+        'src/main/res/raw/igloo')
+
+sceneform.asset('sampledata/models/lamp.fbx',
+        'default',
+        'sampledata/models/lamp.sfa',
+        'src/main/res/raw/lamp')
+
+sceneform.asset('sampledata/models/mountain.fbx',
+        'default',
+        'sampledata/models/mountain.sfa',
+        'src/main/res/raw/mountain')
+
+sceneform.asset('sampledata/models/pagoda.fbx',
+        'default',
+        'sampledata/models/pagoda.sfa',
+        'src/main/res/raw/pagoda')
+
+sceneform.asset('sampledata/models/paperplane.fbx',
+        'default',
+        'sampledata/models/paperplane.sfa',
+        'src/main/res/raw/paperplane')
+
+sceneform.asset('sampledata/models/schoolhouse.fbx',
+        'default',
+        'sampledata/models/schoolhouse.sfa',
+        'src/main/res/raw/schoolhouse')
+
+sceneform.asset('sampledata/models/shield.fbx',
+        'default',
+        'sampledata/models/shield.sfa',
+        'src/main/res/raw/shield')
+
+sceneform.asset('sampledata/models/ship05.fbx',
+        'default',
+        'sampledata/models/ship05.sfa',
+        'src/main/res/raw/ship05')
+
+sceneform.asset('sampledata/models/ship06.fbx',
+        'default',
+        'sampledata/models/ship06.sfa',
+        'src/main/res/raw/ship06')
+
+sceneform.asset('sampledata/models/ship08.fbx',
+        'default',
+        'sampledata/models/ship08.sfa',
+        'src/main/res/raw/ship08')
+
+sceneform.asset('sampledata/models/star.fbx',
+        'default',
+        'sampledata/models/star.sfa',
+        'src/main/res/raw/star')
+
+sceneform.asset('sampledata/models/tennis.fbx',
+        'default',
+        'sampledata/models/tennis.sfa',
+        'src/main/res/raw/tennis')
+
+sceneform.asset('sampledata/models/train.fbx',
+        'default',
+        'sampledata/models/train.sfa',
+        'src/main/res/raw/train')
+
+sceneform.asset('sampledata/models/turtle.fbx',
+        'default',
+        'sampledata/models/turtle.sfa',
+        'src/main/res/raw/turtle')
+
+sceneform.asset('sampledata/models/woman.fbx',
+        'default',
+        'sampledata/models/woman.sfa',
+        'src/main/res/raw/woman')

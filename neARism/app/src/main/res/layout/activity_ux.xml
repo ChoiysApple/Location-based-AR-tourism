@@ -66,22 +66,156 @@
             android:src="@drawable/seoultower" />
 
         <ImageView
-            android:id="@+id/weapon"
+            android:id="@+id/artpiece"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/weapon" />
+            android:src="@drawable/forward_arrow" />
 
         <ImageView
-            android:id="@+id/ship"
+            android:id="@+id/badger"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/ship" />
+            android:src="@drawable/forward_arrow" />
 
         <ImageView
-            android:id="@+id/temple"
+            android:id="@+id/cabin"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/temple" />
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/car"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/sandcastle"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/coffee"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow"/>
+
+        <ImageView
+            android:id="@+id/ferret"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/igloo"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/lamp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/mountain"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/pagoda"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/schoolhouse"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/shield"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/ship5"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/ship6"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/ship8"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/tennis"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/train"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/turtle"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/weapon1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/weapon5"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/weapon7"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/weapon8"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+        <ImageView
+            android:id="@+id/woman"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow" />
+
+
       </LinearLayout>
     </HorizontalScrollView>
 

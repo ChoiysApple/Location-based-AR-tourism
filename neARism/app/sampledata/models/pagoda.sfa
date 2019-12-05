@@ -6,7 +6,7 @@
   ],
   materials: [
     {
-      name: 'Material.002',
+      name: 'texture',
       parameters: [
         {
           baseColor: [
@@ -17,7 +17,7 @@
           ],
         },
         {
-          baseColorMap: 'texture',
+          baseColorMap: null,
         },
         {
           normalMap: null,
@@ -56,14 +56,7 @@
     file: 'sampledata/models/pagoda.fbx',
     name: 'pagoda',
     recenter: 'root',
-    scale: 0.168018 * 0.6,
+    scale: 0.168018 * 0.2,
   },
-  samplers: [
-    {
-      file: 'sampledata/models\\texture.png',
-      name: 'texture',
-      pipeline_name: 'texture.png',
-    },
-  ],
   version: '0.54:2',
 }

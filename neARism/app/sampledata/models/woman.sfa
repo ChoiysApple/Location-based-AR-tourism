@@ -1,0 +1,236 @@
+{
+  animations: [
+    {
+      path: 'sampledata/models/woman.fbx',
+    },
+  ],
+  materials: [
+    {
+      name: 'nac_cwc__coe_sheMat',
+      parameters: [
+        {
+          baseColor: [
+            0.80000000000000004,
+            0.80000000000000004,
+            0.80000000000000004,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: 'nac_cwc_boy_01',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'nac_cwc_boy_01',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: 'nac_cwc_coe_cls',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'nac_cwc_coe_cls',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: 'nac_cwc_coe_har',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'nac_cwc_coe_har',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: 'nac_cwc_coe_skt',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'nac_cwc_coe_skt',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/woman.fbx',
+    name: 'woman',
+    recenter: 'root',
+    scale: 0.011988 * 0.2,
+  },
+  samplers: [
+    {
+      file: 'sampledata/models\\nac_cwc_boy_01.jpg',
+      name: 'nac_cwc_boy_01',
+      pipeline_name: '..\\..\\..\\Desktop\\새 폴더\\WebGL\\Assets\\FbxExporters\\nac_cwc_boy_01.jpg',
+    },
+    {
+      file: 'sampledata/models\\nac_cwc_coe_cls.jpg',
+      name: 'nac_cwc_coe_cls',
+      pipeline_name: '..\\..\\..\\Desktop\\새 폴더\\WebGL\\Assets\\FbxExporters\\nac_cwc_coe_cls.JPG',
+    },
+    {
+      file: 'sampledata/models\\nac_cwc_coe_har.jpg',
+      name: 'nac_cwc_coe_har',
+      pipeline_name: '..\\..\\..\\Desktop\\새 폴더\\WebGL\\Assets\\FbxExporters\\nac_cwc_coe_har.jpg',
+    },
+    {
+      file: 'sampledata/models\\nac_cwc_coe_skt.jpg',
+      name: 'nac_cwc_coe_skt',
+      pipeline_name: '..\\..\\..\\Desktop\\새 폴더\\WebGL\\Assets\\FbxExporters\\nac_cwc_coe_skt.jpg',
+    },
+  ],
+  version: '0.54:2',
+}
