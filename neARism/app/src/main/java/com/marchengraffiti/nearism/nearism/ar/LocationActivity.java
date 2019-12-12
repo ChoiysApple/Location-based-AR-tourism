@@ -16,6 +16,7 @@ package com.marchengraffiti.nearism.nearism.ar;
  * limitations under the License.
  */
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -23,6 +24,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -80,6 +82,7 @@ public class LocationActivity extends AppCompatActivity {
     private LocationScene locationScene;
 
 
+
     @Override
     @SuppressWarnings({"AndroidApiChecker", "FutureReturnValueIgnored"})
     // CompletableFuture requires api level 24
@@ -95,14 +98,8 @@ public class LocationActivity extends AppCompatActivity {
                         .setView(this, R.layout.example_layout)
                         .build();
 
-        // When you build a Renderable, Sceneform loads its resources in the background while returning
-        // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
-        CompletableFuture<ModelRenderable> andy = ModelRenderable.builder()
-                .setSource(this, R.raw.andy)
-                .build();
-
         CompletableFuture.allOf(
-                exampleLayout, andy)
+                exampleLayout)
                 .handle(
                         (notUsed, throwable) -> {
                             // When you build a Renderable, Sceneform loads its resources in the background while
@@ -129,6 +126,8 @@ public class LocationActivity extends AppCompatActivity {
 
         //new task().execute();
         arSetting("가천관", 37.450541, 127.129904);
+
+         
 
     }
 

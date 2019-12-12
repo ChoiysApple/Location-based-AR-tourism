@@ -58,9 +58,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     int flag = 0;
-    FloatingActionButton locationFab1, fab2, locationFab3;
+    FloatingActionButton locationFab1, fab2, locationFab3, fab3;
 
-    Marker marker;
+    Marker marker, marker2, marker3;
     List<String> list = new ArrayList<String>();
     List<Double> latlist = new ArrayList<Double>();
     List<Double> lnglist = new ArrayList<Double>();
@@ -80,12 +80,30 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        fab3 = findViewById(R.id.fab3);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ArImageActivity.class);
+                startActivity(i);
+            }
+        });
+
         fab2 = findViewById(R.id.fab2);
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LocationActivity.class);
+                Intent intent = new Intent(MainActivity.this, HelloSceneformActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        fab3 = findViewById(R.id.fab3);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, CourseMainActivity.class);
+                startActivity(i);
             }
         });
 
@@ -109,49 +127,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         new task().execute();
 
-        // [START] Drawable navigation
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                menuItem.setChecked(true);
-                mDrawerLayout.closeDrawers();
-
-                int id = menuItem.getItemId();
-                switch (id) {
-                    case R.id.photoGuide:
-                        Intent intent = new Intent(getApplicationContext(), ClassifierActivity.class);
-                        startActivity(intent);
-                        break;
-
-                    case R.id.arPhotoBooth:
-                        Intent intent2 = new Intent(MainActivity.this, HelloSceneformActivity.class);
-                        startActivity(intent2);
-                        break;
-
-                    case R.id.browseCourse:
-                        Intent intent3 = new Intent(getApplicationContext(), CourseMainActivity.class);
-                        startActivity(intent3);
-                        break;
-
-                    case R.id.settings:
-                        Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                        break;
-
-                }
-
-                return true;
-            }
-        });
-        // [END] Drawable navigation
 
         // Google Map API Fragment
         FragmentManager fragmentManager = getFragmentManager();
@@ -198,14 +173,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             LatLng position = new LatLng(lat, lng);
 
             if(flag==1) {
-                marker = mMap.addMarker(new MarkerOptions()
+                marker2 = mMap.addMarker(new MarkerOptions()
                         .position(position)
                         .title(name)
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 );
             }
             if(flag==3) {
-                marker = mMap.addMarker(new MarkerOptions()
+                marker3 = mMap.addMarker(new MarkerOptions()
                         .position(position)
                         .title(name)
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))
