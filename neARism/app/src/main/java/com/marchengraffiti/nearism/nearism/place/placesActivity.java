@@ -140,8 +140,11 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
                 webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
                 webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
                 webSettings.setDomStorageEnabled(true);
-                webView.loadUrl("https://www.google.com/search?q=" + placeTitle +
-                        "&source=lnms&tbm=isch");
+                //webView.loadUrl("https://www.google.com/search?q=" + placeTitle +
+                //        "&source=lnms&tbm=isch");
+
+                webView.loadUrl("https://www.instagram.com/explore/tags/" + placeTitle + "/");
+
                 // gallary
                 //imageJsonParsing(placeTitle);
 

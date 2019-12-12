@@ -58,9 +58,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     int flag = 0;
-    FloatingActionButton locationFab1, fab2, locationFab3;
+    FloatingActionButton locationFab1, fab2, locationFab3, fab3;
 
-    Marker marker;
+    Marker marker, marker2, marker3;
     List<String> list = new ArrayList<String>();
     List<Double> latlist = new ArrayList<Double>();
     List<Double> lnglist = new ArrayList<Double>();
@@ -79,6 +79,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        fab3 = findViewById(R.id.fab3);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ArImageActivity.class);
+                startActivity(i);
+            }
+        });
 
         fab2 = findViewById(R.id.fab2);
         fab2.setOnClickListener(new View.OnClickListener() {
@@ -198,14 +207,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             LatLng position = new LatLng(lat, lng);
 
             if(flag==1) {
-                marker = mMap.addMarker(new MarkerOptions()
+                marker2 = mMap.addMarker(new MarkerOptions()
                         .position(position)
                         .title(name)
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 );
             }
             if(flag==3) {
-                marker = mMap.addMarker(new MarkerOptions()
+                marker3 = mMap.addMarker(new MarkerOptions()
                         .position(position)
                         .title(name)
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))

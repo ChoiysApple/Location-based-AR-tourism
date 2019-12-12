@@ -95,6 +95,28 @@ public class LocationActivity extends AppCompatActivity {
                         .setView(this, R.layout.example_layout)
                         .build();
 
+        CompletableFuture.allOf(
+                exampleLayout)
+                .handle(
+                        (notUsed, throwable) -> {
+                            // When you build a Renderable, Sceneform loads its resources in the background while
+                            // returning a CompletableFuture. Call handle(), thenAccept(), or check isDone()
+                            // before calling get().
+
+                            if (throwable != null) {
+                                DemoUtils.displayError(this, "Unable to load renderables", throwable);
+                                return null;
+                            }
+
+                            try {
+                                exampleLayoutRenderable = exampleLayout.get();
+                                hasFinishedLoading = true;
+                            } catch (InterruptedException | ExecutionException ex) {
+                                DemoUtils.displayError(this, "Unable to load renderables", ex);
+                            }
+
+                            return null;
+                        });
 
         // Set an update listener on the Scene that will hide the loading message once a Plane is
         // detected.
