@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, HelloSceneformActivity.class);
+                Intent intent = new Intent(MainActivity.this, ClassifierActivity.class);
                 startActivity(intent);
             }
         });

@@ -173,9 +173,15 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                 });
 
 
-        //Intent intent2 = getIntent();
-        //String list = intent2.getExtras().getString("results");
-        //Log.d("sceneformlist", list);
+        Intent intent2 = getIntent();
+        String list = intent2.getExtras().getString("results").substring(2);
+        if (list.equals("paddle"))
+            list="sea";
+        else if (list.equals("syringe")||list.equals("crane"))
+            list="amusement park";
+        else if (list.equals("volcano")||list.equals("geyser")||list.equals("valley"))
+            list="mountain";
+        Log.d("sceneformlist", list);
 
 
         // end tutorial session when clicked
