@@ -36,6 +36,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -82,6 +83,14 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
     ImageView deoksugung, seoultower, artpiece, badger, cabin, car, sandcastle, coffee,
     igloo, lamp, mountain, schoolhouse, star, train, turtle;
 
+    // guide view
+    View tutorialView;
+    TextView tutorialTxt1, tutorialTxt2, tutorialTxt3, tutorialTxt4;
+
+    FloatingActionButton infoFab, suggestionFab;
+
+    ImageButton backBtn;
+
     View arrayView[];
     int selected = 1;
 
@@ -119,6 +128,22 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         train = (ImageView) findViewById(R.id.train);
         turtle = (ImageView) findViewById(R.id.turtle);
 
+        // Objects for tutorials
+        tutorialView = findViewById(R.id.tutorialView);
+        tutorialTxt1 = findViewById(R.id.tutorialTxt1);
+        tutorialTxt2 = findViewById(R.id.tutorialTxt2);
+        tutorialTxt3 = findViewById(R.id.tutorialTxt3);
+        tutorialTxt4 = findViewById(R.id.tutorialTxt4);
+
+        // Floating action button (side)
+        infoFab = findViewById(R.id.infoBtn);
+        suggestionFab = findViewById(R.id.suggestionBtn);
+
+        // Back button
+        backBtn = findViewById(R.id.back);
+
+
+
         /*ImageButton back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,6 +161,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
 
+
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
                     // Create the Anchor.
@@ -151,6 +177,37 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         //String list = intent2.getExtras().getString("results");
         //Log.d("sceneformlist", list);
 
+
+        // end tutorial session when clicked
+        tutorialView.setOnClickListener(v -> {
+                tutorialView.setVisibility(View.INVISIBLE);
+                tutorialTxt1.setVisibility(View.INVISIBLE);
+                tutorialTxt2.setVisibility(View.INVISIBLE);
+                tutorialTxt3.setVisibility(View.INVISIBLE);
+                tutorialTxt4.setVisibility(View.INVISIBLE);
+        });
+
+        // Reopen tutorial session
+        infoFab.setOnClickListener(v -> {
+            tutorialView.setVisibility(View.VISIBLE);
+            tutorialTxt1.setVisibility(View.VISIBLE);
+            tutorialTxt2.setVisibility(View.VISIBLE);
+            tutorialTxt3.setVisibility(View.VISIBLE);
+            tutorialTxt4.setVisibility(View.VISIBLE);
+        });
+
+
+        // Start classification
+        suggestionFab.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), ClassifierActivity.class);
+            startActivity(intent);
+        });
+
+        // Back to map session
+        backBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        });
     }
 
 

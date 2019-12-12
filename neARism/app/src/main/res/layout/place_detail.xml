@@ -67,29 +67,41 @@
 
     </LinearLayout>
 
-    <fragment
-        android:id="@+id/map"
-        class="com.google.android.gms.maps.MapFragment"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        tools:context="com.example.mapwithmarker.MapsMarkerActivity"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="164dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"/>
+        android:layout_height="wrap_content">
+
 
     <LinearLayout
         android:layout_marginTop="15dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <WebView
             android:id="@+id/webview"
             android:layout_width="match_parent"
-            android:layout_height="500dp" />
+            android:layout_height="500dp"
+            android:layout_marginBottom="32dp"
+            android:background="@android:color/white"/>
 
     </LinearLayout>
 
+        <fragment
+            android:id="@+id/map"
+            class="com.google.android.gms.maps.MapFragment"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            tools:context="com.example.mapwithmarker.MapsMarkerActivity"
+            android:layout_width="match_parent"
+            android:layout_height="164dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+    </FrameLayout>
+
 </LinearLayout>
+
 </ScrollView>

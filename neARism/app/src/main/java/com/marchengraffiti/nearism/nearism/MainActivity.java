@@ -93,8 +93,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LocationActivity.class);
+                Intent intent = new Intent(MainActivity.this, HelloSceneformActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        fab3 = findViewById(R.id.fab3);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, CourseMainActivity.class);
+                startActivity(i);
             }
         });
 
@@ -118,49 +127,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         new task().execute();
 
-        // [START] Drawable navigation
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                menuItem.setChecked(true);
-                mDrawerLayout.closeDrawers();
-
-                int id = menuItem.getItemId();
-                switch (id) {
-                    case R.id.photoGuide:
-                        Intent intent = new Intent(getApplicationContext(), ClassifierActivity.class);
-                        startActivity(intent);
-                        break;
-
-                    case R.id.arPhotoBooth:
-                        Intent intent2 = new Intent(MainActivity.this, HelloSceneformActivity.class);
-                        startActivity(intent2);
-                        break;
-
-                    case R.id.browseCourse:
-                        Intent intent3 = new Intent(getApplicationContext(), CourseMainActivity.class);
-                        startActivity(intent3);
-                        break;
-
-                    case R.id.settings:
-                        Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                        break;
-
-                }
-
-                return true;
-            }
-        });
-        // [END] Drawable navigation
 
         // Google Map API Fragment
         FragmentManager fragmentManager = getFragmentManager();
