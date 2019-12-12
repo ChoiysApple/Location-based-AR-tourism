@@ -95,14 +95,9 @@ public class LocationActivity extends AppCompatActivity {
                         .setView(this, R.layout.example_layout)
                         .build();
 
-        // When you build a Renderable, Sceneform loads its resources in the background while returning
-        // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
-        CompletableFuture<ModelRenderable> andy = ModelRenderable.builder()
-                .setSource(this, R.raw.andy)
-                .build();
 
         CompletableFuture.allOf(
-                exampleLayout, andy)
+                exampleLayout)
                 .handle(
                         (notUsed, throwable) -> {
                             // When you build a Renderable, Sceneform loads its resources in the background while
