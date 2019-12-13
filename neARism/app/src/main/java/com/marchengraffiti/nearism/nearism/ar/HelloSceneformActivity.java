@@ -15,11 +15,13 @@
  */
 package com.marchengraffiti.nearism.nearism.ar;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Build.VERSION_CODES;
@@ -33,6 +35,7 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.PixelCopy;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -75,13 +78,15 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
 
     private ArFragment arFragment;
 
-    private ModelRenderable deoksugungRenderable, seoultowerRenderable, artpieceRenderable,
+    private ModelRenderable seoultowerRenderable, artpieceRenderable,
     badgerRenderable, cabinRenderable, carRenderable, sandcastleRenderable,
-    iglooRenderable, lampRenderable, mountainRenderable,
-    schoolhouseRenderable, starRenderable, trainRenderable, turtleRenderable;
+    iglooRenderable, lampRenderable, mountainRenderable, paperplaneRenderable,
+    schoolhouseRenderable, starRenderable, trainRenderable, turtleRenderable,
+    shipRenderable, snowmanRenderable, candyRenderable, presentRenderable;
 
-    ImageView deoksugung, seoultower, artpiece, badger, cabin, car, sandcastle, coffee,
-    igloo, lamp, mountain, schoolhouse, star, train, turtle;
+    ImageView seoultower, artpiece, badger, cabin, car, sandcastle,
+    igloo, lamp, mountain, paperplane, schoolhouse, star, train, turtle,
+    ship, snowman, candy, present;
 
     // guide view
     View tutorialView;
@@ -119,14 +124,19 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         cabin = (ImageView) findViewById(R.id.cabin);
         car = (ImageView) findViewById(R.id.car);
         sandcastle = (ImageView) findViewById(R.id.sandcastle);
-        coffee = (ImageView) findViewById(R.id.coffee);
         igloo = (ImageView) findViewById(R.id.igloo);
         lamp = (ImageView) findViewById(R.id.lamp);
         mountain = (ImageView) findViewById(R.id.mountain);
         schoolhouse = (ImageView) findViewById(R.id.schoolhouse);
+        paperplane = (ImageView) findViewById(R.id.paperplane);
         star = (ImageView) findViewById(R.id.star);
         train = (ImageView) findViewById(R.id.train);
         turtle = (ImageView) findViewById(R.id.turtle);
+        candy = (ImageView) findViewById(R.id.candy);
+        present = (ImageView) findViewById(R.id.present);
+        ship = (ImageView) findViewById(R.id.ship);
+        snowman = (ImageView) findViewById(R.id.snowman);
+
 
         // Objects for tutorials
         tutorialView = findViewById(R.id.tutorialView);
@@ -173,9 +183,15 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                 });
 
 
-        //Intent intent2 = getIntent();
-        //String list = intent2.getExtras().getString("results");
-        //Log.d("sceneformlist", list);
+        Intent intent2 = getIntent();
+        String list = intent2.getExtras().getString("results").substring(2);
+        if (list.equals("paddle"))
+            list="sea";
+        else if (list.equals("syringe")||list.equals("crane"))
+            list="amusement park";
+        else if (list.equals("volcano")||list.equals("geyser")||list.equals("valley"))
+            list="mountain";
+        Log.d("sceneformlist", list);
 
 
         // end tutorial session when clicked
@@ -283,6 +299,13 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             schoolhouse.select();
         }
 
+        if (selected == 15) {
+            TransformableNode paperplane = new TransformableNode(arFragment.getTransformationSystem());
+            paperplane.setParent(anchorNode);
+            paperplane.setRenderable(paperplaneRenderable);
+            paperplane.select();
+        }
+
         if (selected == 19) {
             TransformableNode star = new TransformableNode(arFragment.getTransformationSystem());
             star.setParent(anchorNode);
@@ -304,9 +327,36 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             turtle.select();
         }
 
+        if (selected == 23) {
+            TransformableNode candy = new TransformableNode(arFragment.getTransformationSystem());
+            candy.setParent(anchorNode);
+            candy.setRenderable(candyRenderable);
+            candy.select();
+        }
+
+        if (selected == 26) {
+            TransformableNode present = new TransformableNode(arFragment.getTransformationSystem());
+            present.setParent(anchorNode);
+            present.setRenderable(presentRenderable);
+            present.select();
+        }
+
+        if (selected == 27) {
+            TransformableNode ship = new TransformableNode(arFragment.getTransformationSystem());
+            ship.setParent(anchorNode);
+            ship.setRenderable(shipRenderable);
+            ship.select();
+        }
+
+        if (selected == 28) {
+            TransformableNode snowman = new TransformableNode(arFragment.getTransformationSystem());
+            snowman.setParent(anchorNode);
+            snowman.setRenderable(snowmanRenderable);
+            snowman.select();
+        }
+
     }
 
-    // 여기 아직 수정 안 함
     private void setupModel() {
         ModelRenderable.builder()
                 .setSource(this, R.raw.seoultower)
@@ -427,6 +477,20 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                         });
 
         ModelRenderable.builder()
+                .setSource(this, R.raw.paperplane)
+                .build()
+                .thenAccept(renderable -> paperplaneRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load paperplane renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+
+        ModelRenderable.builder()
                 .setSource(this, R.raw.schoolhouse)
                 .build()
                 .thenAccept(renderable -> schoolhouseRenderable = renderable)
@@ -478,6 +542,58 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                             return null;
                         });
 
+        ModelRenderable.builder()
+                .setSource(this, R.raw.candy)
+                .build()
+                .thenAccept(renderable -> candyRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load candy renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.present)
+                .build()
+                .thenAccept(renderable -> presentRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load present renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.ship)
+                .build()
+                .thenAccept(renderable -> shipRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load ship renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.snowman)
+                .build()
+                .thenAccept(renderable -> snowmanRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load snowman renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
     }
 
     /**
@@ -510,15 +626,17 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
     }
 
     private void setClickListener() {
-        for (int i = 0; i < arrayView.length; i++) {
-            arrayView[i].setOnClickListener(this);
+        if(arrayView.length != 0) {
+            for (int i = 0; i < arrayView.length; i++) {
+                arrayView[i].setOnClickListener(this);
+            }
         }
     }
 
     private void setArrayView() {
         arrayView = new View[]{
                 seoultower, artpiece, badger, cabin, car, sandcastle, igloo, lamp, mountain, schoolhouse,
-                star, train, turtle
+                paperplane, star, train, turtle, candy, ship, present, snowman
         };
     }
 
@@ -536,8 +654,6 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             selected = 6;
         else if (view.getId() == R.id.sandcastle)
             selected = 7;
-        else if (view.getId() == R.id.coffee)
-            selected = 8;
         else if (view.getId() == R.id.igloo)
             selected = 10;
         else if (view.getId() == R.id.lamp)
@@ -546,12 +662,26 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             selected = 12;
         else if (view.getId() == R.id.schoolhouse)
             selected = 14;
+        else if (view.getId() == R.id.paperplane)
+            selected = 15;
         else if (view.getId() == R.id.star)
             selected = 19;
         else if (view.getId() == R.id.train)
             selected = 21;
         else if (view.getId() == R.id.turtle)
             selected = 22;
+        else if (view.getId() == R.id.candy)
+            selected = 23;
+        /*else if (view.getId() == R.id.knife)
+            selected = 24;
+        else if (view.getId() == R.id.machinegun)
+            selected = 25;*/
+        else if (view.getId() == R.id.present)
+            selected = 26;
+        else if (view.getId() == R.id.ship)
+            selected = 27;
+        else if (view.getId() == R.id.snowman)
+            selected = 28;
     }
 
     private String generateFilename() {
@@ -622,8 +752,6 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             }
             handlerThread.quitSafely();
         }, new Handler(handlerThread.getLooper()));
-
-
 
 
     }

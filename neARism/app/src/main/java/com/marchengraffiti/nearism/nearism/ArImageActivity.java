@@ -1,6 +1,7 @@
 package com.marchengraffiti.nearism.nearism;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -36,7 +37,7 @@ public class ArImageActivity extends AppCompatActivity {
 
         texture = new ExternalTexture();
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.video);
+        mediaPlayer = MediaPlayer.create(this, R.raw.video2);
         mediaPlayer.setSurface(texture.getSurface());
         mediaPlayer.setLooping(true);
 

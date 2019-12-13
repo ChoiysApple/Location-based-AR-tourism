@@ -56,7 +56,7 @@
     file: 'sampledata/models/star.fbx',
     name: 'star',
     recenter: 'root',
-    scale: 0.040695000000000002 * 0.2,
+    scale: 0.040695000000000002 * 0.05,
   },
   version: '0.54:2',
 }

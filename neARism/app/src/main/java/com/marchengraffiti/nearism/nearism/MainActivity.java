@@ -29,6 +29,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.flipkart.youtubeview.models.YouTubePlayerType;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -58,7 +59,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     int flag = 0;
-    FloatingActionButton locationFab1, fab2, locationFab3, fab3;
+    FloatingActionButton fab1, locationFab1, fab2, locationFab3, fab3;
 
     Marker marker, marker2, marker3;
     List<String> list = new ArrayList<String>();
@@ -93,13 +94,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, HelloSceneformActivity.class);
+                Intent intent = new Intent(MainActivity.this, ClassifierActivity.class);
                 startActivity(intent);
             }
         });
 
-        fab3 = findViewById(R.id.fab3);
-        fab3.setOnClickListener(new View.OnClickListener() {
+        fab1 = findViewById(R.id.fab1);
+        fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, CourseMainActivity.class);

@@ -131,7 +131,7 @@
     file: 'sampledata/models/mountain.fbx',
     name: 'mountain',
     recenter: 'root',
-    scale: 0.21004100000000001 * 0.2,
+    scale: 0.21004100000000001 * 0.4,
   },
   version: '0.54:2',
 }

@@ -169,7 +169,7 @@
     file: 'sampledata/models/artpiece.fbx',
     name: 'artpiece',
     recenter: 'root',
-    scale: 0.2
+    scale: 0.2 * 0.05
   },
   version: '0.54:2',
 }

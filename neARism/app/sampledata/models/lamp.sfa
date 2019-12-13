@@ -169,7 +169,7 @@
     file: 'sampledata/models/lamp.fbx',
     name: 'lamp',
     recenter: 'root',
-    scale: 0.35872100000000001 * 0.2,
+    scale: 0.35872100000000001 * 0.15,
   },
   version: '0.54:2',
 }

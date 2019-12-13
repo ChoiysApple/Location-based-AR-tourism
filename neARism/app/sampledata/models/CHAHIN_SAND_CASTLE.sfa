@@ -56,7 +56,7 @@
     file: 'sampledata/models/CHAHIN_SAND_CASTLE.fbx',
     name: 'CHAHIN_SAND_CASTLE',
     recenter: 'root',
-    scale: 0.62936199999999998 * 0.2,
+    scale: 0.62936199999999998 * 0.3,
   },
   samplers: [
     {

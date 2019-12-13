@@ -25,7 +25,7 @@ public class CustomArFragment extends ArFragment {
 
         AugmentedImageDatabase aid = new AugmentedImageDatabase(session);
 
-        Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.image);
+        Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.campus_global);
         aid.addImage("image", image);
 
         config.setAugmentedImageDatabase(aid);
