@@ -59,7 +59,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     int flag = 0;
-    FloatingActionButton locationFab1, fab2, locationFab3, fab3;
+    FloatingActionButton fab1, locationFab1, fab2, locationFab3, fab3;
 
     Marker marker, marker2, marker3;
     List<String> list = new ArrayList<String>();
@@ -99,8 +99,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
-        fab3 = findViewById(R.id.fab3);
-        fab3.setOnClickListener(new View.OnClickListener() {
+        fab1 = findViewById(R.id.fab1);
+        fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, CourseMainActivity.class);

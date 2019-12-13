@@ -95,13 +95,28 @@
                 app:layout_anchorGravity="bottom|left|end"
                 app:pressedTranslationZ="12dp" />
 
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabCurrent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="@dimen/fabMarginBottom"
+                android:layout_marginTop="128dp"
+                android:src="@drawable/baseline_my_location_black_48"
+                android:text="P"
+                app:backgroundTint="#ffffff"
+                app:elevation="6dp"
+                app:layout_anchor="@id/map"
+                app:layout_anchorGravity="top|right|end"
+                app:pressedTranslationZ="12dp" />
+
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </FrameLayout>
 
 
-<include layout="@layout/bottomsheet_layout"></include>
+    <include layout="@layout/bottomsheet_layout"></include>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
