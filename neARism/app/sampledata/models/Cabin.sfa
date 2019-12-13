@@ -132,7 +132,7 @@
     file: 'sampledata/models/Cabin.fbx',
     name: 'Cabin',
     recenter: 'root',
-    scale: 0.0013029999999999999 * 0.2,
+    scale: 0.0013029999999999999 * 0.4,
   },
   samplers: [
     {

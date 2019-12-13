@@ -78,12 +78,6 @@
                     android:src="@drawable/sandcastle" />
 
                 <ImageView
-                    android:id="@+id/coffee"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/coffee" />
-
-                <ImageView
                     android:id="@+id/igloo"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
@@ -108,6 +102,12 @@
                     android:src="@drawable/schoolhouse" />
 
                 <ImageView
+                    android:id="@+id/paperplane"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/paperplane" />
+
+                <ImageView
                     android:id="@+id/star"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
@@ -124,6 +124,30 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:src="@drawable/turtle" />
+
+                <ImageView
+                    android:id="@+id/candy"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/candy" />
+
+                <ImageView
+                    android:id="@+id/present"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/present" />
+
+                <ImageView
+                    android:id="@+id/ship"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ship" />
+
+                <ImageView
+                    android:id="@+id/snowman"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/snowman" />
 
             </LinearLayout>
         </HorizontalScrollView>

@@ -245,7 +245,7 @@
     file: 'sampledata/models/schoolhouse.fbx',
     name: 'schoolhouse',
     recenter: 'root',
-    scale: 0.146427 * 0.2,
+    scale: 0.146427 * 0.5,
   },
   version: '0.54:2',
 }

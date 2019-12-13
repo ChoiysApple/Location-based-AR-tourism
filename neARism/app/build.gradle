@@ -67,6 +67,8 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.0.0'
     implementation 'com.camerakit:camerakit:1.0.0-beta3.11'
     implementation 'com.camerakit:jpegkit:0.1.0'
+
+    implementation 'com.github.flipkart-incubator:android-inline-youtube-view:1.0.4'
 }
 
 apply plugin: 'com.google.gms.google-services'
@@ -146,3 +148,38 @@ sceneform.asset('sampledata/video_screen.obj',
         'sampledata/material.mat',
         'sampledata/video_screen.sfa',
         'src/main/assets/video_screen')
+
+sceneform.asset('sampledata/models/candyCaneMint.fbx',
+        'default',
+        'sampledata/models/candyCaneMint.sfa',
+        'src/main/res/raw/candy/candyCaneMint')
+
+sceneform.asset('sampledata/models/knife.fbx',
+        'default',
+        'sampledata/models/knife.sfa',
+        'src/main/res/raw/knife')
+
+sceneform.asset('sampledata/models/machinegun.fbx',
+        'default',
+        'sampledata/models/machinegun.sfa',
+        'src/main/res/raw/machinegun')
+
+sceneform.asset('sampledata/models/present.fbx',
+        'default',
+        'sampledata/models/present.sfa',
+        'src/main/res/raw/present')
+
+sceneform.asset('sampledata/models/ship.fbx',
+        'default',
+        'sampledata/models/ship.sfa',
+        'src/main/res/raw/ship')
+
+sceneform.asset('sampledata/models/snowmanFancy.fbx',
+        'default',
+        'sampledata/models/snowmanFancy.sfa',
+        'src/main/res/raw/snowman')
+
+sceneform.asset('sampledata/models/candyCaneMint.fbx',
+        'default',
+        'sampledata/models/candyCaneMint.sfa',
+        'src/main/res/raw/candy')

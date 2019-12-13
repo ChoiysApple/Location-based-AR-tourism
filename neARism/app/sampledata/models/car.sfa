@@ -283,7 +283,7 @@
     file: 'sampledata/models/car.fbx',
     name: 'car',
     recenter: 'root',
-    scale: 0.0049950000000000003 * 0.2,
+    scale: 0.0049950000000000003 * 0.35,
   },
   version: '0.54:2',
 }
