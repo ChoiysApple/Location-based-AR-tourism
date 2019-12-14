@@ -1,9 +1,12 @@
 package com.marchengraffiti.nearism.nearism;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -29,7 +32,6 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.flipkart.youtubeview.models.YouTubePlayerType;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -52,20 +54,23 @@ import com.marchengraffiti.nearism.nearism.place.placesActivity;
 import com.marchengraffiti.nearism.nearism.tflite.CameraActivity;
 import com.marchengraffiti.nearism.nearism.tflite.ClassifierActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationChangeListener {
 
     int flag = 0;
-    FloatingActionButton fab1, locationFab1, fab2, locationFab3, fab3;
+    FloatingActionButton locationFab1, fab2, locationFab3, fab3, fab1, currentFab, locationFab2;
 
-    Marker marker, marker2, marker3;
+    Marker marker, marker2, marker3, marker4;
     List<String> list = new ArrayList<String>();
     List<Double> latlist = new ArrayList<Double>();
     List<Double> lnglist = new ArrayList<Double>();
     List<MarkerItem> markerList = new ArrayList<MarkerItem>();
+
+    boolean myLocationEnabled = false;
 
     GoogleMap mMap;
     double lati, longi, lat, lng;
@@ -117,6 +122,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
+        locationFab2 = findViewById(R.id.locationFab2); // 카페
+        locationFab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flag = 2;
+                new parsing_task().execute();
+            }
+        });
+
         locationFab3 = findViewById(R.id.locationFab3); // 호텔
         locationFab3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +139,18 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 new parsing_task().execute();
             }
         });
+
+        /*currentFab = findViewById(R.id.fabCurrent); // 호텔
+        currentFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(myLocationEnabled)
+                    mMap.setMyLocationEnabled(true);
+                else
+                    mMap.setMyLocationEnabled(false);
+
+            }
+        });*/
 
         new task().execute();
 
@@ -137,7 +163,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         final ParsingAPI parsingAPI = new ParsingAPI();
         parsingAPI.connection();
+
+
     }
+
+    @Override
+    public void onMyLocationChange(Location location) {
+
+    }
+
 
     private class parsing_task extends AsyncTask<Void, String, Void> {
         String query;
@@ -151,7 +185,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         protected Void doInBackground(Void... params) {
             Log.d("parsing_task", "flag : " + flag);
             if(flag == 1) { query = "restaurant"; }
-            if(flag == 2) { query = "inn"; }
+            if(flag == 2) { query = "cafe"; }
+            if(flag == 3) { query = "inn"; }
 
             FourSquare f = new FourSquare(query);
             f.fourSquareParsing(new MyCallback() {
@@ -180,6 +215,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 );
             }
+
+            if(flag==2) {
+                marker4 = mMap.addMarker(new MarkerOptions()
+                        .position(position)
+                        .title(name)
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
+                );
+            }
+
             if(flag==3) {
                 marker3 = mMap.addMarker(new MarkerOptions()
                         .position(position)
