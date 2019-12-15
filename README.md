@@ -20,10 +20,12 @@
     * Cafe, Hotel, Restaurent searching
     * AR photo booth
 * 0.4.1
-    * AR asset suggestion
+    * AR asset suggestion (Amusement park, Mountaion, Beach)
     * AR Video 
 * 0.5.1
-    * Work in progress
+    * Add course marker, polyline
+    * Add asset suggestion class (Park)
+    * Add Argumented Video content (Seolark Mountain)
     
 </br>
 
