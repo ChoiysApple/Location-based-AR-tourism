@@ -25,7 +25,7 @@
 * AR Core
 
 ## Asset Used
-* (Kenney)[https://www.kenney.nl/assets] free assets
-* (Asian Pagoda Temple)[https://assetstore.unity.com/packages/3d/environments/fantasy/asian-pagoda-temple-62944]
-* (Acient Ship Pack)[https://assetstore.unity.com/packages/3d/vehicles/sea/ancient-ship-pack-133441]
-* (Cold Weapon Shelves)[https://assetstore.unity.com/packages/3d/vehicles/sea/ancient-ship-pack-133441]
+* [Kenney](https://www.kenney.nl/assets) free assets
+* [Asian Pagoda Temple](https://assetstore.unity.com/packages/3d/environments/fantasy/asian-pagoda-temple-62944)
+* [Acient Ship Pack](https://assetstore.unity.com/packages/3d/vehicles/sea/ancient-ship-pack-133441)
+* [Cold Weapon Shelves](https://assetstore.unity.com/packages/3d/vehicles/sea/ancient-ship-pack-133441)
