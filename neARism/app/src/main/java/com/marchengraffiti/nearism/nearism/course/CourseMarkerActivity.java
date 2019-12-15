@@ -137,7 +137,7 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
         points = (ArrayList<LatLng>) createLatlngList(latList, lngList);
         Log.d("List Created point", String.valueOf(points));
 
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(points.get(0), 14));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(points.get(2), 10));
 
         drawPath(points, nameList, googleMap);
     }
