@@ -37,34 +37,6 @@
             android:layout_gravity="left"
             android:layout_margin="8dp"
             android:textStyle="bold"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="4dp"
-            android:layout_marginLeft="16dp">
-
-            <TextView
-                android:id="@+id/Location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Location"
-                android:textSize="16dp"
-                android:layout_gravity="left"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/place_addr"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="left"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:text="Address details"
-                android:textSize="16dp" />
-
-        </LinearLayout>
     </LinearLayout>
 
     <RelativeLayout
@@ -95,10 +67,11 @@
         android:background="@android:color/white">
 
     <Button
+        android:id="@+id/startBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/accent_style"
-        android:text="안내 시작"
+        android:text="코스 안내 시작"
         android:textColor="@android:color/white"
         tools:ignore="MissingConstraints" />
 

@@ -1,6 +1,5 @@
 package com.marchengraffiti.nearism.nearism;
 
-import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
@@ -21,12 +20,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
@@ -41,9 +36,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.marchengraffiti.nearism.nearism.ar.HelloSceneformActivity;
-import com.marchengraffiti.nearism.nearism.ar.LocationActivity;
 import com.marchengraffiti.nearism.nearism.course.CourseMainActivity;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
@@ -51,7 +43,6 @@ import com.marchengraffiti.nearism.nearism.map.MarkerItem;
 import com.marchengraffiti.nearism.nearism.parsing.FourSquare;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
 import com.marchengraffiti.nearism.nearism.place.placesActivity;
-import com.marchengraffiti.nearism.nearism.tflite.CameraActivity;
 import com.marchengraffiti.nearism.nearism.tflite.ClassifierActivity;
 
 import java.io.IOException;
@@ -74,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     GoogleMap mMap;
     double lati, longi, lat, lng;
+    Geocoder geoCoder;
 
     private DrawerLayout mDrawerLayout;
 
@@ -163,7 +155,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         final ParsingAPI parsingAPI = new ParsingAPI();
         parsingAPI.connection();
-
 
     }
 
@@ -328,33 +319,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latlist.get(i), lnglist.get(i)), 18));
                     }
                 }
-
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        switch (id) {
-            case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
-                return true;
-            //case R.id.action_settings:
-            //    return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     // Google Map API
@@ -372,49 +338,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         */
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.450541, 127.129904), 14));
-    }
-
-    final LocationListener gpsLocationListener = new LocationListener() {
-        public void onLocationChanged(Location location) {
-            longitude = location.getLongitude();
-            latitude = location.getLatitude();
-        }
-
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-        }
-
-        public void onProviderEnabled(String provider) {
-        }
-
-        public void onProviderDisabled(String provider) {
-        }
-    };
-
-    public String getLocation() {
-        // 현재 위치 경도, 위도 가져오기
-        final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-        if (Build.VERSION.SDK_INT >= 23 &&
-                ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                    0);
-        } else {
-            Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            longi = location.getLongitude();
-            lati = location.getLatitude();
-
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                    1000,
-                    1,
-                    gpsLocationListener);
-            lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
-                    1000,
-                    1,
-                    gpsLocationListener);
-        }
-
-        String value = lati + "," + longi;
-        return value;
     }
 
 }
