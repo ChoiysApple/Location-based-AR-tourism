@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,10 +24,16 @@ import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CourseDetailActivity extends AppCompatActivity {
@@ -39,6 +47,15 @@ public class CourseDetailActivity extends AppCompatActivity {
 
     private ArrayList<CourseDetailItem> data = new ArrayList<>();
 
+    Bundle location_bundle = new Bundle();
+    double[] latList = new double[10];
+    double[] lngList = new double[10];
+//    Handler mHandler = new Handler();
+//    Message msg = mHandler.obtainMessage();
+
+    int place_count = 0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +66,9 @@ public class CourseDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent newIntent = new Intent(CourseDetailActivity.this, CourseMarkerActivity.class);
+                newIntent.putExtra("lngList",lngList);
+                newIntent.putExtra("latList",latList);
+
                 startActivity(newIntent);
             }
         });
@@ -99,6 +119,14 @@ public class CourseDetailActivity extends AppCompatActivity {
                         lng = addressList.get(0).getLongitude();
 
                         Log.d("geocoder", lat + " " + lng);
+//                        latList.add(lat);
+//                        lngList.add(lng);
+                        latList[place_count] = lat;
+                        lngList[place_count] = lng;
+                        place_count++;
+                        Log.d("List", Arrays.toString(latList) + " " + Arrays.toString(lngList));
+//                        Log.d("List", latList + " " + lngList);
+
 
                         DatabaseReference mPostReference2 = FirebaseDatabase.getInstance().getReference();
                         Map<String, Object> childUpdates = new HashMap<>();
@@ -117,16 +145,10 @@ public class CourseDetailActivity extends AppCompatActivity {
                     }
                 }
 
-                //Log.d("cidLog", intent.getStringExtra("cid"));
-                //Log.d("cidLog", "cid = " + cid);
-
-                // course_item.xml 은 코스 메인화면에 보이는 리스트뷰
-                // 코스 메인화면 레이아웃에 arrayList 세팅
                 CourseDetailAdapter adapter = new CourseDetailAdapter(getApplicationContext(), R.layout.course_detail_item, data);
                 listView.setAdapter(adapter);
             }
         });
-
     }
 
 }
