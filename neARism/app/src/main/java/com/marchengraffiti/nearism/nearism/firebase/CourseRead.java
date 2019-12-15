@@ -25,8 +25,8 @@ public class CourseRead {
                     for(DataSnapshot deeperSnapshot : snapshot.getChildren()) {
                         String key = snapshot.getKey();
                         CourseData get = deeperSnapshot.getValue(CourseData.class);
-                        String[] info = {get.subnum, get.detailimg, get.subname, get.overview};
-                        String result = info[0] + "#" + info[1] + "#" + info[2] + "#" + info[3] + "#" + key;
+                        String[] info = {get.subnum, get.detailimg, get.subname, get.overview, get.subid};
+                        String result = info[0] + "#" + info[1] + "#" + info[2] + "#" + info[3] + "#" + key + "#" + info[4];
                         arrayData.add(result);
                         arrayIndex.add(key);
                         Log.d("CourseRead", "RESULT : " + result);

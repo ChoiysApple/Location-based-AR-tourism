@@ -39,7 +39,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -79,14 +79,22 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
     private ArFragment arFragment;
 
     private ModelRenderable seoultowerRenderable, artpieceRenderable,
-    badgerRenderable, cabinRenderable, carRenderable, sandcastleRenderable,
-    iglooRenderable, lampRenderable, mountainRenderable, paperplaneRenderable,
-    schoolhouseRenderable, starRenderable, trainRenderable, turtleRenderable,
-    shipRenderable, snowmanRenderable, candyRenderable, presentRenderable;
+            badgerRenderable, cabinRenderable, carRenderable, sandcastleRenderable,
+            iglooRenderable, lampRenderable, mountainRenderable, paperplaneRenderable,
+            schoolhouseRenderable, starRenderable, trainRenderable, turtleRenderable,
+            shipRenderable, snowmanRenderable, candyRenderable, presentRenderable;
 
     ImageView seoultower, artpiece, badger, cabin, car, sandcastle,
-    igloo, lamp, mountain, paperplane, schoolhouse, star, train, turtle,
-    ship, snowman, candy, present;
+            igloo, lamp, mountain, paperplane, schoolhouse, star, train, turtle,
+            ship, snowman, candy, present;
+
+    // guide view
+    View tutorialView;
+    TextView tutorialTxt1, tutorialTxt2, tutorialTxt3, tutorialTxt4;
+
+    FloatingActionButton infoFab, suggestionFab;
+
+    ImageButton backBtn;
 
     View arrayView[];
     int selected = 1;
@@ -130,6 +138,20 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         snowman = (ImageView) findViewById(R.id.snowman);
 
 
+        // Objects for tutorials
+        tutorialView = findViewById(R.id.tutorialView);
+        tutorialTxt1 = findViewById(R.id.tutorialTxt1);
+        tutorialTxt2 = findViewById(R.id.tutorialTxt2);
+        tutorialTxt3 = findViewById(R.id.tutorialTxt3);
+        tutorialTxt4 = findViewById(R.id.tutorialTxt4);
+
+        // Floating action button (side)
+        infoFab = findViewById(R.id.infoBtn);
+        suggestionFab = findViewById(R.id.suggestionBtn);
+
+        // Back button
+        backBtn = findViewById(R.id.back);
+
         /*ImageButton back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,6 +169,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
 
+
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
                     // Create the Anchor.
@@ -158,13 +181,157 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                 });
 
 
-//        Intent intent2 = getIntent();
-//        String list = intent2.getExtras().getString("results");
-//        Log.d("sceneformlist", list);
+        Intent intent2 = getIntent();
+        String list = intent2.getExtras().getString("results").substring(2);
+        if (list.equals("paddle"))
+            list="sea";
+        else if (list.equals("syringe")||list.equals("crane"))
+            list="amusement park";
+        else if (list.equals("volcano")||list.equals("geyser")||list.equals("valley")||list.equals(("cliff")))
+            list="mountain";
+        Log.d("sceneformlist", list);
+
+        if (list.equals("sea")) {
+            arrayView = new View[] {sandcastle, turtle, ship, mountain, schoolhouse};
+            sandcastle.getLayoutParams().width = 250;
+            sandcastle.setImageResource(R.drawable.sandcastle);
+            turtle.getLayoutParams().width = 250;
+            turtle.setImageResource(R.drawable.turtle);
+            ship.getLayoutParams().width = 250;
+            ship.setImageResource(R.drawable.ship);
+            mountain.getLayoutParams().width = 250;
+            mountain.setImageResource(R.drawable.mountain);
+            schoolhouse.getLayoutParams().width = 250;
+            schoolhouse.setImageResource(R.drawable.schoolhouse);
+        }
+
+        else if (list.equals("amusement park")){
+            arrayView = new View[] {badger, candy, present, snowman, star, paperplane, igloo, car};
+            badger.getLayoutParams().width = 250;
+            badger.setImageResource(R.drawable.badger);
+            candy.getLayoutParams().width = 250;
+            candy.setImageResource(R.drawable.candy);
+            present.getLayoutParams().width = 250;
+            present.setImageResource(R.drawable.present);
+            snowman.getLayoutParams().width = 250;
+            snowman.setImageResource(R.drawable.snowman);
+            star.getLayoutParams().width = 250;
+            star.setImageResource(R.drawable.star);
+            paperplane.getLayoutParams().width = 250;
+            paperplane.setImageResource(R.drawable.paperplane);
+            igloo.getLayoutParams().width = 250;
+            igloo.setImageResource(R.drawable.igloo);
+            car.getLayoutParams().width = 250;
+            car.setImageResource(R.drawable.car);
+        }
+
+        else if (list.equals("mountain")) {
+            arrayView = new View[] {badger, mountain, igloo, star, cabin, car, paperplane};
+            badger.getLayoutParams().width = 250;
+            badger.setImageResource(R.drawable.badger);
+            mountain.getLayoutParams().width = 250;
+            mountain.setImageResource(R.drawable.mountain);
+            igloo.getLayoutParams().width = 250;
+            igloo.setImageResource(R.drawable.igloo);
+            car.getLayoutParams().width = 250;
+            car.setImageResource(R.drawable.car);
+            star.getLayoutParams().width = 250;
+            star.setImageResource(R.drawable.star);
+            paperplane.getLayoutParams().width = 250;
+            paperplane.setImageResource(R.drawable.paperplane);
+            cabin.getLayoutParams().width = 250;
+            cabin.setImageResource(R.drawable.cabin);
+        }
+
+        else {
+            arrayView = new View[]{
+                    seoultower, artpiece, badger, cabin, car, sandcastle, igloo, lamp, mountain, schoolhouse,
+                    paperplane, star, train, turtle, candy, ship, present, snowman
+            };
+            seoultower.getLayoutParams().width=250;
+            seoultower.setImageResource(R.drawable.seoultower);
+            artpiece.getLayoutParams().width=250;
+            artpiece.setImageResource(R.drawable.artpiece);
+            badger.getLayoutParams().width = 250;
+            badger.setImageResource(R.drawable.badger);
+            cabin.getLayoutParams().width = 250;
+            cabin.setImageResource(R.drawable.cabin);
+            car.getLayoutParams().width = 250;
+            car.setImageResource(R.drawable.car);
+            sandcastle.getLayoutParams().width = 250;
+            sandcastle.setImageResource(R.drawable.sandcastle);
+            igloo.getLayoutParams().width = 250;
+            igloo.setImageResource(R.drawable.igloo);
+            lamp.getLayoutParams().width = 250;
+            lamp.setImageResource(R.drawable.lamp);
+            mountain.getLayoutParams().width = 250;
+            mountain.setImageResource(R.drawable.mountain);
+            schoolhouse.getLayoutParams().width = 250;
+            schoolhouse.setImageResource(R.drawable.schoolhouse);
+            paperplane.getLayoutParams().width = 250;
+            paperplane.setImageResource(R.drawable.paperplane);
+            star.getLayoutParams().width = 250;
+            star.setImageResource(R.drawable.star);
+            train.getLayoutParams().width=250;
+            train.setImageResource(R.drawable.train);
+            turtle.getLayoutParams().width = 250;
+            turtle.setImageResource(R.drawable.turtle);
+            candy.getLayoutParams().width = 250;
+            candy.setImageResource(R.drawable.candy);
+            ship.getLayoutParams().width = 250;
+            ship.setImageResource(R.drawable.ship);
+            present.getLayoutParams().width = 250;
+            present.setImageResource(R.drawable.present);
+            snowman.getLayoutParams().width = 250;
+            snowman.setImageResource(R.drawable.snowman);
+        }
+
+        // end tutorial session when clicked
+        tutorialView.setOnClickListener(v -> {
+            tutorialView.setVisibility(View.INVISIBLE);
+            tutorialTxt1.setVisibility(View.INVISIBLE);
+            tutorialTxt2.setVisibility(View.INVISIBLE);
+            tutorialTxt3.setVisibility(View.INVISIBLE);
+            tutorialTxt4.setVisibility(View.INVISIBLE);
+        });
+
+        // Reopen tutorial session
+        infoFab.setOnClickListener(v -> {
+            tutorialView.setVisibility(View.VISIBLE);
+            tutorialTxt1.setVisibility(View.VISIBLE);
+            tutorialTxt2.setVisibility(View.VISIBLE);
+            tutorialTxt3.setVisibility(View.VISIBLE);
+            tutorialTxt4.setVisibility(View.VISIBLE);
+        });
 
 
+        // Start classification
+        suggestionFab.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), ClassifierActivity.class);
+            startActivity(intent);
+        });
+
+        // Back to map session
+        backBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        });
     }
 
+    private void setClickListener() {
+        if(arrayView.length != 0) {
+            for (int i = 0; i < arrayView.length; i++) {
+                arrayView[i].setOnClickListener(this);
+            }
+        }
+    }
+
+    private void setArrayView() {
+        arrayView = new View[]{
+                seoultower, artpiece, badger, cabin, car, sandcastle, igloo, lamp, mountain, schoolhouse,
+                paperplane, star, train, turtle, candy, ship, present, snowman
+        };
+    }
 
     private void createModel(AnchorNode anchorNode, int selected) {
 
@@ -562,21 +729,6 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             return false;
         }
         return true;
-    }
-
-    private void setClickListener() {
-        if(arrayView.length != 0) {
-            for (int i = 0; i < arrayView.length; i++) {
-                arrayView[i].setOnClickListener(this);
-            }
-        }
-    }
-
-    private void setArrayView() {
-        arrayView = new View[]{
-                seoultower, artpiece, badger, cabin, car, sandcastle, igloo, lamp, mountain, schoolhouse,
-                paperplane, star, train, turtle, candy, ship, present, snowman
-        };
     }
 
     @Override

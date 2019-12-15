@@ -22,6 +22,7 @@
     tools:context=".ar.HelloSceneformActivity">
 
 
+
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -51,7 +52,63 @@
 
   </RelativeLayout>
 
-  <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+    <View
+        android:id="@+id/tutorialView"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="#CC000000"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tutorialTxt3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Asset\nsuggestion"
+      android:textStyle="bold"
+        android:textAlignment="center"
+      android:layout_gravity="bottom|right"
+      android:layout_marginBottom="80dp"
+        android:layout_marginRight="8dp"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/tutorialTxt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take photo"
+        android:textStyle="bold"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="95dp"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/tutorialTxt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show guide"
+        android:textStyle="bold"
+        android:layout_gravity="bottom|left"
+        android:layout_marginBottom="80dp"
+        android:layout_marginLeft="8dp"
+        android:visibility="visible"/>
+
+
+    <TextView
+        android:id="@+id/tutorialTxt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Slide up from bottom to select assets\n\nTap anywhere to put assets\n\nPinch to resize"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:layout_marginBottom="80dp"
+        android:layout_marginLeft="8dp"
+        android:visibility="visible"/>
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
       android:id="@+id/photoBtn"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -59,11 +116,39 @@
       android:layout_margin="16dp"
       android:visibility="visible"
       app:backgroundTint="@color/colorPrimary"
-      android:src="@drawable/camera_black"/>
+      android:src="@drawable/camera_black"
+        app:fabCustomSize="@dimen/fabSize"
+        app:maxImageSize="@dimen/fabImgSize"/>
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/infoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_margin="16dp"
+        android:visibility="visible"
+        app:backgroundTint="@color/colorPrimary"
+        android:src="@drawable/tutorial"/>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/suggestionBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:visibility="visible"
+        app:backgroundTint="@color/colorPrimary"
+        android:src="@drawable/cube"/>
+
   </FrameLayout>
 
   <include layout="@layout/bottomsheet_ar"></include>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 
 </FrameLayout>
