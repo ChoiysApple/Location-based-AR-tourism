@@ -3,8 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.marchengraffiti.nearism.nearism">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--
+ This tag indicates that this application requires ARCore. This results in the application
+        only being visible in the Google Play Store on devices that support ARCore.
+    -->
+    <uses-feature
+        android:name="android.hardware.camera.ar"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <application
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:appComponentFactory="whateverString"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,18 +32,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:replace="android:appComponentFactory"
-        tools:ignore="GoogleAppIndexingWarning">
-        <meta-data android:name="com.google.ar.core" android:value="required" />
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:appComponentFactory">
+        <activity android:name=".course.CourseMarkerActivity"></activity>
+        <activity android:name=".ArImageActivity" />
+
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="required" />
 
         <activity
             android:name=".ar.HelloSceneformActivity"
-            android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:exported="true"
+            android:label="@string/app_name"
             android:screenOrientation="locked"
-            android:exported="true"/>
-        <activity android:name=".course.ChooseCourseActivity"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".course.ChooseCourseActivity" />
         <activity android:name=".course.AddCourseActivity" />
         <activity android:name=".course.CourseDetailActivity" />
         <activity android:name=".course.CourseMainActivity" />
@@ -39,11 +63,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".sign.SignIn" />
-        <activity android:name=".placesActivity" />
+        <activity android:name=".place.placesActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA4H60t187vxFxpGCApONd1HJwJixIJ0Ck" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.ar.codelab.name.provider"
@@ -51,21 +76,8 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/paths"/>
+                android:resource="@xml/paths" />
         </provider>
     </application>
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA" />
-    <!-- This tag indicates that this application requires ARCore. This results in the application
-        only being visible in the Google Play Store on devices that support ARCore. -->
-    <uses-feature android:name="android.hardware.camera.ar" android:required="true"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true" />
-
 
 </manifest>

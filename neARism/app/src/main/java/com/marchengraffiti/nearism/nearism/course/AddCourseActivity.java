@@ -14,28 +14,18 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.marchengraffiti.nearism.nearism.R;
 import com.marchengraffiti.nearism.nearism.firebase.CourseData;
 import com.marchengraffiti.nearism.nearism.firebase.FirebasePost;
-import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
-import com.marchengraffiti.nearism.nearism.map.MarkerItem;
-import com.marchengraffiti.nearism.nearism.place.PlaceItem;
 import com.marchengraffiti.nearism.nearism.place.placesActivity;
 
-import java.io.BufferedReader;
-import java.lang.reflect.Array;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -95,7 +85,7 @@ public class AddCourseActivity extends AppCompatActivity {
         if (detailimg_list != null && subname_list != null && overview_list != null) {
             new task().execute();
 
-            courseDetailItem = new CourseDetailItem(detailimg_list, subname_list, overview_list, cid);
+            courseDetailItem = new CourseDetailItem(detailimg_list, subname_list, overview_list, cid, subid);
             data.add(courseDetailItem);
             //Log.d("dataAdd", data.toString());
 

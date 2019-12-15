@@ -22,7 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ChooseCourseActivity extends AppCompatActivity {
 
-    String subnum, detailimg, subname, overview, cid;
+    String subnum, detailimg, subname, overview, cid, subid;
 
     ImageButton back;
 
@@ -53,8 +53,9 @@ public class ChooseCourseActivity extends AppCompatActivity {
                 subname = value_split[2]; // 코스 장소 이름
                 overview = value_split[3]; // 코스 장소 상세 설명
                 cid = value_split[4]; // 메인 코스랑 장소 매칭시키려고
+                subid = value_split[5];
 
-                CourseDetailItem item = new CourseDetailItem(detailimg, subname, overview, cid);
+                CourseDetailItem item = new CourseDetailItem(detailimg, subname, overview, cid, subid);
                 data.add(item);
 
                 // course_item.xml 은 코스 메인화면에 보이는 리스트뷰

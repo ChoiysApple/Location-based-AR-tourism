@@ -15,11 +15,13 @@
  */
 package com.marchengraffiti.nearism.nearism.ar;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Build.VERSION_CODES;
@@ -33,9 +35,11 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.PixelCopy;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -48,6 +52,7 @@ import com.google.ar.sceneform.ArSceneView;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
+import com.marchengraffiti.nearism.nearism.MainActivity;
 import com.marchengraffiti.nearism.nearism.R;
 import com.marchengraffiti.nearism.nearism.tflite.ClassifierActivity;
 
@@ -72,9 +77,24 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
     private static final double MIN_OPENGL_VERSION = 3.0;
 
     private ArFragment arFragment;
-    private ModelRenderable deoksugungRenderable, seoultowerRenderable,
-                            weaponRenderable, shipRenderable, templeRenderable;
-    ImageView deoksugung, seoultower, weapon, ship, temple;
+
+    private ModelRenderable seoultowerRenderable, artpieceRenderable,
+            badgerRenderable, cabinRenderable, carRenderable, sandcastleRenderable,
+            iglooRenderable, lampRenderable, mountainRenderable, paperplaneRenderable,
+            schoolhouseRenderable, starRenderable, trainRenderable, turtleRenderable,
+            shipRenderable, snowmanRenderable, candyRenderable, presentRenderable;
+
+    ImageView seoultower, artpiece, badger, cabin, car, sandcastle,
+            igloo, lamp, mountain, paperplane, schoolhouse, star, train, turtle,
+            ship, snowman, candy, present;
+
+    // guide view
+    View tutorialView;
+    TextView tutorialTxt1, tutorialTxt2, tutorialTxt3, tutorialTxt4;
+
+    FloatingActionButton infoFab, suggestionFab;
+
+    ImageButton backBtn;
 
     View arrayView[];
     int selected = 1;
@@ -98,14 +118,48 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         FloatingActionButton photoBtn = findViewById(R.id.photoBtn);
         photoBtn.setOnClickListener(v -> takePhoto());
 
-        deoksugung = (ImageView) findViewById(R.id.deoksugung);
         seoultower = (ImageView) findViewById(R.id.seoultower);
-        weapon = (ImageView) findViewById(R.id.weapon);
+        artpiece = (ImageView) findViewById(R.id.artpiece);
+        badger = (ImageView) findViewById(R.id.badger);
+        cabin = (ImageView) findViewById(R.id.cabin);
+        car = (ImageView) findViewById(R.id.car);
+        sandcastle = (ImageView) findViewById(R.id.sandcastle);
+        igloo = (ImageView) findViewById(R.id.igloo);
+        lamp = (ImageView) findViewById(R.id.lamp);
+        mountain = (ImageView) findViewById(R.id.mountain);
+        schoolhouse = (ImageView) findViewById(R.id.schoolhouse);
+        paperplane = (ImageView) findViewById(R.id.paperplane);
+        star = (ImageView) findViewById(R.id.star);
+        train = (ImageView) findViewById(R.id.train);
+        turtle = (ImageView) findViewById(R.id.turtle);
+        candy = (ImageView) findViewById(R.id.candy);
+        present = (ImageView) findViewById(R.id.present);
         ship = (ImageView) findViewById(R.id.ship);
-        temple = (ImageView) findViewById(R.id.temple);
+        snowman = (ImageView) findViewById(R.id.snowman);
 
-        ImageButton back = findViewById(R.id.back);
-        back.setOnClickListener(v -> finish());
+
+        // Objects for tutorials
+        tutorialView = findViewById(R.id.tutorialView);
+        tutorialTxt1 = findViewById(R.id.tutorialTxt1);
+        tutorialTxt2 = findViewById(R.id.tutorialTxt2);
+        tutorialTxt3 = findViewById(R.id.tutorialTxt3);
+        tutorialTxt4 = findViewById(R.id.tutorialTxt4);
+
+        // Floating action button (side)
+        infoFab = findViewById(R.id.infoBtn);
+        suggestionFab = findViewById(R.id.suggestionBtn);
+
+        // Back button
+        backBtn = findViewById(R.id.back);
+
+        /*ImageButton back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HelloSceneformActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });*/
 
         setArrayView();
         setClickListener();
@@ -115,12 +169,9 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
 
+
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-          /*if (andyRenderable == null) {
-            return;
-          }*/
-
                     // Create the Anchor.
                     Anchor anchor = hitResult.createAnchor();
                     AnchorNode anchorNode = new AnchorNode(anchor);
@@ -130,22 +181,159 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                 });
 
 
-//        Intent intent = getIntent();
-//        String list = intent.getExtras().getString("results");
-//        System.out.println(list);
+        Intent intent2 = getIntent();
+        String list = intent2.getExtras().getString("results").substring(2);
+        if (list.equals("paddle"))
+            list="sea";
+        else if (list.equals("syringe")||list.equals("crane"))
+            list="amusement park";
+        else if (list.equals("volcano")||list.equals("geyser")||list.equals("valley")||list.equals(("cliff")))
+            list="mountain";
+        Log.d("sceneformlist", list);
+
+        if (list.equals("sea")) {
+            arrayView = new View[] {sandcastle, turtle, ship, mountain, schoolhouse};
+            sandcastle.getLayoutParams().width = 250;
+            sandcastle.setImageResource(R.drawable.sandcastle);
+            turtle.getLayoutParams().width = 250;
+            turtle.setImageResource(R.drawable.turtle);
+            ship.getLayoutParams().width = 250;
+            ship.setImageResource(R.drawable.ship);
+            mountain.getLayoutParams().width = 250;
+            mountain.setImageResource(R.drawable.mountain);
+            schoolhouse.getLayoutParams().width = 250;
+            schoolhouse.setImageResource(R.drawable.schoolhouse);
+        }
+
+        else if (list.equals("amusement park")){
+            arrayView = new View[] {badger, candy, present, snowman, star, paperplane, igloo, car};
+            badger.getLayoutParams().width = 250;
+            badger.setImageResource(R.drawable.badger);
+            candy.getLayoutParams().width = 250;
+            candy.setImageResource(R.drawable.candy);
+            present.getLayoutParams().width = 250;
+            present.setImageResource(R.drawable.present);
+            snowman.getLayoutParams().width = 250;
+            snowman.setImageResource(R.drawable.snowman);
+            star.getLayoutParams().width = 250;
+            star.setImageResource(R.drawable.star);
+            paperplane.getLayoutParams().width = 250;
+            paperplane.setImageResource(R.drawable.paperplane);
+            igloo.getLayoutParams().width = 250;
+            igloo.setImageResource(R.drawable.igloo);
+            car.getLayoutParams().width = 250;
+            car.setImageResource(R.drawable.car);
+        }
+
+        else if (list.equals("mountain")) {
+            arrayView = new View[] {badger, mountain, igloo, star, cabin, car, paperplane};
+            badger.getLayoutParams().width = 250;
+            badger.setImageResource(R.drawable.badger);
+            mountain.getLayoutParams().width = 250;
+            mountain.setImageResource(R.drawable.mountain);
+            igloo.getLayoutParams().width = 250;
+            igloo.setImageResource(R.drawable.igloo);
+            car.getLayoutParams().width = 250;
+            car.setImageResource(R.drawable.car);
+            star.getLayoutParams().width = 250;
+            star.setImageResource(R.drawable.star);
+            paperplane.getLayoutParams().width = 250;
+            paperplane.setImageResource(R.drawable.paperplane);
+            cabin.getLayoutParams().width = 250;
+            cabin.setImageResource(R.drawable.cabin);
+        }
+
+        else {
+            arrayView = new View[]{
+                    seoultower, artpiece, badger, cabin, car, sandcastle, igloo, lamp, mountain, schoolhouse,
+                    paperplane, star, train, turtle, candy, ship, present, snowman
+            };
+            seoultower.getLayoutParams().width=250;
+            seoultower.setImageResource(R.drawable.seoultower);
+            artpiece.getLayoutParams().width=250;
+            artpiece.setImageResource(R.drawable.artpiece);
+            badger.getLayoutParams().width = 250;
+            badger.setImageResource(R.drawable.badger);
+            cabin.getLayoutParams().width = 250;
+            cabin.setImageResource(R.drawable.cabin);
+            car.getLayoutParams().width = 250;
+            car.setImageResource(R.drawable.car);
+            sandcastle.getLayoutParams().width = 250;
+            sandcastle.setImageResource(R.drawable.sandcastle);
+            igloo.getLayoutParams().width = 250;
+            igloo.setImageResource(R.drawable.igloo);
+            lamp.getLayoutParams().width = 250;
+            lamp.setImageResource(R.drawable.lamp);
+            mountain.getLayoutParams().width = 250;
+            mountain.setImageResource(R.drawable.mountain);
+            schoolhouse.getLayoutParams().width = 250;
+            schoolhouse.setImageResource(R.drawable.schoolhouse);
+            paperplane.getLayoutParams().width = 250;
+            paperplane.setImageResource(R.drawable.paperplane);
+            star.getLayoutParams().width = 250;
+            star.setImageResource(R.drawable.star);
+            train.getLayoutParams().width=250;
+            train.setImageResource(R.drawable.train);
+            turtle.getLayoutParams().width = 250;
+            turtle.setImageResource(R.drawable.turtle);
+            candy.getLayoutParams().width = 250;
+            candy.setImageResource(R.drawable.candy);
+            ship.getLayoutParams().width = 250;
+            ship.setImageResource(R.drawable.ship);
+            present.getLayoutParams().width = 250;
+            present.setImageResource(R.drawable.present);
+            snowman.getLayoutParams().width = 250;
+            snowman.setImageResource(R.drawable.snowman);
+        }
+
+        // end tutorial session when clicked
+        tutorialView.setOnClickListener(v -> {
+            tutorialView.setVisibility(View.INVISIBLE);
+            tutorialTxt1.setVisibility(View.INVISIBLE);
+            tutorialTxt2.setVisibility(View.INVISIBLE);
+            tutorialTxt3.setVisibility(View.INVISIBLE);
+            tutorialTxt4.setVisibility(View.INVISIBLE);
+        });
+
+        // Reopen tutorial session
+        infoFab.setOnClickListener(v -> {
+            tutorialView.setVisibility(View.VISIBLE);
+            tutorialTxt1.setVisibility(View.VISIBLE);
+            tutorialTxt2.setVisibility(View.VISIBLE);
+            tutorialTxt3.setVisibility(View.VISIBLE);
+            tutorialTxt4.setVisibility(View.VISIBLE);
+        });
 
 
+        // Start classification
+        suggestionFab.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), ClassifierActivity.class);
+            startActivity(intent);
+        });
+
+        // Back to map session
+        backBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        });
     }
 
+    private void setClickListener() {
+        if(arrayView.length != 0) {
+            for (int i = 0; i < arrayView.length; i++) {
+                arrayView[i].setOnClickListener(this);
+            }
+        }
+    }
+
+    private void setArrayView() {
+        arrayView = new View[]{
+                seoultower, artpiece, badger, cabin, car, sandcastle, igloo, lamp, mountain, schoolhouse,
+                paperplane, star, train, turtle, candy, ship, present, snowman
+        };
+    }
 
     private void createModel(AnchorNode anchorNode, int selected) {
-
-        if (selected == 1) {
-            TransformableNode deoksugung = new TransformableNode(arFragment.getTransformationSystem());
-            deoksugung.setParent(anchorNode);
-            deoksugung.setRenderable(deoksugungRenderable);
-            deoksugung.select();
-        }
 
         if (selected == 2) {
             TransformableNode seoultower = new TransformableNode(arFragment.getTransformationSystem());
@@ -155,41 +343,127 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         }
 
         if (selected == 3) {
-            TransformableNode weapon = new TransformableNode(arFragment.getTransformationSystem());
-            weapon.setParent(anchorNode);
-            weapon.setRenderable(weaponRenderable);
-            weapon.select();
+            TransformableNode artpiece = new TransformableNode(arFragment.getTransformationSystem());
+            artpiece.setParent(anchorNode);
+            artpiece.setRenderable(artpieceRenderable);
+            artpiece.select();
         }
 
         if (selected == 4) {
+            TransformableNode badger = new TransformableNode(arFragment.getTransformationSystem());
+            badger.setParent(anchorNode);
+            badger.setRenderable(badgerRenderable);
+            badger.select();
+        }
+
+        if (selected == 5) {
+            TransformableNode cabin = new TransformableNode(arFragment.getTransformationSystem());
+            cabin.setParent(anchorNode);
+            cabin.setRenderable(cabinRenderable);
+            cabin.select();
+        }
+
+        if (selected == 6) {
+            TransformableNode car = new TransformableNode(arFragment.getTransformationSystem());
+            car.setParent(anchorNode);
+            car.setRenderable(carRenderable);
+            car.select();
+        }
+
+        if (selected == 7) {
+            TransformableNode sandcastle = new TransformableNode(arFragment.getTransformationSystem());
+            sandcastle.setParent(anchorNode);
+            sandcastle.setRenderable(sandcastleRenderable);
+            sandcastle.select();
+        }
+
+        if (selected == 10) {
+            TransformableNode igloo = new TransformableNode(arFragment.getTransformationSystem());
+            igloo.setParent(anchorNode);
+            igloo.setRenderable(iglooRenderable);
+            igloo.select();
+        }
+
+        if (selected == 11) {
+            TransformableNode lamp = new TransformableNode(arFragment.getTransformationSystem());
+            lamp.setParent(anchorNode);
+            lamp.setRenderable(lampRenderable);
+            lamp.select();
+        }
+
+        if (selected == 12) {
+            TransformableNode mountain = new TransformableNode(arFragment.getTransformationSystem());
+            mountain.setParent(anchorNode);
+            mountain.setRenderable(mountainRenderable);
+            mountain.select();
+        }
+
+        if (selected == 14) {
+            TransformableNode schoolhouse = new TransformableNode(arFragment.getTransformationSystem());
+            schoolhouse.setParent(anchorNode);
+            schoolhouse.setRenderable(schoolhouseRenderable);
+            schoolhouse.select();
+        }
+
+        if (selected == 15) {
+            TransformableNode paperplane = new TransformableNode(arFragment.getTransformationSystem());
+            paperplane.setParent(anchorNode);
+            paperplane.setRenderable(paperplaneRenderable);
+            paperplane.select();
+        }
+
+        if (selected == 19) {
+            TransformableNode star = new TransformableNode(arFragment.getTransformationSystem());
+            star.setParent(anchorNode);
+            star.setRenderable(starRenderable);
+            star.select();
+        }
+
+        if (selected == 21) {
+            TransformableNode train = new TransformableNode(arFragment.getTransformationSystem());
+            train.setParent(anchorNode);
+            train.setRenderable(trainRenderable);
+            train.select();
+        }
+
+        if (selected == 22) {
+            TransformableNode turtle = new TransformableNode(arFragment.getTransformationSystem());
+            turtle.setParent(anchorNode);
+            turtle.setRenderable(turtleRenderable);
+            turtle.select();
+        }
+
+        if (selected == 23) {
+            TransformableNode candy = new TransformableNode(arFragment.getTransformationSystem());
+            candy.setParent(anchorNode);
+            candy.setRenderable(candyRenderable);
+            candy.select();
+        }
+
+        if (selected == 26) {
+            TransformableNode present = new TransformableNode(arFragment.getTransformationSystem());
+            present.setParent(anchorNode);
+            present.setRenderable(presentRenderable);
+            present.select();
+        }
+
+        if (selected == 27) {
             TransformableNode ship = new TransformableNode(arFragment.getTransformationSystem());
             ship.setParent(anchorNode);
             ship.setRenderable(shipRenderable);
             ship.select();
         }
 
-        if (selected == 5) {
-            TransformableNode temple = new TransformableNode(arFragment.getTransformationSystem());
-            temple.setParent(anchorNode);
-            temple.setRenderable(templeRenderable);
-            temple.select();
+        if (selected == 28) {
+            TransformableNode snowman = new TransformableNode(arFragment.getTransformationSystem());
+            snowman.setParent(anchorNode);
+            snowman.setRenderable(snowmanRenderable);
+            snowman.select();
         }
+
     }
 
     private void setupModel() {
-        ModelRenderable.builder()
-                .setSource(this, R.raw.deoksugung)
-                .build()
-                .thenAccept(renderable -> deoksugungRenderable = renderable)
-                .exceptionally(
-                        throwable -> {
-                            Toast toast =
-                                    Toast.makeText(this, "Unable to load deoksugung renderable", Toast.LENGTH_LONG);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
-                            return null;
-                        });
-
         ModelRenderable.builder()
                 .setSource(this, R.raw.seoultower)
                 .build()
@@ -204,20 +478,204 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                         });
 
         ModelRenderable.builder()
-                .setSource(this, R.raw.ancient_weapons_pack)
+                .setSource(this, R.raw.artpiece)
                 .build()
-                .thenAccept(renderable -> weaponRenderable = renderable)
+                .thenAccept(renderable -> artpieceRenderable = renderable)
                 .exceptionally(
                         throwable -> {
                             Toast toast =
-                                    Toast.makeText(this, "Unable to load weapon renderable", Toast.LENGTH_LONG);
+                                    Toast.makeText(this, "Unable to load artpiece renderable", Toast.LENGTH_LONG);
                             toast.setGravity(Gravity.CENTER, 0, 0);
                             toast.show();
                             return null;
                         });
 
         ModelRenderable.builder()
-                .setSource(this, R.raw.ancientwarships)
+                .setSource(this, R.raw.badger)
+                .build()
+                .thenAccept(renderable -> badgerRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load badger renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.cabin)
+                .build()
+                .thenAccept(renderable -> cabinRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load cabin renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.car)
+                .build()
+                .thenAccept(renderable -> carRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load car renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.sandcastle)
+                .build()
+                .thenAccept(renderable -> sandcastleRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load sandcastle renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.igloo)
+                .build()
+                .thenAccept(renderable -> iglooRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load igloo renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.lamp)
+                .build()
+                .thenAccept(renderable -> lampRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load lamp renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.mountain)
+                .build()
+                .thenAccept(renderable -> mountainRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load mountain renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.paperplane)
+                .build()
+                .thenAccept(renderable -> paperplaneRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load paperplane renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.schoolhouse)
+                .build()
+                .thenAccept(renderable -> schoolhouseRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load schoolhouse renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.star)
+                .build()
+                .thenAccept(renderable -> starRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load star renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.train)
+                .build()
+                .thenAccept(renderable -> trainRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load train renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.turtle)
+                .build()
+                .thenAccept(renderable -> turtleRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load turtle renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.candy)
+                .build()
+                .thenAccept(renderable -> candyRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load candy renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.present)
+                .build()
+                .thenAccept(renderable -> presentRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load present renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.ship)
                 .build()
                 .thenAccept(renderable -> shipRenderable = renderable)
                 .exceptionally(
@@ -230,17 +688,18 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                         });
 
         ModelRenderable.builder()
-                .setSource(this, R.raw.pagoda)
+                .setSource(this, R.raw.snowman)
                 .build()
-                .thenAccept(renderable -> templeRenderable = renderable)
+                .thenAccept(renderable -> snowmanRenderable = renderable)
                 .exceptionally(
-                            throwable -> {
-                                Toast toast =
-                                        Toast.makeText(this, "Unable to load temple renderable", Toast.LENGTH_LONG);
-                                toast.setGravity(Gravity.CENTER, 0, 0);
-                                toast.show();
-                                return null;
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load snowman renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
                         });
+
     }
 
     /**
@@ -272,30 +731,48 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         return true;
     }
 
-    private void setClickListener() {
-        for (int i = 0; i < arrayView.length; i++) {
-            arrayView[i].setOnClickListener(this);
-        }
-    }
-
-    private void setArrayView() {
-        arrayView = new View[]{
-                deoksugung, seoultower, weapon, ship, temple
-        };
-    }
-
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.deoksugung)
-            selected = 1;
-        else if (view.getId() == R.id.seoultower)
+        if (view.getId() == R.id.seoultower)
             selected = 2;
-        else if (view.getId() == R.id.weapon)
+        else if (view.getId() == R.id.artpiece)
             selected = 3;
-        else if (view.getId() == R.id.ship)
+        else if (view.getId() == R.id.badger)
             selected = 4;
-        else if (view.getId() == R.id.temple)
+        else if (view.getId() == R.id.cabin)
             selected = 5;
+        else if (view.getId() == R.id.car)
+            selected = 6;
+        else if (view.getId() == R.id.sandcastle)
+            selected = 7;
+        else if (view.getId() == R.id.igloo)
+            selected = 10;
+        else if (view.getId() == R.id.lamp)
+            selected = 11;
+        else if (view.getId() == R.id.mountain)
+            selected = 12;
+        else if (view.getId() == R.id.schoolhouse)
+            selected = 14;
+        else if (view.getId() == R.id.paperplane)
+            selected = 15;
+        else if (view.getId() == R.id.star)
+            selected = 19;
+        else if (view.getId() == R.id.train)
+            selected = 21;
+        else if (view.getId() == R.id.turtle)
+            selected = 22;
+        else if (view.getId() == R.id.candy)
+            selected = 23;
+        /*else if (view.getId() == R.id.knife)
+            selected = 24;
+        else if (view.getId() == R.id.machinegun)
+            selected = 25;*/
+        else if (view.getId() == R.id.present)
+            selected = 26;
+        else if (view.getId() == R.id.ship)
+            selected = 27;
+        else if (view.getId() == R.id.snowman)
+            selected = 28;
     }
 
     private String generateFilename() {
@@ -366,8 +843,6 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             }
             handlerThread.quitSafely();
         }, new Handler(handlerThread.getLooper()));
-
-
 
 
     }

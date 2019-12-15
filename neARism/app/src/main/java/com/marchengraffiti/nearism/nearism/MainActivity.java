@@ -4,6 +4,8 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -18,12 +20,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
@@ -33,103 +31,121 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.marchengraffiti.nearism.nearism.ar.HelloSceneformActivity;
-import com.marchengraffiti.nearism.nearism.ar.LocationActivity;
 import com.marchengraffiti.nearism.nearism.course.CourseMainActivity;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 import com.marchengraffiti.nearism.nearism.map.MarkerItem;
+import com.marchengraffiti.nearism.nearism.parsing.FourSquare;
 import com.marchengraffiti.nearism.nearism.parsing.ParsingAPI;
-import com.marchengraffiti.nearism.nearism.tflite.CameraActivity;
+import com.marchengraffiti.nearism.nearism.place.placesActivity;
 import com.marchengraffiti.nearism.nearism.tflite.ClassifierActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationChangeListener {
 
-    FloatingActionButton fab2;
+    int flag = 0;
+    FloatingActionButton locationFab1, fab2, locationFab3, fab3, fab1, currentFab, locationFab2;
 
-    Marker marker;
+    Marker marker, marker2, marker3, marker4;
     List<String> list = new ArrayList<String>();
     List<Double> latlist = new ArrayList<Double>();
     List<Double> lnglist = new ArrayList<Double>();
     List<MarkerItem> markerList = new ArrayList<MarkerItem>();
 
+    boolean myLocationEnabled = false;
+
     GoogleMap mMap;
-    double lati, longi;
+    double lati, longi, lat, lng;
+    Geocoder geoCoder;
 
     private DrawerLayout mDrawerLayout;
 
-    String[] mapValue; // x좌표, y좌표, 타이틀
+    String[] mapValue, parsing_split; // x좌표, y좌표, 타이틀
     double latitude, longitude;
-    String msg;
+    String msg, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        fab3 = findViewById(R.id.fab3);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ArImageActivity.class);
+                startActivity(i);
+            }
+        });
+
         fab2 = findViewById(R.id.fab2);
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LocationActivity.class);
+                Intent intent = new Intent(MainActivity.this, ClassifierActivity.class);
                 startActivity(intent);
             }
         });
 
-        new task().execute();
-
-        // [START] Drawable navigation
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        fab1 = findViewById(R.id.fab1);
+        fab1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                menuItem.setChecked(true);
-                mDrawerLayout.closeDrawers();
-
-                int id = menuItem.getItemId();
-                switch (id) {
-                    case R.id.photoGuide:
-                        Intent intent = new Intent(getApplicationContext(), ClassifierActivity.class);
-                        startActivity(intent);
-                        break;
-
-                    case R.id.arPhotoBooth:
-                        Intent intent2 = new Intent(MainActivity.this, HelloSceneformActivity.class);
-                        startActivity(intent2);
-                        break;
-
-                    case R.id.browseCourse:
-                        Intent intent3 = new Intent(getApplicationContext(), CourseMainActivity.class);
-                        startActivity(intent3);
-                        break;
-
-                    case R.id.settings:
-                        Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                        break;
-
-                }
-
-                return true;
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, CourseMainActivity.class);
+                startActivity(i);
             }
         });
-        // [END] Drawable navigation
+
+        locationFab1 = findViewById(R.id.locationFab1); // 음식점
+        locationFab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flag = 1;
+                new parsing_task().execute();
+            }
+        });
+
+        locationFab2 = findViewById(R.id.locationFab2); // 카페
+        locationFab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flag = 2;
+                new parsing_task().execute();
+            }
+        });
+
+        locationFab3 = findViewById(R.id.locationFab3); // 호텔
+        locationFab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flag = 3;
+                new parsing_task().execute();
+            }
+        });
+
+        /*currentFab = findViewById(R.id.fabCurrent); // 호텔
+        currentFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(myLocationEnabled)
+                    mMap.setMyLocationEnabled(true);
+                else
+                    mMap.setMyLocationEnabled(false);
+
+            }
+        });*/
+
+        new task().execute();
+
 
         // Google Map API Fragment
         FragmentManager fragmentManager = getFragmentManager();
@@ -139,9 +155,80 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         final ParsingAPI parsingAPI = new ParsingAPI();
         parsingAPI.connection();
+
+    }
+
+    @Override
+    public void onMyLocationChange(Location location) {
+
     }
 
 
+    private class parsing_task extends AsyncTask<Void, String, Void> {
+        String query;
+
+        @Override
+        protected void onPreExecute() {
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            Log.d("parsing_task", "flag : " + flag);
+            if(flag == 1) { query = "restaurant"; }
+            if(flag == 2) { query = "cafe"; }
+            if(flag == 3) { query = "inn"; }
+
+            FourSquare f = new FourSquare(query);
+            f.fourSquareParsing(new MyCallback() {
+                @Override
+                public void onCallback(String value) {
+                    publishProgress(value);
+                }
+            });
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(String... values) {
+            parsing_split = values[0].split("#");
+            lat = Double.valueOf(parsing_split[1]);
+            lng = Double.valueOf(parsing_split[2]);
+            name = parsing_split[0];
+            Log.d("parsing_task", lat + " " + lng + " " + name);
+
+            LatLng position = new LatLng(lat, lng);
+
+            if(flag==1) {
+                marker2 = mMap.addMarker(new MarkerOptions()
+                        .position(position)
+                        .title(name)
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                );
+            }
+
+            if(flag==2) {
+                marker4 = mMap.addMarker(new MarkerOptions()
+                        .position(position)
+                        .title(name)
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
+                );
+            }
+
+            if(flag==3) {
+                marker3 = mMap.addMarker(new MarkerOptions()
+                        .position(position)
+                        .title(name)
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))
+                );
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+
+        }
+    }
 
     private class task extends AsyncTask<Void, String, Void> implements GoogleMap.OnMarkerClickListener {
         @Override
@@ -191,13 +278,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         // onMarkerClick
         @Override
         public boolean onMarkerClick(Marker marker) {
-            Log.d("Marker", marker.getTitle());
-            Intent intent = new Intent(getApplicationContext(), placesActivity.class);
-            intent.putExtra("title", marker.getTitle());                        // send marker title to placeDetailActivity
-            intent.putExtra("lat", marker.getPosition().latitude+"");
-            intent.putExtra("lng", marker.getPosition().longitude+"");
+            if (flag == 0) {
+                Log.d("Marker", marker.getTitle());
+                Intent intent = new Intent(getApplicationContext(), placesActivity.class);
+                intent.putExtra("title", marker.getTitle());                        // send marker title to placeDetailActivity
+                intent.putExtra("lat", marker.getPosition().latitude + "");
+                intent.putExtra("lng", marker.getPosition().longitude + "");
 
-            startActivity(intent);                                                     // display place details
+                startActivity(intent);                                                     // display place details
+            }
             return false;
         }
     }
@@ -230,33 +319,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latlist.get(i), lnglist.get(i)), 18));
                     }
                 }
-
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        switch (id) {
-            case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
-                return true;
-            //case R.id.action_settings:
-            //    return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     // Google Map API
@@ -273,50 +337,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Log.d("onMapReady", Double.valueOf(value[0]) + "/" + Double.valueOf(value[1]));
         */
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(35.800844, 128.141912), 14));
-    }
-
-    final LocationListener gpsLocationListener = new LocationListener() {
-        public void onLocationChanged(Location location) {
-            longitude = location.getLongitude();
-            latitude = location.getLatitude();
-        }
-
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-        }
-
-        public void onProviderEnabled(String provider) {
-        }
-
-        public void onProviderDisabled(String provider) {
-        }
-    };
-
-    public String getLocation() {
-        // 현재 위치 경도, 위도 가져오기
-        final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-        if (Build.VERSION.SDK_INT >= 23 &&
-                ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                    0);
-        } else {
-            Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            longi = location.getLongitude();
-            lati = location.getLatitude();
-
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                    1000,
-                    1,
-                    gpsLocationListener);
-            lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
-                    1000,
-                    1,
-                    gpsLocationListener);
-        }
-
-        String value = lati + "," + longi;
-        return value;
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.450541, 127.129904), 14));
     }
 
 }
