@@ -30,12 +30,14 @@
         </FrameLayout>
 
         <ImageView
+            android:background="@drawable/rounded"
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_image" />
+
+            app:srcCompat="@drawable/baseline_add_photo_alternate_black_48" />
 
         <EditText
             android:layout_width="match_parent"
@@ -53,7 +55,7 @@
                 <ListView
                     android:id="@+id/addCourseListView"
                     android:layout_width="match_parent"
-                    android:layout_height="500dp" />
+                    android:layout_height="match_parent" />
 
                 <ImageView
                     android:id="@+id/choose_course"
@@ -62,35 +64,41 @@
                     android:layout_gravity="center"
                     android:src="@drawable/choose_course"
                     android:layout_below="@id/addCourseListView"/>
+
+                <LinearLayout
+                    android:layout_below="@+id/choose_course"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="32dp">
+
+                    <Button
+                        android:layout_weight="1"
+                        android:layout_width="250dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/cancelBtn"
+                        android:layout_margin="5dp"
+                        android:textAlignment="center"
+                        android:text="Cancel"
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:layout_width="250dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/addCourseBtn"
+                        android:layout_margin="5dp"
+                        android:text="Done"
+                        android:textSize="20dp"
+                        android:textColor="#FF8224"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
             </RelativeLayout>
 
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginTop="200dp">
-
-            <Button
-                android:layout_width="250dp"
-                android:layout_height="80dp"
-                android:id="@+id/cancelBtn"
-                android:layout_margin="5dp"
-                android:text="Cancel"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-
-            <Button
-                android:layout_width="250dp"
-                android:layout_height="80dp"
-                android:id="@+id/addCourseBtn"
-                android:layout_margin="5dp"
-                android:text="Add"
-                android:textSize="20dp"
-                android:textColor="#FF8224"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>

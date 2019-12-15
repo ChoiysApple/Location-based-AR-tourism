@@ -1,0 +1,62 @@
+{
+  animations: [
+    {
+      path: 'sampledata/models/igloo.fbx',
+    },
+  ],
+  materials: [
+    {
+      name: '_crayfishdiffuse',
+      parameters: [
+        {
+          baseColor: [
+            0.82750000000000001,
+            0.98819999999999997,
+            0.99609999999999999,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/igloo.fbx',
+    name: 'igloo',
+    recenter: 'root',
+    scale: 0.098003999999999994 * 0.2,
+  },
+  version: '0.54:2',
+}
