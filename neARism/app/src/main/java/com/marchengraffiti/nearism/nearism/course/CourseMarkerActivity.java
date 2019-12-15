@@ -4,17 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -25,12 +29,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.marchengraffiti.nearism.nearism.MainActivity;
 import com.marchengraffiti.nearism.nearism.R;
+import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
+import com.marchengraffiti.nearism.nearism.map.MarkerItem;
+import com.marchengraffiti.nearism.nearism.place.placesActivity;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.google.android.gms.maps.model.JointType.BEVEL;
 
 public class CourseMarkerActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -40,13 +48,10 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
     static ArrayList<String> arrayData = new ArrayList<String>();
     String subname, lat, lng;
 
-
-    private LatLng startLatLng = new LatLng(0, 0);        //polyline Start
-    private LatLng endLatLng = new LatLng(0, 0);          //polyline End
-
     double[] latList;
     double[] lngList;
-    List<LatLng> points = new ArrayList<LatLng>();
+    ArrayList<LatLng> points = new ArrayList<LatLng>();
+
 
 
     @Override
@@ -63,15 +68,18 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
             }
         });
 
+        MapFragment mapFragment1 = (MapFragment)getFragmentManager().findFragmentById(R.id.courseMap);
+        mapFragment1.getMapAsync(this);
 
-        Intent i = getIntent();
-        lngList = i.getDoubleArrayExtra("lngList");
-        latList = i.getDoubleArrayExtra("latList");
-        Log.d("List marker", Arrays.toString(latList) + " "+ Arrays.toString(lngList));
-        List<LatLng> points = createLatlangList(latList, lngList);
 
-        points = createLatlangList(latList, lngList);
-        Log.d("List Created point", String.valueOf(points));
+//        Intent i = getIntent();
+//        lngList = i.getDoubleArrayExtra("lngList");
+//        latList = i.getDoubleArrayExtra("latList");
+//        Log.d("List marker", Arrays.toString(latList) + " "+ Arrays.toString(lngList));
+//
+//        points = (ArrayList<LatLng>) createLatlngList(latList, lngList);
+//        Log.d("List Created point", String.valueOf(points));
+
 
         Log.d("markerlog", "courseMarkerActivity");
 
@@ -89,7 +97,8 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
             }
         });
 
-        drawPath(points);
+
+
     }
 
     public void ReadCourse(final MyCallback myCallback) {
@@ -123,23 +132,41 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
     // Google Map API
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latList[0], lngList[0]), 14));
+
+        Intent i = getIntent();
+        lngList = i.getDoubleArrayExtra("lngList");
+        latList = i.getDoubleArrayExtra("latList");
+        Log.d("List marker", Arrays.toString(latList) + " "+ Arrays.toString(lngList));
+
+        points = (ArrayList<LatLng>) createLatlngList(latList, lngList);
+        Log.d("List Created point", String.valueOf(points));
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latList[0], lngList[0]), 14));
+
+        drawPath(points, googleMap);
     }
 
     // Draw polyline
-    private void drawPath(List<LatLng> points){
+    private void drawPath(List<LatLng> points, GoogleMap mMap){
         for(int i = 0 ; i < points.size()-1; i++) {
-            PolylineOptions options = new PolylineOptions().add(points.get(i), points.get(i+1)).width(5).color(Color.RED);
-            Polyline line = mMap.addPolyline(options);
+            PolylineOptions polylineOptions = new PolylineOptions().add(points.get(i), points.get(i+1)).width(5).color(Color.RED).jointType(BEVEL);
+            Log.d("Options poly", String.valueOf(polylineOptions == null));
+            Polyline line = mMap.addPolyline(polylineOptions);
 
-            mMap.addMarker(new MarkerOptions().position(points.get(i))
-                    .title(Integer.toString(i)));
+            MarkerOptions markerOptions = new MarkerOptions().position(points.get(i)).title(Integer.toString(i));
+            Log.d("Options marker", String.valueOf(markerOptions == null));
+            mMap.addMarker(markerOptions);
         }
+
+        MarkerOptions markerOptions = new MarkerOptions().position(points.get(points.size()-1)).title(Integer.toString(points.size()-1));
+        Log.d("Options marker", String.valueOf(markerOptions == null));
+        mMap.addMarker(markerOptions);
+
+
     }
 
     //change latlng arrays to latlng list
-    private List<LatLng> createLatlangList(double[] latList, double[] lngList){
+    private List<LatLng> createLatlngList(double[] latList, double[] lngList){
 
         List<LatLng> points = new ArrayList<LatLng>();
         int count = 0;
@@ -157,6 +184,40 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
         return points;
     }
 
+//
+//    private class BackgroundTask extends AsyncTask<Void, String, Void> implements GoogleMap.OnMarkerClickListener {
+//        @Override
+//        protected void onPreExecute() {
+//
+//        }
+//
+//        @Override
+//        protected Void doInBackground(Void... params){
+//
+//            return null;
+//        }
+//
+//        @Override
+//        protected void onProgressUpdate(String... values) {
+//
+//        }
+//
+//        @Override
+//        protected void onPostExecute(Void aVoid) {
+//
+//        }
+//
+//
+//        @Override
+//        public boolean onMarkerClick(Marker marker) {
+//            return false;
+//        }
+//    }
+
+
+
 
 
 }
+
+

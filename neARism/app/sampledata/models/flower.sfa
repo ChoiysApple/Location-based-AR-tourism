@@ -60,7 +60,7 @@
   },
   samplers: [
     {
-      file: 'sampledata/models\\DesertMarigold_BaseColor.png',
+      file: 'sampledata/models/DesertMarigold_BaseColor.png',
       name: 'DesertMarigold_BaseColor',
       pipeline_name: 'DesertMarigold_BaseColor.png',
     },

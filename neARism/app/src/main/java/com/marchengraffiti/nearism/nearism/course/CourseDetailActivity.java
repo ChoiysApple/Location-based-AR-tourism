@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -47,11 +45,8 @@ public class CourseDetailActivity extends AppCompatActivity {
 
     private ArrayList<CourseDetailItem> data = new ArrayList<>();
 
-    Bundle location_bundle = new Bundle();
     double[] latList = new double[10];
     double[] lngList = new double[10];
-//    Handler mHandler = new Handler();
-//    Message msg = mHandler.obtainMessage();
 
     int place_count = 0;
 
@@ -119,13 +114,10 @@ public class CourseDetailActivity extends AppCompatActivity {
                         lng = addressList.get(0).getLongitude();
 
                         Log.d("geocoder", lat + " " + lng);
-//                        latList.add(lat);
-//                        lngList.add(lng);
                         latList[place_count] = lat;
                         lngList[place_count] = lng;
                         place_count++;
                         Log.d("List", Arrays.toString(latList) + " " + Arrays.toString(lngList));
-//                        Log.d("List", latList + " " + lngList);
 
 
                         DatabaseReference mPostReference2 = FirebaseDatabase.getInstance().getReference();

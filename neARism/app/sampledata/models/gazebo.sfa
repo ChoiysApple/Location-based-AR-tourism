@@ -60,7 +60,7 @@
   },
   samplers: [
     {
-      file: 'sampledata/models\\PUSHILIN_gazebo.png',
+      file: 'sampledata/models/PUSHILIN_gazebo.png',
       name: 'PUSHILIN_gazebo',
       pipeline_name: 'PUSHILIN_gazebo.png',
     },
