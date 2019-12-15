@@ -10,12 +10,15 @@
 
 * 0.0.1
     * Work in progress
+    
+</br>
 
 ## Contributors
 * [@ChoiysApple](https://github.com/ChoiysApple)
 * [@kiryeonpark](https://github.com/kiryeonpark)
 * [@ujeon9](https://github.com/ujeon9)
 
+</br>
 
 ## Tech Stack
 * Android Studio
@@ -23,6 +26,8 @@
 * Tensorflow
 * MobileNet
 * AR Core
+
+</br>
 
 ## Asset Used
 * [Kenney](https://www.kenney.nl/assets) free assets
