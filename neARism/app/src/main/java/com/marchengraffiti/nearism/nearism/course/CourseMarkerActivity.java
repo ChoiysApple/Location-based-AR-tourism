@@ -129,7 +129,6 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
 
     // Draw polyline
     private void drawPath(List<LatLng> points){
-
         for(int i = 0 ; i < points.size()-1; i++) {
             PolylineOptions options = new PolylineOptions().add(points.get(i), points.get(i+1)).width(5).color(Color.RED);
             Polyline line = mMap.addPolyline(options);
