@@ -1,0 +1,69 @@
+{
+  animations: [
+    {
+      path: 'sampledata/models/gazebo.fbx',
+    },
+  ],
+  materials: [
+    {
+      name: 'None',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'PUSHILIN_gazebo',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/gazebo.fbx',
+    name: 'gazebo',
+    recenter: 'root',
+    scale: 0.60940499999999997,
+  },
+  samplers: [
+    {
+      file: 'sampledata/models\\PUSHILIN_gazebo.png',
+      name: 'PUSHILIN_gazebo',
+      pipeline_name: 'PUSHILIN_gazebo.png',
+    },
+  ],
+  version: '0.54:2',
+}

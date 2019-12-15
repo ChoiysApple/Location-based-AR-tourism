@@ -82,11 +82,13 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             badgerRenderable, cabinRenderable, carRenderable, sandcastleRenderable,
             iglooRenderable, lampRenderable, mountainRenderable, paperplaneRenderable,
             schoolhouseRenderable, starRenderable, trainRenderable, turtleRenderable,
-            shipRenderable, snowmanRenderable, candyRenderable, presentRenderable;
+            shipRenderable, snowmanRenderable, candyRenderable, presentRenderable,
+            benchRenderable, birdRenderable, flowerRenderable, gazeboRenderable,
+            ghostRenderable, vampireRenderable, zombieRenderable;
 
     ImageView seoultower, artpiece, badger, cabin, car, sandcastle,
             igloo, lamp, mountain, paperplane, schoolhouse, star, train, turtle,
-            ship, snowman, candy, present;
+            ship, snowman, candy, present, bench, bird, flower, gazebo, ghost, vampire, zombie;
 
     // guide view
     View tutorialView;
@@ -136,7 +138,13 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
         present = (ImageView) findViewById(R.id.present);
         ship = (ImageView) findViewById(R.id.ship);
         snowman = (ImageView) findViewById(R.id.snowman);
-
+        bench = (ImageView) findViewById(R.id.bench);
+        bird = (ImageView) findViewById(R.id.bird);
+        flower = (ImageView) findViewById(R.id.flower);
+        gazebo = (ImageView) findViewById(R.id.gazebo);
+        ghost = (ImageView) findViewById(R.id.ghost);
+        vampire = (ImageView) findViewById(R.id.vampire);
+        zombie = (ImageView) findViewById(R.id.zombie);
 
         // Objects for tutorials
         tutorialView = findViewById(R.id.tutorialView);
@@ -180,7 +188,6 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                     createModel(anchorNode, selected);
                 });
 
-
         Intent intent2 = getIntent();
         String list = intent2.getExtras().getString("results").substring(2);
         if (list.equals("paddle"))
@@ -189,7 +196,39 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             list="amusement park";
         else if (list.equals("volcano")||list.equals("geyser")||list.equals("valley")||list.equals(("cliff")))
             list="mountain";
+        else if (list.equals("pole")||list.equals("snowplow")||list.equals("park bench")||list.equals("obelisk")||list.equals("beacon"))
+            list="park";
         Log.d("sceneformlist", list);
+
+        if (list.equals("park")) {
+            arrayView = new View[] {bench, bird, flower, gazebo, zombie, ghost, vampire, badger, paperplane, candy, snowman, turtle, present};
+            bench.getLayoutParams().width = 300;
+            bench.setImageResource(R.drawable.bench);
+            bird.getLayoutParams().width = 300;
+            bird.setImageResource(R.drawable.bird);
+            flower.getLayoutParams().width = 300;
+            flower.setImageResource(R.drawable.flower);
+            gazebo.getLayoutParams().width = 300;
+            gazebo.setImageResource(R.drawable.gazebo);
+            zombie.getLayoutParams().width = 300;
+            zombie.setImageResource(R.drawable.zombie);
+            ghost.getLayoutParams().width = 300;
+            ghost.setImageResource(R.drawable.ghost);
+            vampire.getLayoutParams().width = 300;
+            vampire.setImageResource(R.drawable.vampire);
+            badger.getLayoutParams().width = 300;
+            badger.setImageResource(R.drawable.badger);
+            paperplane.getLayoutParams().width = 300;
+            paperplane.setImageResource(R.drawable.paperplane);
+            candy.getLayoutParams().width = 300;
+            candy.setImageResource(R.drawable.candy);
+            snowman.getLayoutParams().width = 300;
+            snowman.setImageResource(R.drawable.snowman);
+            turtle.getLayoutParams().width = 300;
+            turtle.setImageResource(R.drawable.turtle);
+            present.getLayoutParams().width = 300;
+            present.setImageResource(R.drawable.present);
+        }
 
         if (list.equals("sea")) {
             arrayView = new View[] {sandcastle, turtle, ship, mountain, schoolhouse};
@@ -329,7 +368,8 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
     private void setArrayView() {
         arrayView = new View[]{
                 seoultower, artpiece, badger, cabin, car, sandcastle, igloo, lamp, mountain, schoolhouse,
-                paperplane, star, train, turtle, candy, ship, present, snowman
+                paperplane, star, train, turtle, candy, ship, present, snowman, bench, bird, flower, gazebo, ghost,
+                vampire, zombie
         };
     }
 
@@ -460,6 +500,56 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             snowman.setRenderable(snowmanRenderable);
             snowman.select();
         }
+
+        if (selected == 29) {
+            TransformableNode bench = new TransformableNode(arFragment.getTransformationSystem());
+            bench.setParent(anchorNode);
+            bench.setRenderable(benchRenderable);
+            bench.select();
+        }
+
+        if (selected == 30) {
+            TransformableNode bird = new TransformableNode(arFragment.getTransformationSystem());
+            bird.setParent(anchorNode);
+            bird.setRenderable(birdRenderable);
+            bird.select();
+        }
+
+        if (selected == 31) {
+            TransformableNode flower = new TransformableNode(arFragment.getTransformationSystem());
+            flower.setParent(anchorNode);
+            flower.setRenderable(flowerRenderable);
+            flower.select();
+        }
+
+        if (selected == 32) {
+            TransformableNode gazebo = new TransformableNode(arFragment.getTransformationSystem());
+            gazebo.setParent(anchorNode);
+            gazebo.setRenderable(gazeboRenderable);
+            gazebo.select();
+        }
+
+        if (selected == 33) {
+            TransformableNode ghost = new TransformableNode(arFragment.getTransformationSystem());
+            ghost.setParent(anchorNode);
+            ghost.setRenderable(ghostRenderable);
+            ghost.select();
+        }
+
+        if (selected == 34) {
+            TransformableNode vampire = new TransformableNode(arFragment.getTransformationSystem());
+            vampire.setParent(anchorNode);
+            vampire.setRenderable(vampireRenderable);
+            vampire.select();
+        }
+
+        if (selected == 35) {
+            TransformableNode zombie = new TransformableNode(arFragment.getTransformationSystem());
+            zombie.setParent(anchorNode);
+            zombie.setRenderable(zombieRenderable);
+            zombie.select();
+        }
+
 
     }
 
@@ -700,6 +790,97 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                             return null;
                         });
 
+        ModelRenderable.builder()
+                .setSource(this, R.raw.bench)
+                .build()
+                .thenAccept(renderable -> benchRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load bench renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.bird)
+                .build()
+                .thenAccept(renderable -> birdRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load bird renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.flower)
+                .build()
+                .thenAccept(renderable -> flowerRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load flower renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.gazebo)
+                .build()
+                .thenAccept(renderable -> gazeboRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load gazebo renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.ghost)
+                .build()
+                .thenAccept(renderable -> ghostRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load ghost renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.vampire)
+                .build()
+                .thenAccept(renderable -> vampireRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load vampire renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+        ModelRenderable.builder()
+                .setSource(this, R.raw.zombie)
+                .build()
+                .thenAccept(renderable -> zombieRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load zombie renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
     }
 
     /**
@@ -773,6 +954,20 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
             selected = 27;
         else if (view.getId() == R.id.snowman)
             selected = 28;
+        else if (view.getId() == R.id.bench)
+            selected = 29;
+        else if (view.getId() == R.id.bird)
+            selected = 30;
+        else if (view.getId() == R.id.flower)
+            selected = 31;
+        else if (view.getId() == R.id.gazebo)
+            selected = 32;
+        else if (view.getId() == R.id.ghost)
+            selected = 33;
+        else if (view.getId() == R.id.vampire)
+            selected = 34;
+        else if (view.getId() == R.id.zombie)
+            selected = 35;
     }
 
     private String generateFilename() {
@@ -824,7 +1019,7 @@ public class HelloSceneformActivity extends AppCompatActivity implements View.On
                 Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
                         "Photo saved", Snackbar.LENGTH_LONG);
                 snackbar.setAction("Open in Photos", v -> {
-                    File photoFile = new File(filename);
+                    File photoFile = new                    File(filename);
 
                     Uri photoURI = FileProvider.getUriForFile(HelloSceneformActivity.this,
                             HelloSceneformActivity.this.getPackageName() + ".ar.codelab.name.provider",

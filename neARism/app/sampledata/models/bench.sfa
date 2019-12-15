@@ -1,0 +1,99 @@
+{
+  animations: [
+    {
+      path: 'sampledata/models/bench.fbx',
+    },
+  ],
+  materials: [
+    {
+      name: 'wood',
+      parameters: [
+        {
+          baseColor: [
+            0.858823,
+            0.494118,
+            0.30588199999999999,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: 'stone',
+      parameters: [
+        {
+          baseColor: [
+            0.62745099999999998,
+            0.78039199999999997,
+            0.819608,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/bench.fbx',
+    name: 'bench',
+    recenter: 'root',
+  },
+  version: '0.54:2',
+}
