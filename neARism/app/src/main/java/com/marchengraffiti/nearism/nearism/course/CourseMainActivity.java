@@ -1,6 +1,8 @@
 package com.marchengraffiti.nearism.nearism.course;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,7 +19,9 @@ import com.marchengraffiti.nearism.nearism.R;
 import com.marchengraffiti.nearism.nearism.firebase.FirebasePost;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 

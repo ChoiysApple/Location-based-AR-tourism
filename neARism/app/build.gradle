@@ -183,3 +183,39 @@ sceneform.asset('sampledata/models/candyCaneMint.fbx',
         'default',
         'sampledata/models/candyCaneMint.sfa',
         'src/main/res/raw/candy')
+
+
+sceneform.asset('sampledata/models/bench.fbx',
+        'default',
+        'sampledata/models/bench.sfa',
+        'src/main/res/raw/bench')
+
+sceneform.asset('sampledata/models/bird.fbx',
+        'default',
+        'sampledata/models/bird.sfa',
+        'src/main/res/raw/bird')
+
+sceneform.asset('sampledata/models/flower.fbx',
+        'default',
+        'sampledata/models/flower.sfa',
+        'src/main/res/raw/flower')
+
+sceneform.asset('sampledata/models/gazebo.fbx',
+        'default',
+        'sampledata/models/gazebo.sfa',
+        'src/main/res/raw/gazebo')
+
+sceneform.asset('sampledata/models/ghost.fbx',
+        'default',
+        'sampledata/models/ghost.sfa',
+        'src/main/res/raw/ghost')
+
+sceneform.asset('sampledata/models/vampire.fbx',
+        'default',
+        'sampledata/models/vampire.sfa',
+        'src/main/res/raw/vampire')
+
+sceneform.asset('sampledata/models/zombie.fbx',
+        'default',
+        'sampledata/models/zombie.sfa',
+        'src/main/res/raw/zombie')

@@ -37,7 +37,7 @@ public class ArImageActivity extends AppCompatActivity {
 
         texture = new ExternalTexture();
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.video2);
+        mediaPlayer = MediaPlayer.create(this, R.raw.video3);
         mediaPlayer.setSurface(texture.getSurface());
         mediaPlayer.setLooping(true);
 

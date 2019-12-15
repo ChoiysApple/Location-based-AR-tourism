@@ -85,7 +85,7 @@ public class AddCourseActivity extends AppCompatActivity {
         if (detailimg_list != null && subname_list != null && overview_list != null) {
             new task().execute();
 
-            courseDetailItem = new CourseDetailItem(detailimg_list, subname_list, overview_list, cid);
+            courseDetailItem = new CourseDetailItem(detailimg_list, subname_list, overview_list, cid, subid);
             data.add(courseDetailItem);
             //Log.d("dataAdd", data.toString());
 

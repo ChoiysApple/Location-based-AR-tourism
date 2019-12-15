@@ -1,7 +1,7 @@
 package com.marchengraffiti.nearism.nearism.course;
 
 public class CourseDetailItem {
-    String detailimg, subname, overview, cid;
+    String detailimg, subname, overview, cid, subid;
 
     public String getDetailimg() {
         return detailimg;
@@ -19,10 +19,13 @@ public class CourseDetailItem {
         return cid;
     }
 
-    public CourseDetailItem(String detailimg, String subname, String overview, String cid) {
+    public String getSubid() { return subid; }
+
+    public CourseDetailItem(String detailimg, String subname, String overview, String cid, String subid) {
         this.detailimg = detailimg;
         this.subname = subname;
         this.overview = overview;
         this.cid = cid;
+        this.subid = subid;
     }
 }
