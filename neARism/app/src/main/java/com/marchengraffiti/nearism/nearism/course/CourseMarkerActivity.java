@@ -50,6 +50,7 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
 
     double[] latList;
     double[] lngList;
+    String[] nameList;
     ArrayList<LatLng> points = new ArrayList<LatLng>();
 
 
@@ -72,13 +73,7 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
         mapFragment1.getMapAsync(this);
 
 
-//        Intent i = getIntent();
-//        lngList = i.getDoubleArrayExtra("lngList");
-//        latList = i.getDoubleArrayExtra("latList");
-//        Log.d("List marker", Arrays.toString(latList) + " "+ Arrays.toString(lngList));
-//
-//        points = (ArrayList<LatLng>) createLatlngList(latList, lngList);
-//        Log.d("List Created point", String.valueOf(points));
+
 
 
         Log.d("markerlog", "courseMarkerActivity");
@@ -136,30 +131,28 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
         Intent i = getIntent();
         lngList = i.getDoubleArrayExtra("lngList");
         latList = i.getDoubleArrayExtra("latList");
+        nameList = i.getStringArrayExtra("nameList");
         Log.d("List marker", Arrays.toString(latList) + " "+ Arrays.toString(lngList));
 
         points = (ArrayList<LatLng>) createLatlngList(latList, lngList);
         Log.d("List Created point", String.valueOf(points));
 
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latList[0], lngList[0]), 14));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(points.get(0), 14));
 
-        drawPath(points, googleMap);
+        drawPath(points, nameList, googleMap);
     }
 
     // Draw polyline
-    private void drawPath(List<LatLng> points, GoogleMap mMap){
+    private void drawPath(List<LatLng> points, String[] nameList, GoogleMap mMap){
         for(int i = 0 ; i < points.size()-1; i++) {
             PolylineOptions polylineOptions = new PolylineOptions().add(points.get(i), points.get(i+1)).width(5).color(Color.RED).jointType(BEVEL);
-            Log.d("Options poly", String.valueOf(polylineOptions == null));
             Polyline line = mMap.addPolyline(polylineOptions);
 
-            MarkerOptions markerOptions = new MarkerOptions().position(points.get(i)).title(Integer.toString(i));
-            Log.d("Options marker", String.valueOf(markerOptions == null));
+            MarkerOptions markerOptions = new MarkerOptions().position(points.get(i)).title(nameList[i]);
             mMap.addMarker(markerOptions);
         }
 
-        MarkerOptions markerOptions = new MarkerOptions().position(points.get(points.size()-1)).title(Integer.toString(points.size()-1));
-        Log.d("Options marker", String.valueOf(markerOptions == null));
+        MarkerOptions markerOptions = new MarkerOptions().position(points.get(points.size()-1)).title(nameList[points.size()-1]);
         mMap.addMarker(markerOptions);
 
 
@@ -184,35 +177,11 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
         return points;
     }
 
-//
-//    private class BackgroundTask extends AsyncTask<Void, String, Void> implements GoogleMap.OnMarkerClickListener {
-//        @Override
-//        protected void onPreExecute() {
-//
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Void... params){
-//
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onProgressUpdate(String... values) {
-//
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Void aVoid) {
-//
-//        }
-//
-//
-//        @Override
-//        public boolean onMarkerClick(Marker marker) {
-//            return false;
-//        }
-//    }
+    // onMarkerClick
+    public boolean onMarkerClick(Marker marker) {
+
+        return false;
+    }
 
 
 

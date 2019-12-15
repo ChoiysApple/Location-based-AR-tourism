@@ -47,6 +47,7 @@ public class CourseDetailActivity extends AppCompatActivity {
 
     double[] latList = new double[10];
     double[] lngList = new double[10];
+    String[] nameList = new String[10];
 
     int place_count = 0;
 
@@ -63,7 +64,8 @@ public class CourseDetailActivity extends AppCompatActivity {
                 Intent newIntent = new Intent(CourseDetailActivity.this, CourseMarkerActivity.class);
                 newIntent.putExtra("lngList",lngList);
                 newIntent.putExtra("latList",latList);
-
+                newIntent.putExtra("nameList", nameList);
+                Log.d("putExtra", String.valueOf(nameList));
                 startActivity(newIntent);
             }
         });
@@ -87,17 +89,21 @@ public class CourseDetailActivity extends AppCompatActivity {
             @Override
             public void onCallback(String value) {
                 String[] value_split = value.split("#");
-                //subnum = value_split[0]; // 코스 장소 순서
-                detailimg = value_split[1]; // 각 코스 장소마다 이미지
-                subname = value_split[2]; // 코스 장소 이름
-                overview = value_split[3]; // 코스 장소 상세 설명
-                cid = value_split[4]; // 메인 코스랑 장소 매칭시키려고
+                //subnum = value_split[0];      // 코스 장소 순서
+                detailimg = value_split[1];     // 각 코스 장소마다 이미지
+                subname = value_split[2];       // 코스 장소 이름
+                Log.d("names", subname);
+                overview = value_split[3];      // 코스 장소 상세 설명
+                cid = value_split[4];           // 메인 코스랑 장소 매칭시키려고
                 subid = value_split[5];
                 Log.d("courseData2222", value);
 
                 CourseDetailItem item = new CourseDetailItem(detailimg, subname, overview, cid, subid);
+
+
                 if(cid.equals(intent.getStringExtra("cid"))) {
                     data.add(item);
+
 
                     geoCoder = new Geocoder(getApplicationContext());
                     List<Address> addressList = null;
@@ -116,6 +122,7 @@ public class CourseDetailActivity extends AppCompatActivity {
                         Log.d("geocoder", lat + " " + lng);
                         latList[place_count] = lat;
                         lngList[place_count] = lng;
+                        nameList[place_count] = subname;
                         place_count++;
                         Log.d("List", Arrays.toString(latList) + " " + Arrays.toString(lngList));
 
