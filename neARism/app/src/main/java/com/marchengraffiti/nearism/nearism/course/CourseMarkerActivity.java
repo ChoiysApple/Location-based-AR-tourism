@@ -3,7 +3,10 @@ package com.marchengraffiti.nearism.nearism.course;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +15,9 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,7 +27,10 @@ import com.marchengraffiti.nearism.nearism.MainActivity;
 import com.marchengraffiti.nearism.nearism.R;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CourseMarkerActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -30,6 +39,15 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
     GoogleMap mMap;
     static ArrayList<String> arrayData = new ArrayList<String>();
     String subname, lat, lng;
+
+
+    private LatLng startLatLng = new LatLng(0, 0);        //polyline Start
+    private LatLng endLatLng = new LatLng(0, 0);          //polyline End
+
+    double[] latList;
+    double[] lngList;
+    List<LatLng> points = new ArrayList<LatLng>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +63,15 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
             }
         });
 
-        //Intent i = getIntent();
-        //String count = i.getStringExtra("count");
+
+        Intent i = getIntent();
+        lngList = i.getDoubleArrayExtra("lngList");
+        latList = i.getDoubleArrayExtra("latList");
+        Log.d("List marker", Arrays.toString(latList) + " "+ Arrays.toString(lngList));
+        List<LatLng> points = createLatlangList(latList, lngList);
+
+        points = createLatlangList(latList, lngList);
+        Log.d("List Created point", String.valueOf(points));
 
         Log.d("markerlog", "courseMarkerActivity");
 
@@ -63,6 +88,8 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
                 Log.d("markerlog", subname + " " + lat + " " + lng);
             }
         });
+
+        drawPath(points);
     }
 
     public void ReadCourse(final MyCallback myCallback) {
@@ -79,6 +106,7 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
                         String[] info = {get.subname, get.latitude, get.longitude};
                         String result = info[0] + "#" + info[1] + "#" + info[2];
                         arrayData.add(result);
+                        Log.d("Reference", result);
                         count = arrayData.size();
                         myCallback.onCallback(result);
                     }
@@ -96,6 +124,40 @@ public class CourseMarkerActivity extends AppCompatActivity implements OnMapRead
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.450541, 127.129904), 14));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latList[0], lngList[0]), 14));
     }
+
+    // Draw polyline
+    private void drawPath(List<LatLng> points){
+
+        for(int i = 0 ; i < points.size()-1; i++) {
+            PolylineOptions options = new PolylineOptions().add(points.get(i), points.get(i+1)).width(5).color(Color.RED);
+            Polyline line = mMap.addPolyline(options);
+
+            mMap.addMarker(new MarkerOptions().position(points.get(i))
+                    .title(Integer.toString(i)));
+        }
+    }
+
+    //change latlng arrays to latlng list
+    private List<LatLng> createLatlangList(double[] latList, double[] lngList){
+
+        List<LatLng> points = new ArrayList<LatLng>();
+        int count = 0;
+
+        while (true){
+            if (latList[count] == 0 && lngList[count]==0)
+                break;
+
+            points.add(new LatLng(latList[count], lngList[count]));
+            Log.d("List create points", String.valueOf(points.get(count)));
+            count++;
+        }
+
+        Log.d("List points", String.valueOf(points));
+        return points;
+    }
+
+
+
 }
