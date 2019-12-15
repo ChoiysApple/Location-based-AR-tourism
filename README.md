@@ -1,14 +1,28 @@
 ﻿# Location-based-AR-tourism
 > Android application provides location based tourism &amp; photo service
 
-
-
 ![](header.png)
 
 
 ## Release History
-
 * 0.0.1
+    * Add google map, Public data api
+    * Place detail
+    * Place search
+* 0.1.1
+    * Add marker
+    * Photo booth 
+* 0.2.1
+    * Course (from public data)
+    * Add custom Course
+    * Place search Autocomeplete 
+* 0.3.1
+    * Cafe, Hotel, Restaurent searching
+    * AR photo booth
+* 0.4.1
+    * AR asset suggestion
+    * AR Video 
+* 0.5.1
     * Work in progress
     
 </br>
