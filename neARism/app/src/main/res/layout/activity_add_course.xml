@@ -4,13 +4,13 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_margin="16dp"
+    android:layout_margin="0dp"
     android:fillViewport="true">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp">
 
@@ -33,71 +33,72 @@
             android:background="@drawable/rounded"
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="128dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:scaleType="fitCenter"
-
             app:srcCompat="@drawable/baseline_add_photo_alternate_black_48" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Course Title"
-            android:textSize="32dp"
+            android:textSize="24dp"
             android:textStyle="bold"
-            android:layout_margin="16dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="32dp"
             android:id="@+id/titleEditText"/>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <ListView
                     android:id="@+id/addCourseListView"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"/>
 
                 <ImageView
                     android:id="@+id/choose_course"
-                    android:layout_width="wrap_content"
-                    android:layout_height="168dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/choose_course"
-                    android:layout_below="@id/addCourseListView"/>
-
-                <LinearLayout
-                    android:layout_below="@+id/choose_course"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginBottom="32dp">
-
-                    <Button
-                        android:layout_weight="1"
-                        android:layout_width="250dp"
-                        android:layout_height="80dp"
-                        android:id="@+id/cancelBtn"
-                        android:layout_margin="5dp"
-                        android:textAlignment="center"
-                        android:text="Cancel"
-                        android:textSize="20dp"
-                        android:textStyle="bold"/>
-
-                    <Button
-                        android:layout_weight="1"
-                        android:layout_width="250dp"
-                        android:layout_height="80dp"
-                        android:id="@+id/addCourseBtn"
-                        android:layout_margin="5dp"
-                        android:text="Done"
-                        android:textSize="20dp"
-                        android:textColor="#FF8224"
-                        android:textStyle="bold"/>
-
-                </LinearLayout>
+                    android:layout_height="128dp"
+                    android:layout_below="@id/addCourseListView"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/choose_course" />
 
             </RelativeLayout>
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="0dp">
+
+            <Button
+                android:layout_weight="1"
+                android:layout_width="250dp"
+                android:layout_height="64dp"
+                android:id="@+id/cancelBtn"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:text="Cancel"
+                android:textSize="20dp"/>
+
+            <Button
+                android:layout_weight="1"
+                android:layout_width="250dp"
+                android:layout_height="64dp"
+                android:id="@+id/addCourseBtn"
+                android:layout_margin="5dp"
+                android:text="Done"
+                android:textSize="20dp"
+                android:textColor="#FF8224"/>
+
+        </LinearLayout>
 
 
     </LinearLayout>

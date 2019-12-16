@@ -6,11 +6,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -91,6 +93,8 @@ public class AddCourseActivity extends AppCompatActivity {
 
             adapter = new CourseDetailAdapter(getApplicationContext(), R.layout.course_detail_item, data);
             listView.setAdapter(adapter);
+            setListViewHeightBasedOnChildren(listView);
+
 
             listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                 @Override
@@ -201,6 +205,29 @@ public class AddCourseActivity extends AppCompatActivity {
         childUpdates.put("/course_list/" + key + "/" + courseKey, postValues);
         mPostReference2.updateChildren(childUpdates);
     }
+
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            return;
+        }
+
+        int totalHeight = 0;
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.AT_MOST);
+
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
+        listView.requestLayout();
+    }
+
+
 
     private class task extends AsyncTask<Void, String, Void> implements GoogleMap.OnMarkerClickListener {
         @Override
