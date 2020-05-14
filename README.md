@@ -1,6 +1,9 @@
 ﻿# Location-based-AR-tourism
 > Android application provides location based tourism &amp; photo service
 
+[Wiki](https://github.com/ChoiysApple/Location-based-AR-tourism/wiki)
+
+
 ![](header.png)
 
 
