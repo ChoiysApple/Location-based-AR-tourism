@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -17,13 +15,10 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true">
 
-
-            <fragment
-                android:id="@+id/map"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                class="com.google.android.gms.maps.MapFragment" />
-
+                android:id="@+id/tmap_container"/>
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -44,10 +39,7 @@
                     android:completionThreshold="1"
                     android:hint="Search"
                     android:textColorHint="@color/colorPrimaryDark"/>
-
             </androidx.appcompat.widget.Toolbar>
-
-
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab1"
@@ -57,7 +49,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="@dimen/fabMarginBottom"
                 app:backgroundTint="#ffffff"
-                app:layout_anchor="@id/map"
+                app:layout_anchor="@id/tmap_container"
                 app:layout_anchorGravity="bottom|right|end"
                 app:pressedTranslationZ="12dp"
                 android:src="@drawable/baseline_map_black_48dp">
@@ -76,7 +68,7 @@
                 app:elevation="6dp"
                 app:fabCustomSize="@dimen/fabSize"
                 app:maxImageSize="@dimen/fabImgSize"
-                app:layout_anchor="@id/map"
+                app:layout_anchor="@id/tmap_container"
                 app:layout_anchorGravity="bottom|center_horizontal"
                 app:pressedTranslationZ="12dp" />
 
@@ -91,10 +83,9 @@
                 android:text="P"
                 app:backgroundTint="#ffffff"
                 app:elevation="6dp"
-                app:layout_anchor="@id/map"
+                app:layout_anchor="@id/tmap_container"
                 app:layout_anchorGravity="bottom|left|end"
                 app:pressedTranslationZ="12dp" />
-
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fabCurrent"
@@ -108,14 +99,11 @@
                 android:text="P"
                 app:backgroundTint="#ffffff"
                 app:elevation="6dp"
-                app:layout_anchor="@id/map"
+                app:layout_anchor="@id/tmap_container"
                 app:layout_anchorGravity="top|right|end"
                 app:pressedTranslationZ="12dp" />
-
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
     </FrameLayout>
-
 
     <include layout="@layout/bottomsheet_layout"></include>
 

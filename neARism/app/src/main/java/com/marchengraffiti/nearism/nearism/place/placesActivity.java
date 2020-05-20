@@ -1,10 +1,8 @@
 package com.marchengraffiti.nearism.nearism.place;
 
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,43 +12,30 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.marchengraffiti.nearism.nearism.R;
 import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
+import com.marchengraffiti.nearism.nearism.map.PlaceMapFragment;
+import com.skt.Tmap.TMapMarkerItem;
+import com.skt.Tmap.TMapPoint;
+import com.skt.Tmap.TMapView;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-public class placesActivity extends AppCompatActivity implements OnMapReadyCallback {
-
-    /*String ogImage;
-    ArrayList<PlaceItem> data = new ArrayList<>();
-    BufferedReader br = null;
-    URL url;*/
+public class placesActivity extends AppCompatActivity{
 
     WebView webView;
     WebSettings webSettings;
 
-    GoogleMap mMap;
     String[] mapValue;
     String placeTitle, addr1, firstimage;
 
@@ -62,6 +47,11 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.place_detail);
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.add(R.id.mapfrag, new PlaceMapFragment());
+        fragmentTransaction.commit();
 
         mainImage = findViewById(R.id.main_photo);
         title = findViewById(R.id.title);
@@ -76,20 +66,6 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
         });
 
         new task().execute();
-
-        // Google Map API Fragment
-        FragmentManager fragmentManager = getFragmentManager();
-        final MapFragment mapFragment = (MapFragment)fragmentManager
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(35.800844, 128.141912), 14));
     }
 
     private class task extends AsyncTask<Void, String, Void> {
@@ -120,11 +96,13 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
 
             final Intent intent = getIntent();
 
+            String placeName;
             double lat, lng;
             lat = Double.valueOf(intent.getStringExtra("lat"));
             lng = Double.valueOf(intent.getStringExtra("lng"));
+            placeName = intent.getStringExtra("title");
 
-            if(placeTitle.equals(intent.getStringExtra("title"))) {
+            if(placeTitle.equals(placeName)) {
                 Log.d("webViewList", placeTitle);
 
                 webView = findViewById(R.id.webview);
@@ -145,14 +123,22 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
 
                 webView.loadUrl("https://www.instagram.com/explore/tags/" + placeTitle + "/");
 
-                // gallary
-                //imageJsonParsing(placeTitle);
+                TMapView t = (TMapView) findViewById(R.id.tmap);
+                t.setSKTMapApiKey("l7xxef96fe182e8243f489da89904f951211");
 
-                // map fragment
-                mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(lat, lng))
-                        .title(intent.getStringExtra("title")));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), 14));
+                Bitmap pin = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.redpin);
+
+                TMapPoint point = new TMapPoint(lat, lng);
+                TMapMarkerItem markerItem1 = new TMapMarkerItem();
+                markerItem1.setIcon(pin);
+                markerItem1.setTMapPoint(point);
+                markerItem1.setName(placeName);
+                //markerItem1.setEnableClustering(true);
+
+                markerItem1.setCalloutTitle(placeName);
+                markerItem1.setCanShowCallout(true);
+                markerItem1.setAutoCalloutVisible(true);
+                t.addMarkerItem(placeName, markerItem1);
 
                 // text
                 title.setText(placeTitle);
@@ -198,61 +184,5 @@ public class placesActivity extends AppCompatActivity implements OnMapReadyCallb
         }
     }
 
-    /*
-    public void imageJsonParsing(String keyword) {
-        Log.d("jsonResult222", keyword);
-
-        ListView listView = findViewById(R.id.gallaryList);
-
-        final String u = "https://www.googleapis.com/customsearch/v1?" +
-                "key=AIzaSyCJrFlOU7R5t42RwRwwOUXbQ8IDO9Gh3AA&" +
-                "cx=007829791969461891809:h3bcntx7vg2" +
-                "&q=\"" + keyword + "\"&num=10";
-
-        new Thread() {
-            public void run() {
-                try {
-                    url = new URL(u);
-                    final HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
-
-                    // GET 방식 request
-                    urlconnection.setRequestMethod("GET");
-                    br = new BufferedReader(new InputStreamReader(urlconnection.getInputStream(), "UTF-8"));
-                    String result = "";
-                    String line;
-                    while ((line = br.readLine()) != null) {
-                        result = result + line + "\n";
-                    }
-
-                    JSONObject jsonObject = new JSONObject(result);
-                    String items = jsonObject.getString("items");
-                    JSONArray jsonArray = new JSONArray(items);
-
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject subJsonObject = jsonArray.getJSONObject(i);
-                        String pagemap = subJsonObject.getString("pagemap");
-                        JSONObject subJsonObject2 = new JSONObject(pagemap);
-                        String metatags = subJsonObject2.getString("metatags");
-                        JSONArray jsonArray2 = new JSONArray(metatags);
-
-                        for (int j = 0; j < jsonArray2.length(); j++) {
-                            JSONObject subJsonObject3 = jsonArray2.getJSONObject(j);
-                            ogImage = subJsonObject3.getString("og:image");
-                            Log.d("jsonResult222", "og:image : " + ogImage);
-                            PlaceItem placeItem = new PlaceItem(ogImage);
-                            data.add(placeItem);
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                Log.d("jsonResult222", "data: " + data);
-                //PlaceAdapter adapter = new PlaceAdapter(getApplicationContext(), R.layout.place_detail_item, data);
-                //listView.setAdapter(adapter);
-            }
-        }.start();
-
-
-    }*/
 }
 

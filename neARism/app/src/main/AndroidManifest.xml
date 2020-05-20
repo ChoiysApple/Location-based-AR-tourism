@@ -55,11 +55,9 @@
         <activity android:name=".sign.SignUp" />
         <activity android:name=".tflite.ClassifierActivity" />
         <activity android:name=".tflite.CameraActivity" />
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".TMapTest">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

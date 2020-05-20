@@ -57,7 +57,7 @@
         android:layout_marginBottom="@dimen/fabMarginBottom"
         app:backgroundTint="#121212"
         app:elevation="6dp"
-        app:layout_anchor="@id/map"
+        app:layout_anchor="@id/tmap_container"
         app:layout_anchorGravity="bottom|left|end"
         app:pressedTranslationZ="12dp"
         android:src="@drawable/food_white"/>
@@ -72,7 +72,7 @@
             android:layout_marginBottom="@dimen/fabMarginBottom"
             app:backgroundTint="#121212"
             app:elevation="6dp"
-            app:layout_anchor="@id/map"
+            app:layout_anchor="@id/tmap_container"
             app:layout_anchorGravity="bottom|left|end"
             app:pressedTranslationZ="12dp"
             android:src="@drawable/cafe_white"/>
@@ -87,7 +87,7 @@
             android:layout_marginBottom="@dimen/fabMarginBottom"
             app:backgroundTint="#121212"
             app:elevation="6dp"
-            app:layout_anchor="@id/map"
+            app:layout_anchor="@id/tmap_container"
             app:layout_anchorGravity="bottom|left|end"
             app:pressedTranslationZ="12dp"
             android:src="@drawable/hotel_white"/>

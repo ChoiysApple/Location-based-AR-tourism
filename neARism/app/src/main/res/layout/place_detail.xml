@@ -71,7 +71,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
     <LinearLayout
         android:layout_marginTop="15dp"
         android:layout_marginRight="16dp"
@@ -89,17 +88,22 @@
 
     </LinearLayout>
 
-        <fragment
-            android:id="@+id/map"
-            class="com.google.android.gms.maps.MapFragment"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            tools:context="com.example.mapwithmarker.MapsMarkerActivity"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="164dp"
             android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:id="@+id/mapfrag"
+            tools:context="com.example.mapwithmarker.MapsMarkerActivity"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:background="@android:color/white"
+            android:layout_marginTop="185dp"/>
+
     </FrameLayout>
 
 </LinearLayout>
