@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".course.CourseMarkerActivity">
-
-    <fragment
-        android:id="@+id/courseMap"
-        class="com.google.android.gms.maps.MapFragment"
+    <android.widget.LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".course.CourseMarkerActivity">
 
-    <Button
-        android:id="@+id/finishBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/accent_style"
-        android:text="코스 안내 종료"
-        android:textColor="@android:color/white"
-        tools:ignore="MissingConstraints"
-        android:layout_margin="10dp"
-        android:layout_alignParentBottom="true" />
+        <LinearLayout
+            android:id="@+id/linearLayoutTmap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/finishBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/accent_style"
+                android:text="코스 안내 종료"
+                android:textColor="@android:color/white"
+                tools:ignore="MissingConstraints"
+                android:layout_margin="10dp"
+                android:layout_alignParentBottom="true" />
+        </LinearLayout>
 
-</RelativeLayout>
+    </android.widget.LinearLayout>
+

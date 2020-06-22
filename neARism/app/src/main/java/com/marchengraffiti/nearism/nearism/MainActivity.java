@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.tmap_container, new MapFragment());
         fragmentTransaction.commit();
 
+
+
         fab3 = findViewById(R.id.fab3);
         fab3.setOnClickListener(new View.OnClickListener() {
             @Override

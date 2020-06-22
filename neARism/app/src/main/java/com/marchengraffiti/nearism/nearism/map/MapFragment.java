@@ -97,6 +97,10 @@ public class MapFragment extends Fragment {
                     startActivity(intent);
 
                     Log.d("TmapLog", name + " / " + lat + ", " + lng);
+
+                    tMapView.setZoomLevel(18);
+                    tMapView.setMapPosition(TMapView.POSITION_NAVI);
+                    tMapView.setMapType(tMapView.MAPTYPE_STANDARD);
                 }
             });
         }
