@@ -1,5 +1,6 @@
 package com.marchengraffiti.nearism.nearism.map;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,10 +10,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -29,13 +35,23 @@ import com.skt.Tmap.TMapMarkerItem;
 import com.skt.Tmap.TMapPoint;
 import com.skt.Tmap.TMapView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MapFragment extends Fragment {
-    FloatingActionButton locationFab1, locationFab2, locationFab3, fab1, fab2, fab3;
+
     TMapView tMapView;
     String[] parsing_split;
     double lat, lng;
     String name;
     int flag = 0;
+
+    FloatingActionButton locationFab1, locationFab2, locationFab3, fab1, fab2, fab3;
+
+    List<MarkerItem> markerList = new ArrayList<MarkerItem>();
+    List<String> list = new ArrayList<String>();
+    List<Double> latlist = new ArrayList<Double>();
+    List<Double> lnglist = new ArrayList<Double>();
 
     @Nullable
     @Override
@@ -44,6 +60,7 @@ public class MapFragment extends Fragment {
 
         tMapView = (TMapView) view.findViewById(R.id.tmap);
         tMapView.setSKTMapApiKey("l7xxef96fe182e8243f489da89904f951211");
+        tMapView.setCenterPoint(127.009545,37.571300, false);
 
         fab3 = view.findViewById(R.id.fab3);
         fab3.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +118,26 @@ public class MapFragment extends Fragment {
         });
 
         new task().execute();
+
+        final AutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.toolField);
+        autoCompleteTextView.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_dropdown_item_1line, list));
+
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                AutoCompleteTextView autoComplete = (AutoCompleteTextView)view.findViewById(R.id.toolField);
+
+                // 열려있는 키패드 닫기
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(autoComplete.getWindowToken(), 0);
+
+                for(int i=0; i<list.size(); i++) {
+                    if(String.valueOf(autoComplete.getText()).equals(list.get(i))) {
+                        tMapView.setCenterPoint(lnglist.get(i), latlist.get(i), false);
+                    }
+                }
+            }
+        });
+
         return view;
     }
 
@@ -131,6 +168,16 @@ public class MapFragment extends Fragment {
             String msg = mapValue[2];
 
             Log.d("mapLog", latitude + " / " + longitude + " [" + msg + "]\n");
+
+            MarkerItem markerItem = new MarkerItem(latitude, longitude, msg);
+            markerList.add(markerItem);
+            if (markerList.size() == 56) {
+                for (int i = 0; i < markerList.size(); i++) {
+                    list.add(markerList.get(i).getMsg());
+                    latlist.add(markerList.get(i).getLat());
+                    lnglist.add(markerList.get(i).getLng());
+                }
+            }
 
             Bitmap bitmap = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.white);
             Bitmap pin = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.redpin);
@@ -271,6 +318,20 @@ public class MapFragment extends Fragment {
         protected void onPostExecute(Void aVoid) {
 
         }
+    }
+
+    public void autoComplete(final List<MarkerItem> markerList) {
+
+        for(int i=0; i<markerList.size(); i++) {
+            list.add(markerList.get(i).getMsg());
+            latlist.add(markerList.get(i).getLat());
+            lnglist.add(markerList.get(i).getLng());
+        }
+
+        //Log.d("testList", "latlist : " + String.valueOf(latlist));
+        //Log.d("testList", "lnglist : " + String.valueOf(lnglist));
+
+
     }
 
 }
