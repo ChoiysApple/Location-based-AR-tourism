@@ -17,9 +17,9 @@ public class PlaceMapFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tmap_fragment, container, false);
+        View view = inflater.inflate(R.layout.place_tmap_fragment, container, false);
 
-        tMapView = (TMapView) view.findViewById(R.id.tmap);
+        tMapView = (TMapView) view.findViewById(R.id.place_tmap);
         tMapView.setSKTMapApiKey("l7xxef96fe182e8243f489da89904f951211");
 
         return view;

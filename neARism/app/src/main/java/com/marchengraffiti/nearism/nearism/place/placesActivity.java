@@ -123,7 +123,7 @@ public class placesActivity extends AppCompatActivity{
 
                 webView.loadUrl("https://www.instagram.com/explore/tags/" + placeTitle + "/");
 
-                TMapView t = (TMapView) findViewById(R.id.tmap);
+                TMapView t = (TMapView) findViewById(R.id.place_tmap);
                 t.setSKTMapApiKey("l7xxef96fe182e8243f489da89904f951211");
 
                 Bitmap pin = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.redpin);
