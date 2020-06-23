@@ -51,10 +51,11 @@
         <activity android:name=".course.ChooseCourseActivity" />
         <activity android:name=".course.AddCourseActivity" />
         <activity android:name=".course.CourseDetailActivity" />
-        <activity android:name=".course.CourseMainActivity" />
+
         <activity android:name=".sign.SignUp" />
         <activity android:name=".tflite.ClassifierActivity" />
         <activity android:name=".tflite.CameraActivity" />
+        <activity android:name=".course.CourseMainActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

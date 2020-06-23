@@ -13,6 +13,16 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <Button
+                android:id="@+id/naviBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/accent_style"
+                android:text="길 안내 시작"
+                android:textColor="@android:color/white"
+                tools:ignore="MissingConstraints"
+                android:layout_margin="10dp"
+                android:layout_alignParentBottom="true" />
+            <Button
                 android:id="@+id/finishBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

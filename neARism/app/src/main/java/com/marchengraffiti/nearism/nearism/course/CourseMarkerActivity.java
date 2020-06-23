@@ -36,25 +36,22 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.marchengraffiti.nearism.nearism.MainActivity;
 import com.marchengraffiti.nearism.nearism.R;
-import com.marchengraffiti.nearism.nearism.firebase.FirebaseRead;
 import com.marchengraffiti.nearism.nearism.firebase.MyCallback;
-import com.marchengraffiti.nearism.nearism.map.MarkerItem;
-import com.marchengraffiti.nearism.nearism.place.placesActivity;
 import com.skt.Tmap.TMapMarkerItem;
 import com.skt.Tmap.TMapPoint;
 import com.skt.Tmap.TMapPolyLine;
+import com.skt.Tmap.TMapTapi;
 import com.skt.Tmap.TMapView;
-
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
-import static com.google.android.gms.maps.model.JointType.BEVEL;
 
 public class CourseMarkerActivity extends AppCompatActivity {
 
     int count = 0;
-    Button finishBtn;
+    Button finishBtn,naviBtn;
     GoogleMap mMap;
     static ArrayList<String> arrayData = new ArrayList<String>();
     String subname, lat, lng;
@@ -78,7 +75,7 @@ public class CourseMarkerActivity extends AppCompatActivity {
         points = (ArrayList<LatLng>) createLatlngList(latList, lngList);
         Log.d("List Created point", String.valueOf(points));
 
-
+        naviBtn=findViewById(R.id.naviBtn);
         finishBtn = findViewById(R.id.finishBtn);
         finishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +84,7 @@ public class CourseMarkerActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         Log.d("markerlog", "courseMarkerActivity");
 
         ReadCourse(new MyCallback() {
@@ -108,11 +106,16 @@ public class CourseMarkerActivity extends AppCompatActivity {
         Log.d("TestArray", Arrays.toString(lngList));
         LinearLayout linearLayoutTmap = (LinearLayout) findViewById(R.id.linearLayoutTmap);
         TMapView t = new TMapView(this);
+
         t.setSKTMapApiKey("l7xxef96fe182e8243f489da89904f951211");
+
         linearLayoutTmap.addView(t);
         Bitmap pin = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.redpin);
+
         int l = latList.length;
         ArrayList<TMapPoint> alTMapPoint = new ArrayList<TMapPoint>();
+
+
         for (int j = 0; j < l; j++) {
             TMapMarkerItem markerItem1 = new TMapMarkerItem();
             markerItem1.setIcon(pin);
@@ -122,15 +125,47 @@ public class CourseMarkerActivity extends AppCompatActivity {
             t.addMarkerItem("marker" + j, markerItem1);
 
             alTMapPoint.add(new TMapPoint(latList[j], lngList[j]));
+
         }
         t.setCenterPoint(lngList[2],latList[2], true);
         TMapPolyLine tMapPolyLine = new TMapPolyLine();
         tMapPolyLine.setLineColor(Color.BLUE);
         tMapPolyLine.setLineWidth(2);
+
         for (int k = 0; k < alTMapPoint.size(); k++) {
             tMapPolyLine.addLinePoint(alTMapPoint.get(k));
         }
         t.addTMapPolyLine("Line1", tMapPolyLine);
+        TMapTapi tmaptapi = new TMapTapi(this);
+        naviBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //tmaptapi.invokeTmap();
+
+                HashMap pathInfo = new HashMap();
+                pathInfo.put("rGoName", nameList[0]);
+                pathInfo.put("rGoX", String.valueOf(lngList[0]));
+                pathInfo.put("rGoY", String.valueOf(latList[0]));
+
+                pathInfo.put("rStName", nameList[1]);
+                pathInfo.put("rstX", String.valueOf(lngList[1]));
+                pathInfo.put("rstY", String.valueOf(latList[1]));
+
+                pathInfo.put("rV1Name", nameList[2]);
+                pathInfo.put("rV1X", String.valueOf(lngList[2]));
+                pathInfo.put("rV1Y", String.valueOf(latList[2]));
+
+                pathInfo.put("rGoName", nameList[3]);
+                pathInfo.put("rGoX", String.valueOf(lngList[3]));
+                pathInfo.put("rGoY", String.valueOf(latList[3]));
+
+
+                tmaptapi.invokeRoute(pathInfo);
+            }
+        });
+
+
+
 
 
     }
