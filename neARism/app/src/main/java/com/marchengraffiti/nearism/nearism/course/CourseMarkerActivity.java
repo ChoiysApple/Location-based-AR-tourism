@@ -112,15 +112,20 @@ public class CourseMarkerActivity extends AppCompatActivity {
         linearLayoutTmap.addView(t);
         Bitmap pin = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.redpin);
 
-        int l = latList.length;
+        int l = points.size();
         ArrayList<TMapPoint> alTMapPoint = new ArrayList<TMapPoint>();
 
 
         for (int j = 0; j < l; j++) {
             TMapMarkerItem markerItem1 = new TMapMarkerItem();
             markerItem1.setIcon(pin);
+            markerItem1.setCalloutTitle(nameList[j]);
+            markerItem1.setCanShowCallout(true);
+            markerItem1.setAutoCalloutVisible(true);
+
             TMapPoint point = new TMapPoint(latList[j], lngList[j]);
-            Log.d("tmap markerlog", String.valueOf(latList[j]) + String.valueOf(lngList[j]) + j);
+            //Log.d("tmap markerlog", String.valueOf(latList[j]) + String.valueOf(lngList[j]) + j);
+            Log.d("tmap markerlog", String.valueOf(nameList[j]));
             markerItem1.setTMapPoint(point);
             t.addMarkerItem("marker" + j, markerItem1);
 
@@ -142,23 +147,24 @@ public class CourseMarkerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //tmaptapi.invokeTmap();
 
+                Log.d("nameList", nameList.toString() + ", nameList length : " + nameList.length);
+
                 HashMap pathInfo = new HashMap();
-                pathInfo.put("rGoName", nameList[0]);
-                pathInfo.put("rGoX", String.valueOf(lngList[0]));
-                pathInfo.put("rGoY", String.valueOf(latList[0]));
+                pathInfo.put("rStName", nameList[0]);
+                pathInfo.put("rStX", String.valueOf(lngList[0]));
+                pathInfo.put("rStY", String.valueOf(latList[0]));
 
-                pathInfo.put("rStName", nameList[1]);
-                pathInfo.put("rstX", String.valueOf(lngList[1]));
-                pathInfo.put("rstY", String.valueOf(latList[1]));
+                pathInfo.put("rV1Name", nameList[1]);
+                pathInfo.put("rV1X", String.valueOf(lngList[1]));
+                pathInfo.put("rV1Y", String.valueOf(latList[1]));
 
-                pathInfo.put("rV1Name", nameList[2]);
-                pathInfo.put("rV1X", String.valueOf(lngList[2]));
-                pathInfo.put("rV1Y", String.valueOf(latList[2]));
+                pathInfo.put("rV2Name", nameList[2]);
+                pathInfo.put("rV2X", String.valueOf(lngList[2]));
+                pathInfo.put("rV2Y", String.valueOf(latList[2]));
 
                 pathInfo.put("rGoName", nameList[3]);
                 pathInfo.put("rGoX", String.valueOf(lngList[3]));
                 pathInfo.put("rGoY", String.valueOf(latList[3]));
-
 
                 tmaptapi.invokeRoute(pathInfo);
             }

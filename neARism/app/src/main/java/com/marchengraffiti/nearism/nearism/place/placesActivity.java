@@ -139,6 +139,7 @@ public class placesActivity extends AppCompatActivity{
                 markerItem1.setCanShowCallout(true);
                 markerItem1.setAutoCalloutVisible(true);
                 t.addMarkerItem(placeName, markerItem1);
+                t.setCenterPoint(lng, lat, false);
 
                 // text
                 title.setText(placeTitle);
